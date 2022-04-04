@@ -1,17 +1,18 @@
 <script setup>
+  import Head from './views/Head.vue'
   import Nav from './views/nav/Nav.vue'
 </script>
 
 <template>
-  <main>
+  
+    <Head />
     <Nav />
+ 
     <router-view></router-view>
-  </main>
-
-
+  
 </template>
 
 <style>
-@import './assets/base.css';
+/* @import './assets/base.css'; */
 
 </style>
