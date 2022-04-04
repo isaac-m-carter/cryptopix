@@ -5,6 +5,7 @@
 <template>
   <main>
     <Nav />
+    <router-view></router-view>
   </main>
 
 
