@@ -1,6 +1,6 @@
 <template>
     <div class="bottom-nav">
-        <router-link><span class="material-icons-outlined">home</span></router-link>
+        <router-link><i class="fi fi-rr-home"></i></router-link>
     </div>
 </template>
 

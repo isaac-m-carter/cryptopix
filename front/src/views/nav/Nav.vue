@@ -5,12 +5,16 @@
 
 <template>
     <head>
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
     </head>
 
     <TopNav />
     <BottomNav />
 
+</template>
+
+<template>
+    
 </template>
 
 <style>
