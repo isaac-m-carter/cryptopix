@@ -2,7 +2,7 @@
     <div class="bottom-nav-wrapper">
         <div class="bottom-nav">
             <router-link to="/"><i class="fi fi-rr-home current"></i></router-link>
-            <router-link to="Search"><i class="fi fi-rr-search"></i></router-link>
+            <router-link to="/Search"><i class="fi fi-rr-search"></i></router-link>
             <router-link><i class="fi fi-rr-add"></i></router-link>
             <router-link><i class="fi fi-rs-heart"></i></router-link>
             <router-link><i class="fi fi-rr-shopping-cart"></i></router-link>
