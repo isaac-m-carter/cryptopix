@@ -1,11 +1,11 @@
 <template>
     <div class="bottom-nav-wrapper">
         <div class="bottom-nav">
-            <router-link to="/"><i class="fi fi-rr-home current"></i></router-link>
-            <router-link to="/Results"><i class="fi fi-rr-search"></i></router-link>
-            <router-link to="/Listings"><i class="fi fi-rr-add"></i></router-link>
-            <router-link to="/Watchlist"><i class="fi fi-rr-heart"></i></router-link>
-            <router-link to="/Cart"><i class="fi fi-rr-shopping-cart"></i></router-link>
+            <router-link to="/"><i @click="current_toggle" :class="{current: current_active}" class="fi fi-rr-home"></i></router-link>
+            <router-link to="/Search"><i @click="current_toggle" :class="{current: current_active}" class="fi fi-rr-search"></i></router-link>
+            <router-link to="/Listings"><i @click="current_toggle" :class="{current: current_active}" class="fi fi-rr-add"></i></router-link>
+            <router-link to="/Watchlist"><i @click="current_toggle" :class="{current: current_active}" class="fi fi-rr-heart"></i></router-link>
+            <router-link to="/Cart"><i @click="current_toggle" :class="{current: current_active}" class="fi fi-rr-shopping-cart"></i></router-link>
         </div>
     </div>
 </template>
@@ -48,3 +48,19 @@ a{
 }
 
 </style>
+
+<script>
+export default {
+  data() {
+        return {
+            current_active: true,
+        };
+    },
+    methods: {
+        current_toggle() {
+            this.current_active = !this.current_active
+        }
+    },
+}  
+
+</script>
