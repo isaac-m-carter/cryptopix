@@ -1,11 +1,12 @@
 <script setup>
-  import BottomNav from './components/BottomNav.vue'
+import BottomNav from './components/BottomNav.vue';
+import Head from './components/Head.vue';
 </script>
 
 <template>
-  
-  <BottomNav />
-    <router-view></router-view>
+<Head />
+ <BottomNav />
+  <router-view></router-view>
   
 </template>
 
