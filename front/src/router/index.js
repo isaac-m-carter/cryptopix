@@ -3,15 +3,15 @@ import { createRouter, createWebHistory } from 'vue-router'
 // App.vue will be redirected to linked components via <router-links>
 // as a convention we will create new folder in 'src' named 'views' and place components to be linked in there
 // components related to those links needs to be defined below both for import and routes[] array
-import Home from '../views/home/Home.vue'
-import Search from '../views/search/Results.vue'
+import Home from '../views/Home.vue'
+import Search from '../views/Results.vue'
 import Listings from '../views/Listings.vue'
 import Watchlist from '../views/Watchlist.vue'
 import Cart from '../views/Cart.vue'
-import Account from '../views/account/Account.vue'
+import Account from '../views/Account.vue'
 import Notifications from '../views/Notifications.vue'
-import Login from '../views/sign-up/Login.vue'
-import SignUp from '../views/sign-up/SignUp.vue'
+import Login from '../views/Login.vue'
+import SignUp from '../views/SignUp.vue'
 
 const routes = [
     {
