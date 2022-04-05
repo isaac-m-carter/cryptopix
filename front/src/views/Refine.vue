@@ -1,3 +1,3 @@
 <template>
-    <h1>Sign Up</h1>
+    <h1>search</h1>
 </template>
