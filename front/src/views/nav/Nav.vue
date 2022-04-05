@@ -4,7 +4,7 @@
 </script>
 
 <template>
-    <TopNav />
+    <!-- <TopNav /> -->
     <BottomNav />
 
 </template>
