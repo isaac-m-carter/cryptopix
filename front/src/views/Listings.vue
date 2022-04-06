@@ -1,5 +1,6 @@
 <template>
 <h1>Listings</h1>
+
 <div class ="uploadbtn">
     <i class="fi fi-rr-add"></i>
 <p>Upload your NFT here</p></div>

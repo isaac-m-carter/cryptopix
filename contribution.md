@@ -5,7 +5,7 @@ Isaac:
 5th April - Continued work on the BottomNav Component. Will begin on the TopNav after that.
 
 6th April - Still working on BottomNav. Had setbacks working with file structure and re-writing code from scratch. Will finish today
-and begin on TopNav, hopefully finish that too
+and begin on TopNav, hopefully finish that too. Update: Finished TopNav, Starting Account Page.
 
 Yvonne Contribution:
 

@@ -24,9 +24,10 @@
     bottom: .5rem;
     position: fixed;
     background-color: #3670FA;
-    width: 95%;
+    width: 90%;
     height: 5.2rem;
     border-radius: 40px;
+    padding: 0 .5rem;
 }
 
 .fi{
@@ -40,7 +41,7 @@
     background-color: #fff;
     padding: 1.5rem;
     border-radius: 40px;
-    margin: .4rem;
+    margin: -.2rem;
 }
 
 a{
