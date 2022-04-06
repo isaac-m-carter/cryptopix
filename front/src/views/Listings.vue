@@ -1,6 +1,5 @@
 <template>
 <h1>Listings</h1>
-<router-link to="/">Home</router-link>
 
 <div class ="uploadbtn">
     <img src="https://www.flaticon.com/svg/vstatic/svg/3914/3914248.svg?token=exp=1649109819~hmac=f30585464c0643f00646aaf60f4916b0">
