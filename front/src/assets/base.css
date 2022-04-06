@@ -1,1 +1,9 @@
+/* --- element reset --- */
 
+
+/* --- element reset end --- */
+
+h1{
+    line-height: 140%;
+    margin: 0;
+}

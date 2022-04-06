@@ -3,8 +3,7 @@
 </script>
 
 <template>
-    <h1>home</h1>
-    <router-link to="/Search">Search</router-link>
+    <h1>Discovery</h1>
 </template>
 
 <style>
