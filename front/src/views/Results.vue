@@ -3,7 +3,6 @@
 
 
     <h1>Search</h1>
-    <router-link to="/">Home</router-link>
 
 <div class="search-container">
     <form action="">
