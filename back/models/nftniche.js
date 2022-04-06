@@ -26,14 +26,14 @@ const NftNicheSchema = new mongoose.Schema({
         type: String,
         required: true},
     image: {
-        data:Buffer, //is this correct? https://www.geeksforgeeks.org/upload-and-retrieve-image-on-mongodb-using-mongoose/
+        type:String, //is this correct? https://www.geeksforgeeks.org/upload-and-retrieve-image-on-mongodb-using-mongoose/
         required: true},
     tags: {
         type: String,
         required: true},
     commentmsg: {
         type: String,
-        required: true}
+        required: true},
         
 });
 

@@ -15,7 +15,7 @@ const UserSchema = new mongoose.Schema({
         required: true},
     sell: {
         type: Array,
-        required: true}
+        required: true},
     
 });
 

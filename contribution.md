@@ -15,4 +15,5 @@ April 4 Monday
 April 5 Tuesday
 -Plan: Finish front end for both listings and search page
 -Finished html and css for the listings page
--Created Schemas
+-Created Schemas, Models, and updated app.js
+-created and merged Backend

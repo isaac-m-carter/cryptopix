@@ -1,14 +1,12 @@
 
 <template>
-
-
     <h1>Search</h1>
     <router-link to="/">Home</router-link>
 
 <div class="search-container">
     <form action="">
     <input type="text" id="search" name="search" placeholder="Search">
-    <button type="submit"><img src="https://www.flaticon.com/svg/vstatic/svg/3917/3917754.svg?token=exp=1649112791~hmac=8ececcb50f595205036c8c89f3794ce5"></button>
+    <button type="submit" ><i class="fi fi-sr-search"></i></button>
     </form>
     </div>
 
@@ -48,6 +46,7 @@
 
 <style scoped>
 
+
 .search-container {
     margin: 10px 0;
     border: 1px solid rgba(54, 112, 250, 0.3);
@@ -76,8 +75,12 @@
     border-radius: 20px;
     height:38px;
     width:38px;
-    
+    cursor:pointer;
+    color:white;
+    font-size: 1.5em;
 }
+
+
 
 .slidecontainer {
   width: 100%;

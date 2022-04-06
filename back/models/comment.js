@@ -6,7 +6,7 @@ const CommentSchema = new mongoose.Schema({
         required: true},
     message_body: {
         type: String,
-        required: true}
+        required: true},
 });
 
 const Comment = mongoose.model("Comment", CommentSchema);
