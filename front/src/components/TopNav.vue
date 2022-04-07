@@ -27,5 +27,6 @@
 
     a{
         text-decoration: none;
+        height: auto;
     }
 </style>
