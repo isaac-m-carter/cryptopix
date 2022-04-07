@@ -24,7 +24,7 @@
     bottom: .5rem;
     position: fixed;
     background-color: #3670FA;
-    width: 90%;
+    width: 90vw;
     height: 5rem;
     border-radius: 40px;
     padding: 0 .5rem;
@@ -56,51 +56,51 @@ i{
 </style>
 
 <script>
-export default {
-  data() {
-        return {
-            home_active: false,
-            search_active: false,
-            add_active: false,
-            favourite_active: false,
-            cart_active: false,
-        };
-    },
-    methods: {
+// export default {
+//   data() {
+//         return {
+//             home_active: false,
+//             search_active: false,
+//             add_active: false,
+//             favourite_active: false,
+//             cart_active: false,
+//         };
+//     },
+//     methods: {
 
-        home_toggle() {
-            this.home_active = !this.home_active;
-        },
+//         home_toggle() {
+//             this.home_active = !this.home_active;
+//         },
 
-        search_toggle() {
-            this.search_active = !this.search_active;
-            resetAll();
-        },
+//         search_toggle() {
+//             this.search_active = !this.search_active;
+//             resetAll();
+//         },
         
-        add_toggle() {
-            this.add_active = !this.add_active;
-            resetAll();
+//         add_toggle() {
+//             this.add_active = !this.add_active;
+//             resetAll();
             
-        },
-        favourite_toggle() {
-            this.favourite_active = !this.favourite_active;
-            resetAll();
+//         },
+//         favourite_toggle() {
+//             this.favourite_active = !this.favourite_active;
+//             resetAll();
             
-        },
-        cart_toggle() {
-            this.cart_active = !this.cart_active;
-            resetAll();
+//         },
+//         cart_toggle() {
+//             this.cart_active = !this.cart_active;
+//             resetAll();
             
-        },
-        resetAll(){
-            this.home_active = false;
-            this.search_active = false;
-            this.add_active = false;
-            this.favourite_active = false;
-            this.cart_active = false;
-        }
+//         },
+//         resetAll(){
+//             this.home_active = false;
+//             this.search_active = false;
+//             this.add_active = false;
+//             this.favourite_active = false;
+//             this.cart_active = false;
+//         }
 
-    },
-}  
+//     },
+// }  
 
 </script>
