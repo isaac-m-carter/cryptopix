@@ -25,7 +25,7 @@
     position: fixed;
     background-color: #3670FA;
     width: 90%;
-    height: 5.2rem;
+    height: 5rem;
     border-radius: 40px;
     padding: 0 .5rem;
 }
@@ -46,6 +46,10 @@
 
 a{
     text-decoration: none;
+}
+
+i{
+    display: flex;
 }
 
 </style>
