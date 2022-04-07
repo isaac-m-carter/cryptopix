@@ -1,10 +1,11 @@
-<script setup>
-
-</script>
-
 <template>
-    <h1>Discovery</h1>
+    <CreatorsVue />
+    <span>HOME</span>
 </template>
+
+<script setup>
+import CreatorsVue from '../components/home/Creators.vue';
+</script>
 
 <style>
     .home-toggle{
