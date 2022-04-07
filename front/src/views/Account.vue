@@ -13,10 +13,7 @@
 
 </template>
 
-<style scoped>
-    .fi{
-        color: #3670FA;
-    }
+<style>
 
     .main-container{
         padding: 1rem;

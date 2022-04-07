@@ -15,14 +15,50 @@
 
     <div id="user-portfolio" class="mm">
         <h2>User Portfolio</h2>
+        <div class="portfolio-container account-container">
+            
+            <i class="fi fi-rr-add account-item"></i>
+            <i class="fi fi-rr-add account-item"></i>
+            <i class="fi fi-rr-add account-item"></i>
+            <i class="fi fi-rr-add account-item"></i>
+            <i class="fi fi-rr-add account-item"></i>
+            <i class="fi fi-rr-add account-item"></i>
+            <i class="fi fi-rr-add account-item"></i>
+            <i class="fi fi-rr-add account-item"></i>
+            <i class="fi fi-rr-add account-item"></i>
+        </div>
     </div>
 
     <div id="user-listings" class="mm">
         <h2>Listings</h2>
+        <div class="listings-container account-container">
+            
+            <i class="fi fi-rr-add account-item"></i>
+            <i class="fi fi-rr-add account-item"></i>
+            <i class="fi fi-rr-add account-item"></i>
+            <i class="fi fi-rr-add account-item"></i>
+            <i class="fi fi-rr-add account-item"></i>
+            <i class="fi fi-rr-add account-item"></i>
+            <i class="fi fi-rr-add account-item"></i>
+            <i class="fi fi-rr-add account-item"></i>
+            <i class="fi fi-rr-add account-item"></i>
+        </div>
     </div>
 
     <div id="user-sold" class="mm">
         <h2>Sold Items</h2>
+        <div class="sold-items-container account-container">
+            
+            <i class="fi fi-rr-add account-item"></i>
+            <i class="fi fi-rr-add account-item"></i>
+            <i class="fi fi-rr-add account-item"></i>
+            <i class="fi fi-rr-add account-item"></i>
+            <i class="fi fi-rr-add account-item"></i>
+            <i class="fi fi-rr-add account-item"></i>
+            <i class="fi fi-rr-add account-item"></i>
+            <i class="fi fi-rr-add account-item"></i>
+            <i class="fi fi-rr-add account-item"></i>
+        </div>
     </div>
 </template>
 
@@ -42,6 +78,17 @@
         height: 8rem;
         border-radius: 50%;
         margin-right: 1rem;
+    }
+
+    .account-container{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .account-item{
+        display: flex;
+        padding: .58rem;
     }
 
     h2{
@@ -65,5 +112,14 @@
 
     .mm{
         margin-bottom: 1.5rem;
+    }
+
+    .fi{
+        color: #3670FA;
+        font-size: 34pt;
+    }
+
+    i{
+        display: flex;
     }
 </style>
