@@ -44,6 +44,7 @@
     margin: -.2rem;
 }
 
+
 a{
     text-decoration: none;
 }
@@ -62,25 +63,30 @@ export default {
         };
     },
     methods: {
+
         home_toggle() {
-            resetAll();
             this.home_active = !this.home_active;
         },
+
         search_toggle() {
-            resetAll();
             this.search_active = !this.search_active;
-        },
-        add_toggle() {
             resetAll();
+        },
+        
+        add_toggle() {
             this.add_active = !this.add_active;
+            resetAll();
+            
         },
         favourite_toggle() {
-            resetAll();
             this.favourite_active = !this.favourite_active;
+            resetAll();
+            
         },
         cart_toggle() {
-            resetAll();
             this.cart_active = !this.cart_active;
+            resetAll();
+            
         },
         resetAll(){
             this.home_active = false;
@@ -89,6 +95,7 @@ export default {
             this.favourite_active = false;
             this.cart_active = false;
         }
+
     },
 }  
 
