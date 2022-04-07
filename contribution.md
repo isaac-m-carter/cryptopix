@@ -7,7 +7,9 @@ Isaac:
 6th April - Still working on BottomNav. Had setbacks working with file structure and re-writing code from scratch. Will finish today
 and begin on TopNav, hopefully finish that too. Update: Finished TopNav, Starting Account Page.
 
-7th April - Beginning Account Page.
+7th April - Beginning Account Page. Fleshed out account page.
+
+8th April - Working on functionality/Javascript for account page.
 
 Yvonne Contribution:
 
