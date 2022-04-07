@@ -16,6 +16,7 @@
 <style>
 
     .main-container{
+        margin-top: 1rem;
         padding: 1rem;
     }
 </style>
