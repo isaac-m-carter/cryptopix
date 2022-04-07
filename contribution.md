@@ -17,4 +17,16 @@ April 4 Monday
 April 5 Tuesday
 -Plan: Finish front end for both listings and search page
 -Finished html and css for the listings page
+
+April 6 Wednesday
 -Created Schemas
+-Finished backend with an edited app.js, added 3 routes, and 3 schemas/models
+
+April 7 Thursday
+-Connected front end of listings with back end - kind of?
+-Tested out creating database in Postman
+
+April 8 Friday
+-Created components for an image with a like button and the component for results and cart
+-Create more backend fake database in Postman
+-Trying to get components to show up on page - maybe need to recheck scripts
