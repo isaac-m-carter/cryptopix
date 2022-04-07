@@ -14,6 +14,10 @@
     display: flex;
     overflow: scroll;
 }
+.viewcontainer{
+    display: flex;
+    justify-content: space-between;
+}
 </style>
 
 
@@ -30,15 +34,18 @@
 </div>
 
 
-<div class="slideContainer" v-for="NTFitem in NTFallinfo" :key="NTFitem._id">
-    
+<div  v-for="NTFitem in NTFallinfo" :key="NTFitem._id">
+    <div class="viewcontainer">
     <h1>{{NTFitem.product_name}}</h1>
+    <p>view all</p>
+    </div>
+    <div class="slideContainer">
     <img :src="NTFitem.image" alt="" class="content"> 
     <img :src="NTFitem.image" alt="" class="content"> 
     <img :src="NTFitem.image" alt="" class="content"> 
     <img :src="NTFitem.image" alt="" class="content">
     <img :src="NTFitem.image" alt="" class="content"> 
-    
+    </div>
 </div>
 
 
