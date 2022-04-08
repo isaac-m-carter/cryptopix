@@ -72,7 +72,6 @@ h2{
           box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   border-radius: 4px;
   text-decoration: none;
-  padding-right: 70px;
   height: 180px;
   display: -webkit-box;
   display: -ms-flexbox;
