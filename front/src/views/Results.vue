@@ -1,7 +1,5 @@
 
 <template>
-
-
     <h1>Search</h1>
 
  <!-- <div v-for="component in allNFT"> 

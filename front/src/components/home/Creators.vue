@@ -1,37 +1,12 @@
 
- 
-
-
-<style scoped>
-.content{
-    background-color: blue;
-    margin: 2px;
-    min-width: 200px;
-    height: 200px;
-}
-
-.slideContainer{
-    display: flex;
-    overflow: scroll;
-}
-.viewcontainer{
-    display: flex;
-    justify-content: space-between;
-}
-</style>
-
-
-
-
-
 <template>
-<!-- component.vue -->
-<div v-for="NTFitem in NTFallinfo" :key="NTFitem._id">
-    
-    <h3>{{NTFitem.tags}}</h3>
-   
-    
+
+
+<!--<div class="wrapper-tags"> 
+<div v-for="NTFitem in NTFallinfo" :key="NTFitem._id">  
+    <h3>{{NTFitem.tags}}</h3>  
 </div>
+</div> -->
 
 
 <div  v-for="NTFitem in NTFallinfo" :key="NTFitem._id">
@@ -56,9 +31,11 @@
     <div class="content"></div>
 </div> -->
 
+
 </template>
 
 <script>
+
 export default{
     data(){
         return{
@@ -90,8 +67,23 @@ export default{
        this.NTFallinfo = [this.fakeNTFitem,this.fakeNTFitem,this.fakeNTFitem,this.fakeNTFitem,this.fakeNTFitem,this.fakeNTFitem];
     }
 }
-</script>
-
-<script setup>
 
 </script>
+
+<style scoped>
+.content{
+    background-color: #3670FA;
+    margin: 2px;
+    min-width: 200px;
+    height: 200px;
+}
+
+.slideContainer{
+    display: flex;
+    overflow: scroll;
+}
+.viewcontainer{
+    display: flex;
+    justify-content: space-between;
+}
+</style>

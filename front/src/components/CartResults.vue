@@ -19,16 +19,31 @@
 }
 
 .left{
+    width: 25%;
     border-radius:20px;
+    text-align: center;
+    
 }
 
 .left img{
+    object-fit: cover;
     border-radius:20px;
     height:5em;
+    width:5em;
+
 }
 
 .middle{
+    height:5em;
+    line-height: 2.5em;
+    width: 50%;
     font-weight: 700;
+    overflow: hidden;
+}
+
+.right{
+    width: 20%;
+    font-weight: 900;
 }
 
 
