@@ -1,15 +1,4 @@
 <script setup>
-<<<<<<< HEAD
-import HomeVue from './views/home/Home.vue';
-import Home from './views/home/Home.vue';
-</script>
-
-<template>
-  <main>
-   <Home />
-  </main>
-
-=======
   import Head from './components/Head.vue';
   import Nav from './components/Nav.vue';
 </script>
@@ -17,7 +6,6 @@ import Home from './views/home/Home.vue';
 <template>
   <Head />
   <Nav />
->>>>>>> ab6e7d2c4c318926265554c54b334b3adc11bfdb
 
   <router-view></router-view>
   
