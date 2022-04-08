@@ -4,6 +4,11 @@
 
     <h1>Search</h1>
 
+ <!-- <div v-for="component in allNFT"> 
+   < Samplecomponent v-if="component.price<= priceslider && "  /> 
+    </div>-->
+
+
 <div class="search-container">
     <form action="">
     <input type="text" id="search" name="search" placeholder="Search">
@@ -27,21 +32,44 @@
         Verified Creators Only
         Tags -->
     
-
+    <div class="wrapper-results">
+        <CartResults v-for="nftitem in my_list_array" :key="nftitem.id" :NftObject="nftitem"/></div>
 
     </div>
 
+    <img src="https://s3-alpha-sig.figma.com/img/81dc/f1f5/205d5a574366dba4a0029c16d8acb516?Expires=1650240000&Signature=OxuGRFA3inRJVmT5mqs7Q3G9cpsgJukhjB5Cr436~V9EskQkfbWs5S1~BvD9aEEim531MX5Z4pJNObrO5a1qF46hfprfUQNGedPw21UQxzfUoeNWdrrN9nfAGMF9qL4iFxs0w697GpAn0sLQmh3jsslls6IeZqggxSWNv2C3vPYy-bGPnSxhaXQq~6LhXf~-x-LJydOnIym~RUdAvCi3lp8xmP325d5xk1FzwJ3fxxjJ9cg75eMIgR3Fdag4INJsHQ9XDgj3zK-FGu4cPVcuNIs3s3L3K7YC3GUGFjnCIglC6E8bKscvTkDAeNDwfVTlbpUqhfDjlGhMlIh7Um5RRg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"/>
 
 </template>
 
 <script>
-// var slider = document.getElementById("RangeETH");
-// var output = document.getElementById("demo");
-// output.innerHTML = slider.value;
 
-// slider.oninput = function() {
-//   output.innerHTML = this.value;
-// }
+import CartResults from "../components/CartResults.vue";
+
+    export default{
+        data(){
+            return{
+                my_list_array:[],
+                // fetch_API_link: ""
+            };
+        },
+        methods:{
+            async api_fetch_func(){
+                const response = await fetch("http://localhost:4000/nftniches/");
+                const dataset = await response.json();
+                console.log(dataset);
+                this.my_list_array = dataset;
+
+                console.log(this.my_list_array[0].image);
+            }
+        },
+        created(){
+            this.api_fetch_func();
+            
+        },
+        components: { CartResults }
+   }
+
+
 </script>
 
 

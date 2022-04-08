@@ -1,11 +1,11 @@
+<script setup>
+import CreatorsVue from '../components/home/Creators.vue';
+</script>
+
 <template>
     <CreatorsVue />
     <span>HOME</span>
 </template>
-
-<script setup>
-import CreatorsVue from '../components/home/Creators.vue';
-</script>
 
 <style>
     .home-toggle{

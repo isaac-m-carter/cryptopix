@@ -1,15 +1,15 @@
 <template>
 <h1>Listings</h1>
 
-<div class ="uploadbtn">
-    <img src="https://www.flaticon.com/svg/vstatic/svg/3914/3914248.svg?token=exp=1649109819~hmac=f30585464c0643f00646aaf60f4916b0">
-<p>Upload your NFT here</p></div>
-
+<br>
 <div class ="listingcontainer">
 <form action="" id="listingform" method="GET">
 
   <label for="artname">Artwork Name</label><br>
   <input type="text" id="artname" name="artname" placeholder="Artwork Title" required><br>
+
+  <label for="imgURL">Image URL</label><br>
+  <input type="text" id="imgURL" name="imgURL" placeholder="Image URL" required><br>
 
   <label for="desc">Description</label><br>
   <textarea name="desc" id="desc" placeholder="Enter artwork details here"></textarea>
@@ -38,18 +38,48 @@
     
 </template>
 
-<script>
-//this area methods: create new "niche"
+ <script>
+ export default{
+    data(){
+        return{
+            nftnichesData:[],
+            inputNftNicheData:{
+               //replace with schema String(); bool = true ; Array()
+               product_name:'',
+               seller_id:'',
+               buyer_id:'',
+               price:'',
+               description:'',
+               sold:false,
+               clicks:0,
+               image:'',
+               tags:'',
+               commentmsg:'None'
+            }
+        };
+    },
+    methods:{
+        async addNftNiche(){
+            const response = await fetch('http://localhost:4000/nftniches/addnftniche',
+            { 
+                method:"POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(this.inputNftNicheData)
+                });
+            const fetchedData = await response.json();
+        }
+    }
+}
 </script>
-
 
 <style scoped>
 
 .uploadbtn{
     text-align: center;
 }
-.uploadbtn img{
-    height:50px;
+.fi{
+  color:#3670FA;
+  font-size: 3em;
 }
 
 .listingcontainer input, .listingcontainer textarea{
