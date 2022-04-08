@@ -15,15 +15,15 @@ router.get('/', async (req, res) => {
 router.post('/addnftniche', async (req, res) => {
     const newNftNiche = new NftNiche(req.body);
     // const newNftNiche = new NftNiche({
-    //     product_name:"DeadFellaz #8563",
-    //     seller_id:"DeadFellaz",
+    //     product_name:"Healing Cells",
+    //     seller_id:"Frontier Game",
     //     buyer_id:"None",
-    //     price: 0.3,
-    //     description:"Each unique Deadfella is randomly generated from a combination of over 400 individually drawn traits",
+    //     price: 0.2,
+    //     description:"Healing Cells have given a second chance to many fallen soldiers.",
     //     sold:false,
-    //     clicks: 20,
-    //     image: "https://drive.google.com/file/d/1xiX92Na6_LNd5NZC_oWM4plDEJwFbzJK/view?usp=sharing",
-    //     tags: "art",
+    //     clicks: 0,
+    //     image: "https://s3-alpha-sig.figma.com/img/5e03/4445/8c9e3f7e60a3c938604b2fb1a452cfd8?Expires=1650240000&Signature=OYsM5W3Kc0ZBnKab5~s3U8QJWiIS7UuvLKCf3lmjO9FHXdXKbOOUvoJjEjH485fBFp3S3oWUExrY7tl2G8exFoiPRjrZ-egCBAVezsQPCw9ssdi4ji1WQgwtb5eQCixz1rOV26daDIaHmH59OvuWIZP8ONsMdS98CDHj0Tk6uwtga0F4czw4sUuS1dxry5KcwAjg~-10RKAbTJVE7KX5rL6VxyAGuSlAfuh0DxLrYmZk3enwqx5Bz7~mg2ecc-lExH6Qc~1jcsckIPu6DkUyo1fXPXFIYCHeWwkDXE0yum4Ky0uQ1xddYNER4s-FJ2QJqm7q4yWAucGKcWlSab5IIQ__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA",
+    //     tags: "game",
     //     commentmsg: "None"
     // });
     const savedNftNiche = await newNftNiche.save()
