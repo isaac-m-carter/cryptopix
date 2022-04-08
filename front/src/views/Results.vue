@@ -37,7 +37,7 @@
 
     </div>
 
-    <img src="https://s3-alpha-sig.figma.com/img/81dc/f1f5/205d5a574366dba4a0029c16d8acb516?Expires=1650240000&Signature=OxuGRFA3inRJVmT5mqs7Q3G9cpsgJukhjB5Cr436~V9EskQkfbWs5S1~BvD9aEEim531MX5Z4pJNObrO5a1qF46hfprfUQNGedPw21UQxzfUoeNWdrrN9nfAGMF9qL4iFxs0w697GpAn0sLQmh3jsslls6IeZqggxSWNv2C3vPYy-bGPnSxhaXQq~6LhXf~-x-LJydOnIym~RUdAvCi3lp8xmP325d5xk1FzwJ3fxxjJ9cg75eMIgR3Fdag4INJsHQ9XDgj3zK-FGu4cPVcuNIs3s3L3K7YC3GUGFjnCIglC6E8bKscvTkDAeNDwfVTlbpUqhfDjlGhMlIh7Um5RRg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"/>
+    
 
 </template>
 
