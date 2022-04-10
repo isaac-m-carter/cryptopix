@@ -3,7 +3,7 @@
     <div class="wrapper-results">
         <CartResults v-for="nftitem in my_list_array" :key="nftitem.id" :NftObject="nftitem"/></div>
 
-
+ <!--change nftitem.sold == true-->
 </template>
 
 <script>

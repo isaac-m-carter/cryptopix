@@ -8,8 +8,7 @@ const NftNicheSchema = new mongoose.Schema({
         type: String,
         required: true},
     buyer_id: {
-        type: String,
-        required: true},
+        type: String},
     price: {
         type: Number,
         required: true},
@@ -17,21 +16,19 @@ const NftNicheSchema = new mongoose.Schema({
         type: String,
         required: true},
     sold: {
-        type: Boolean,
-        required: true},
+        type: Boolean},
     clicks: {
-        type: Number,
-        required: true},
+        type: Number},
     image: {
         type:String, //is this correct? https://www.geeksforgeeks.org/upload-and-retrieve-image-on-mongodb-using-mongoose/
         required: true},
     tags: {
-        type: String,
+        type: Object,
         required: true},
     commentmsg: {
-        type: String,
-        required: true}
-        
+        type: String},
+    like:{
+        type:Boolean},
 });
 
 const NftNiche = mongoose.model("NftNiche", NftNicheSchema);

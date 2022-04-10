@@ -3,22 +3,23 @@
 
 <br>
 <div class ="listingcontainer">
+<!-- <form action="./Account.vue" id="listingform" method="GET"> -->
 <form action="" id="listingform" method="GET">
-
   <label for="artname">Artwork Name</label><br>
-  <input type="text" id="artname" name="artname" placeholder="Artwork Title" required><br>
+  <input v-model="inputNftNicheData.product_name" type="text" id="artname" name="artname" placeholder="Artwork Title" required><br>
+  <!-- <span>{{inputNftNicheData.product_name}}</span> -->
 
   <label for="imgURL">Image URL</label><br>
-  <input type="text" id="imgURL" name="imgURL" placeholder="Image URL" required><br>
+  <input v-model="inputNftNicheData.image" type="text" id="imgURL" name="imgURL" placeholder="Image URL" required><br>
 
   <label for="desc">Description</label><br>
-  <textarea name="desc" id="desc" placeholder="Enter artwork details here"></textarea>
+  <textarea v-model="inputNftNicheData.description" name="desc" id="desc" placeholder="Enter artwork details here"></textarea>
 
   <label for="price">Price</label><br>
-  <input type="number" id="price" name="price" placeholder="Item Price" >
+  <input v-model="inputNftNicheData.price" type="number" id="price" name="price" placeholder="Item Price" >
 
   <label for="tags">Tags</label>
-
+<!-- 
     <div class="radio-container">
                 <input id="arttag" name="tagtypes" type="radio" value="art">
                 <label for="arttag">Art</label>
@@ -28,10 +29,32 @@
                 <label for="photogtag">Photography</label>
                 <input id="musictag" name="tagtypes" type="radio" value="music">
                 <label for="musictag">Music</label>
-    </div>
+
+
+    </div> -->
+
+
+
+    <!--div @onclick="input.tags.arttag = !input.tags.arttag" 
+    :class="{highlightClass : inputnfthdata.tags.arttag }"
+    CSS 4 diff divs-->
+
+<div :class="{highlightClass:inputNftNicheData.tags.arttag}" @click="inputNftNicheData.tags.arttag = !inputNftNicheData.tags.arttag">
+  <p>Art</p>
+</div>
+<div :class="{highlightClass:inputNftNicheData.tags.gametag}" @click="inputNftNicheData.tags.gametag = !inputNftNicheData.tags.gametag">
+  <p>Game</p>
+</div>
+<div :class="{highlightClass:inputNftNicheData.tags.photogtag}" @click="inputNftNicheData.tags.photogtag = !inputNftNicheData.tags.photogtag">
+  <p>Photography</p>
+</div>
+<div :class="{highlightClass:inputNftNicheData.tags.musictag}" @click="inputNftNicheData.tags.musictag = !inputNftNicheData.tags.musictag">
+  <p>Music</p>
+</div>
+    
 
  <div class="submit">
-    <button id="submitbtn" type="submit">Submit</button></div>
+    <button @click="addNftNiche" id="submitbtn" type="submit">Submit</button></div>
     </form>
 
 </div>
@@ -46,15 +69,16 @@
             inputNftNicheData:{
                //replace with schema String(); bool = true ; Array()
                product_name:'',
-               seller_id:'',
-               buyer_id:'',
-               price:'',
+               seller_id:'A',
+               buyer_id:'B',
+               price:0,
                description:'',
                sold:false,
                clicks:0,
                image:'',
-               tags:'',
-               commentmsg:'None'
+               tags:{arttag:false, gametag:false, musictag:false, photogtag:false},
+               commentmsg:'None',
+               like:false
             }
         };
     },
@@ -74,6 +98,11 @@
 
 <style scoped>
 
+.highlightClass
+{
+background-color:#3670FA;
+height:30px;
+}
 .uploadbtn{
     text-align: center;
 }

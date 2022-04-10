@@ -1,12 +1,21 @@
 
 <template>
 <h1>Watchlist</h1>
+
+<div class="wrapper-watch" v-for="nftitem in my_list_array" :key="nftitem.id" :NftObject="nftitem">
+    <ImgLike/>
+    <!-- <ImgLike v-if="nftitem.price <= value"/> -->
+    <!-- <ImgLike v-if like = true /> -->
+
 <div class="wrapper-watch">
     <div v-if="liked">
         <ImgLike v-for="nftitem in my_list_array" :key="nftitem.id" :NftObject="nftitem"/>
     </div>
 
+
 </div>
+
+
 
 </template>
 
