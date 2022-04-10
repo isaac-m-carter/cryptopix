@@ -15,6 +15,8 @@
     position: fixed;
     bottom: 0.5rem;
     display: flex;
+    z-index: 1;
+    width: 90%;
 }
 
 .bottom-nav{

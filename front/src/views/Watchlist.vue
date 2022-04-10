@@ -2,8 +2,9 @@
 <template>
 <h1>Watchlist</h1>
 <div class="wrapper-watch">
-    
-    <ImgLike v-for="nftitem in my_list_array" :key="nftitem.id" :NftObject="nftitem"/>
+    <div v-if="liked">
+        <ImgLike v-for="nftitem in my_list_array" :key="nftitem.id" :NftObject="nftitem"/>
+    </div>
 
 </div>
 
@@ -48,6 +49,6 @@ import ImgLike from "../components/ImgLike.vue";
     text-align: center;
     padding-top: 50px;
     padding-bottom: 20px;
-    width: 380px;
+    width: 95%;
 }
 </style>
