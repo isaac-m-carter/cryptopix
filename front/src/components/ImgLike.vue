@@ -1,18 +1,30 @@
 <template>
-    <!-- <a :href ="ArticleObject.url"> -->
+    <!-- <a href ="ArticleObject.url"> goes to Details.vue? / Artwork.vue-->
+    <a href = "./details/Artwork.vue">
     <div class="mainimage">
         <img class="NFTImg" :src="NftObject.image" alt="">   
-        <div class="like"><i class="fi fi-rr-heart"></i>  </div>
+        <div class="like"><i class="fi fi-rr-heart"></i>  </div><!-- this should toggle on and off. if on = show up in watchlist  -->
+    
         
-    </div>
+    </div></a>
 
-    <!-- {{NftObject.product_name}} Price:{{NftObject.price}}  -->
+    <!-- {{NftObject.product_name}} Price:{{NftObject.price}} 
+    
+     NftObject.like  -->
    
+  
+
+   <div :class="{likedclass:inputNftNicheData.like}" @click="inputNftNicheData.like = !inputNftNicheData.like">
+<i class="fi fi-rr-heart"></i>
+</div>
 
 </template>
 
 <style scoped>
 
+.likedclass{
+    color:red;
+}
 .mainimage{
     position:relative;
     margin: 0 1em;
