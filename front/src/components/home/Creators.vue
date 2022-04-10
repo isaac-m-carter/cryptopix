@@ -22,6 +22,9 @@
 
 .tags_item{
     background-color: aqua;
+    border-radius: 14px;
+    margin: 2%;
+    
 }
 .wrapper-tags{
     display: flex;
@@ -45,25 +48,19 @@
 
 <div  v-for="NTFitem in NTFallinfo" :key="NTFitem._id">
     <div class="viewcontainer">
-    <h3>{{NTFitem.product_name}}</h3>
+    <h3>{{NTFitem.tags}}</h3>
     <p>view all</p>
     </div>
     <div class="slideContainer">
     <img :src="NTFitem.image" alt="" class="content"> 
     <img :src="NTFitem.image" alt="" class="content"> 
     <img :src="NTFitem.image" alt="" class="content"> 
-    <img :src="NTFitem.image" alt="" class="content">
-    <img :src="NTFitem.image" alt="" class="content"> 
+
     </div>
 </div>
 
 
-<!-- <div class="slideContainer">
-    <div class="content"></div>
-    <div class="content"></div>
-    <div class="content"></div>
-    <div class="content"></div>
-</div> -->
+
 
 
 </template>
