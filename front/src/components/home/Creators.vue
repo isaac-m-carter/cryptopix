@@ -1,53 +1,11 @@
-
- 
-
-
-<style scoped>
-.content{
-    background-color: blue;
-    margin: 2px;
-    min-width: 200px;
-    height: 200px;
-}
-
-.slideContainer{
-    display: flex;
-    overflow: scroll;
-}
-.viewcontainer{
-    display: flex;
-    justify-content: space-between;
-}
-.tagscontainer{
-    display: flex;
-
-    justify-content: space-around;
-    height: 5vh;
-    background-color: blueviolet;
-}
-.tags_item{
-    background-color: aqua;
-
-</style>
-
-
-
-
-
 <template>
-<!-- component.vue -->
 
-<div class="tagscontainer" v-for="NTFitem in NTFallinfo" :key="NTFitem._id">
-    
-    <h3 class="tags_item">{{NTFitem.tags}}</h3>
+
+<div class="wrapper-tags"> 
+<div v-for="NTFitem in NTFallinfo" :key="NTFitem._id">  
+    <h3>{{NTFitem.tags}}</h3>  
 </div>
-
-    
-    <h3 class="tagscontainer">{{NTFitem.tags}}</h3>
-
-   
-    
-
+</div>
 
 
 <div  v-for="NTFitem in NTFallinfo" :key="NTFitem._id">
@@ -65,14 +23,23 @@
 </div>
 
 
+<!-- <div class="slideContainer">
+    <div class="content"></div>
+    <div class="content"></div>
+    <div class="content"></div>
+    <div class="content"></div>
+</div> -->
+
 
 </template>
 
 <script>
+
 export default{
     data(){
         return{
            
+        
             NTFallinfo : []
         };
     },
@@ -88,8 +55,23 @@ export default{
      
     }
 }
-</script>
-
-<script setup>
 
 </script>
+
+<style scoped>
+.content{
+    background-color: #3670FA;
+    margin: 2px;
+    min-width: 200px;
+    height: 200px;
+}
+
+.slideContainer{
+    display: flex;
+    overflow: scroll;
+}
+.viewcontainer{
+    display: flex;
+    justify-content: space-between;
+}
+</style>
