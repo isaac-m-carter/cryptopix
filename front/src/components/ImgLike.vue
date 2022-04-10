@@ -2,7 +2,7 @@
     <!-- <a :href ="ArticleObject.url"> -->
     <div class="mainimage">
         <img class="NFTImg" :src="NftObject.image" alt="">   
-        <div class="like"><i class="fi fi-rr-heart"></i>  </div>
+        <div @click="liked_toggle"  :class="{liked_NFT_circle: liked}" class="like"><i :class="{liked_NFT: liked}" class="fi fi-rr-heart"></i>  </div>
         
     </div>
 
@@ -12,6 +12,10 @@
 </template>
 
 <style scoped>
+.liked_NFT{
+    color: red;
+}
+
 
 .mainimage{
     position:relative;
@@ -46,6 +50,10 @@
 
 }
 
+.liked_NFT_circle{
+    background-color: rgba(203, 203, 203, 0.775);
+}
+
 i{
     color:white;
     font-size:23px;
@@ -53,6 +61,22 @@ i{
 
 </style>
 
+<script>
+export default {
+    data() {
+        return {
+            liked: false,
+        }
+    },
+
+    methods: {
+        liked_toggle() {
+            this.liked = !this.liked;
+        }
+    }
+    
+}
+</script>
 
 <script setup>
 defineProps({
