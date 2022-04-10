@@ -1,3 +1,40 @@
+
+
+ 
+
+
+<style scoped>
+.content{
+    background-color: blue;
+    margin: 2px;
+    min-width: 200px;
+    height: 200px;
+}
+
+.slideContainer{
+    display: flex;
+    overflow: scroll;
+}
+.viewcontainer{
+    display: flex;
+    justify-content: space-between;
+}
+.tagscontainer{
+    display: flex;
+
+    justify-content: space-around;
+    height: 5vh;
+    background-color: blueviolet;
+}
+.tags_item{
+    background-color: aqua;
+}
+</style>
+
+
+
+
+
 <template>
 
 
