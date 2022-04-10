@@ -19,15 +19,13 @@
     display: flex;
     justify-content: space-between;
 }
-.tagscontainer{
-    display: flex;
 
-    justify-content: space-around;
-    height: 5vh;
-    background-color: blueviolet;
-}
 .tags_item{
     background-color: aqua;
+}
+.wrapper-tags{
+    display: flex;
+    justify-content: space-between;
 }
 </style>
 
@@ -40,14 +38,14 @@
 
 <div class="wrapper-tags"> 
 <div v-for="NTFitem in NTFallinfo" :key="NTFitem._id">  
-    <h3>{{NTFitem.tags}}</h3>  
+    <h3 class="tags_item">{{NTFitem.tags}}</h3>  
 </div>
 </div>
 
 
 <div  v-for="NTFitem in NTFallinfo" :key="NTFitem._id">
     <div class="viewcontainer">
-    <h1>{{NTFitem.product_name}}</h1>
+    <h3>{{NTFitem.product_name}}</h3>
     <p>view all</p>
     </div>
     <div class="slideContainer">
