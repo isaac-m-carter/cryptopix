@@ -1,65 +1,50 @@
 
 <template>
+<div class="creater_container">
+    <div >
+    <img :src="NTFitem.image" class="creater_img">
+    </div>
+    <div>
+    <h3>{{NTFitem.seller_id}}</h3>
+    <p>+follow</p>  
+    </div>
+    <div class="creater_img">
+    <img :src="NTFitem.image" class="creater_img">
+    </div>
+    
+    
+</div>
 
 </template>
 <script>
+
 export default{
     data(){
         return{
-            usersData:[],
-            inputUserData:{
-                fname:'',
-                lname:'',
-                email:'',
-                password:''
-            },
-             NTFallinfo : []
+           
+        
+            NTFallinfo : []
         };
     },
     methods:{
         async fetchAPI(){
-            const response = await fetch('http://localhost:4000/users/');
+            const response = await fetch('http://localhost:4000/nftniches/');
             const fetchedData = await response.json();
-            this.usersData = fetchedData;
-        },
-        async addUser(){
-            const response = await fetch('http://localhost:4000/users/adduser',
-            { 
-                method:"POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(this.inputUserData)
-                });
-            const fetchedData = await response.json();
-            this.fetchAPI();
-        },
-        async delUser(userID){
-            const fetchURL = 'http://localhost:4000/users/delete/' + userID;
-            const response = await fetch(fetchURL,{ method:"DELETE" });
-            const fetchedData = await response.json();
-            this.fetchAPI();
-        },
-        async updateUser(userID){
-            const fetchURL = 'http://localhost:4000/users/update/' + userID;
-            const response = await fetch(fetchURL,
-            { 
-                method:"PUT",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(this.inputUserData)
-                });
-            const fetchedData = await response.json();
-            this.fetchAPI();
+            this.NTFallinfo= fetchedData;
         }
     },
     created(){
-        this.fetchAPI();
+       this.fetchAPI();
+     
     }
 }
-</script>
-<script setup>
-import userVue from './user.vue'
+
 </script>
 <style scoped>
-span{
-    background-color: blueviolet;
+.creater_img{
+   height: 10px;
+}
+.creater_container{
+    display: flex;
 }
 </style>
