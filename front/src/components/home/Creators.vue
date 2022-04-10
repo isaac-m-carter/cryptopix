@@ -20,13 +20,14 @@
 }
 .tagscontainer{
     display: flex;
+
     justify-content: space-around;
     height: 5vh;
     background-color: blueviolet;
 }
 .tags_item{
     background-color: aqua;
-}
+
 </style>
 
 
@@ -35,12 +36,18 @@
 
 <template>
 <!-- component.vue -->
+
 <div class="tagscontainer" v-for="NTFitem in NTFallinfo" :key="NTFitem._id">
     
     <h3 class="tags_item">{{NTFitem.tags}}</h3>
+</div>
+
+    
+    <h3 class="tagscontainer">{{NTFitem.tags}}</h3>
+
    
     
-</div>
+
 
 
 <div  v-for="NTFitem in NTFallinfo" :key="NTFitem._id">
@@ -58,12 +65,6 @@
 </div>
 
 
-<!-- <div class="slideContainer">
-    <div class="content"></div>
-    <div class="content"></div>
-    <div class="content"></div>
-    <div class="content"></div>
-</div> -->
 
 </template>
 
