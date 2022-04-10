@@ -12,17 +12,15 @@
 
 <style scoped>
 .bottom-nav-wrapper{
+    position: fixed;
+    bottom: 0.5rem;
     display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .bottom-nav{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    bottom: .5rem;
-    position: fixed;
     background-color: #3670FA;
     width: 90vw;
     height: 5rem;
