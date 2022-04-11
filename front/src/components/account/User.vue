@@ -7,19 +7,19 @@
         <div class="user-details">
             <i class="fi fi-rr-edit" @click="editUserDetail_modal"></i>
              <h2>Details</h2>
-             <h3>name</h3>
-             <h3>email</h3>
-             <h3>password</h3>
+             <h3 v-bind="name">name</h3>
+             <h3 v-bind="email">email</h3>
+             <h3 v-bind="pasword">password</h3>
              <h3>ETH</h3>
              <div class="edit-user-details" :class="{hidden: hideState}">
                 <i class="fi fi-rr-checkbox" @click="editUserDetail_modal"></i>
                 <h2>Edit</h2>
 
-                <form action="" id="edit-details" method="GET">
+                <form action="" id="edit-details" method="PUT">
 
-                    <input type="text" id="user-name" name="user-name" placeholder="Name">
-                    <input type="e-mail" id="user-email" name="user-email" placeholder="Email">
-                    <input type="password" id="password" name="password" placeholder="Password">
+                    <input type="text" v-model="username" id="user-name" name="user-name" placeholder="Name">
+                    <input type="e-mail" v-model="email" id="user-email" name="user-email" placeholder="Email">
+                    <input type="password" v-model="password" id="password" name="password" placeholder="Password">
 
                      <div class="btn-container">
                         <button class="submit" type="submit">Done</button>
@@ -167,6 +167,9 @@
     export default{
         data() {
             return {
+                username: '',
+                email: '',
+                password: '',
                 hideState: true
                 };
         },

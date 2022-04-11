@@ -240,6 +240,8 @@ import CartResults from "../components/CartResults.vue";
   height: 40px;
   line-height: 10px;
   width:100%;
+  overflow-x: hidden;
+  overflow-x: scroll;
 }
 
 .highlight-container p{

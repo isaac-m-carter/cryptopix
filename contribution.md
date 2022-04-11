@@ -11,6 +11,8 @@ and begin on TopNav, hopefully finish that too. Update: Finished TopNav, Startin
 
 8th April - Working on functionality/Javascript for account page.
 
+11th April - continued account page.
+
 Yvonne Contribution:
 
 April 4 Monday
