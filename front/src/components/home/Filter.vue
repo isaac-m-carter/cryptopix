@@ -1,19 +1,13 @@
 
 <template>
-<div class="creater_container">
-    <div >
-    <img :src="NTFitem.image" class="creater_img">
-    </div>
-    <div>
-    <h3>{{NTFitem.seller_id}}</h3>
-    <p>+follow</p>  
-    </div>
-    <div class="creater_img">
-    <img :src="NTFitem.image" class="creater_img">
-    </div>
-    
-    
+ <div class="wrapper-tags"> 
+<div v-for="NTFitem in NTFallinfo" :key="NTFitem._id">  
+    <h3 class="tags_item">{{NTFitem.tags}}</h3>  
 </div>
+</div>
+
+    
+
 
 </template>
 <script>
@@ -41,10 +35,14 @@ export default{
 
 </script>
 <style scoped>
-.creater_img{
-   height: 10px;
+.tags_item{
+    background-color: aqua;
+    border-radius: 14px;
+    margin: 2%;
+    
 }
-.creater_container{
+.wrapper-tags{
     display: flex;
+    justify-content: space-between;
 }
 </style>
