@@ -1,6 +1,7 @@
 <template>
     <!-- <a href ="ArticleObject.url"> goes to Details.vue? / Artwork.vue-->
-    <a href = "./details/Artwork.vue">
+    <!-- <a href = "./details/Artwork.vue"> -->
+    <router-link to="/Details">
     <div class="mainimage">
         <img class="NFTImg" :src="NftObject.image" alt="">   
 
@@ -10,17 +11,17 @@
         <div @click="liked_toggle"  :class="{liked_NFT_circle: liked}" class="like"><i :class="{liked_NFT: liked}" class="fi fi-rr-heart"></i>  </div>
 
         
-    </div></a>
-
+    </div>
+    </router-link>
     <!-- {{NftObject.product_name}} Price:{{NftObject.price}} 
     
      NftObject.like  -->
    
   
 
-   <div :class="{likedclass:inputNftNicheData.like}" @click="inputNftNicheData.like = !inputNftNicheData.like">
-<i class="fi fi-rr-heart"></i>
-</div>
+   <!-- <div :class="{likedclass:inputNftNicheData.like}" @click="inputNftNicheData.like = !inputNftNicheData.like"> -->
+<!-- <i class="fi fi-rr-heart"></i> -->
+<!-- </div> -->
 
 </template>
 

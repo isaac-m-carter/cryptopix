@@ -6,7 +6,7 @@
     <h1>Account</h1>
 
     <div class="main-container">
-        <router-link to="/Details">Details</router-link>
+        
 
         <User />
 
