@@ -17,7 +17,7 @@
             <input class="logInForm_C" type="password" placeholder="Enter Password" name="psw" required>
         </div>
         <div class="logInForm_C">
-            <button class="LogInForm_Button" type="submit">Login</button>
+            <router-link to="/Account"><button class="LogInForm_Button" type="submit">Login</button></router-link>
         </div>
     </form>
 </div>
@@ -63,5 +63,9 @@
 #logInHeader{
     text-align: center;
     font-family: sans-serif;
+}
+
+a {
+    width: 100%;
 }
 </style>
