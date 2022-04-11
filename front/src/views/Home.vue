@@ -4,10 +4,9 @@ import FilterVue from '../components/home/Filter.vue';
 </script>
 
 <template>
-    
+    <FilterVue />
     <h3>HOME</h3>
     <CreatorsVue />
-    <FilterVue />
 </template>
 
 <style>
