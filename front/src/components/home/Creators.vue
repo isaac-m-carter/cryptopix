@@ -50,6 +50,7 @@
     <div class="viewcontainer">
     <h3>{{NTFitem.tags}}</h3>
     <p>view all</p>
+    <h3> {{NTFitem.image}} </h3>
     </div>
     <div class="slideContainer">
     <img :src="NTFitem.image" alt="" class="content"> 
