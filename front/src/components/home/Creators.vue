@@ -18,6 +18,7 @@
 .viewcontainer{
     display: flex;
     justify-content: space-between;
+    color: #3772FF;
 }
 
 .tags_item{
@@ -46,22 +47,37 @@
 </div>
 
 
-<div  v-for="NTFitem in NTFallinfo" :key="NTFitem._id">
-    <div class="viewcontainer">
-    <h3>{{NTFitem.tags}}</h3>
-    <p>view all</p>
-    <h3> {{NTFitem.image}} </h3>
-    </div>
-    <div class="slideContainer">
-    <img :src="NTFitem.image" alt="" class="content"> 
-    <img :src="NTFitem.image" alt="" class="content"> 
-    <img :src="NTFitem.image" alt="" class="content"> 
 
-    </div>
+<div class="viewcontainer">
+<h3>Trending</h3>
+<p>view all</p>
+</div>
+ <div class="slideContainer">
+        <div  v-for="NTFitem in NTFallinfo" :key="NTFitem._id">
+    <img :src="NTFitem.image" alt="" class="content"> 
+</div>
 </div>
 
 
+<div class="viewcontainer">
+<h3>Most Popular</h3>
+<p>view all</p>
+</div>
+ <div class="slideContainer">
+        <div  v-for="NTFitem in NTFallinfo" :key="NTFitem._id">
+    <img :src="NTFitem.image" alt="" class="content"> 
+</div>
+</div>
 
+<div class="viewcontainer">
+<h3>Recently Listed</h3>
+<p>view all</p>
+</div>
+ <div class="slideContainer">
+        <div  v-for="NTFitem in NTFallinfo" :key="NTFitem._id">
+    <img :src="NTFitem.image" alt="" class="content"> 
+</div>
+</div>
 
 
 </template>
