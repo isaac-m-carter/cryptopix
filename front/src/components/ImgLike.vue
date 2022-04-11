@@ -31,7 +31,6 @@
           <div class="like" :class="{liked_NFT_circle:NftObject.like}" @click="NftObject.like = !NftObject.like">
               <i class="fi fi-rr-heart"></i>
            </div> 
-    </div>
 
 
 
