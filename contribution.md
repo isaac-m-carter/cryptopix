@@ -34,3 +34,10 @@ April 8 Friday
 -Created components for an image with a like button and the component for results and cart
 -Create more backend fake database in Postman
 -Trying to get components to show up on page - maybe need to recheck scripts
+
+April 11 Monday
+-Sorted Homepage trending, most expensive etc with v-if.
+-Listing page submit button function fixed.
+-Added new database from the Listings page to see if it is working properly. It did.
+-changed tags to boolean in the backend
+-Finally got search page - refining using price and tags to work using v-if.
