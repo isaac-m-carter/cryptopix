@@ -24,10 +24,11 @@
     justify-content: space-between;
     align-items: center;
     background-color: #3670FA;
-    width: 90vw;
+    width: 63vh;
     height: 5rem;
     border-radius: 40px;
     padding: 0 .5rem;
+    
 }
 
 .fi{
