@@ -6,7 +6,7 @@
     <ImgLike/>
     <!-- <ImgLike v-if="nftitem.price <= value"/> -->
     <!-- <ImgLike v-if like = true /> -->
-
+</div>
 <div class="wrapper-watch">
     <div v-if="liked">
         <ImgLike v-for="nftitem in my_list_array" :key="nftitem.id" :NftObject="nftitem"/>

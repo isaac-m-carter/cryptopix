@@ -12,12 +12,18 @@ import Account from '../views/Account.vue'
 import Notifications from '../views/Notifications.vue'
 import Login from '../views/Login.vue'
 import SignUp from '../views/SignUp.vue'
+import Details from '../views/Details.vue'
 
 const routes = [
     {
         path: '/',
         name: 'Home',
         component: Home
+    },
+    {
+        path: '/Details',
+        name: 'Details',
+        component: Details
     },
     {
         path: '/Search',
