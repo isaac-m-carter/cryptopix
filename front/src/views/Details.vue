@@ -1,7 +1,13 @@
 <template>
     <h1>Details</h1>
 
-    <div id="NFT_img"></div>
+    <p class="blue_text">Clicks <span>n/a</span></p>
+
+    <div id="NFT_img">
+
+        <div class="like"><i class="fi-fi-rr-heart"></i>  </div>
+
+    </div>
     <div class="details_info">
 
         <div class="Name_wrap">
@@ -20,13 +26,16 @@
 
     </div>
 
+    <router-link to="/Cart.vue">
     <button id="Add_to_cart">Add to cart</button>
+    </router-link>
 
     <h1 class="blue_text_2">Comments</h1>
 
     <h3 class="blue_text_2">Write a comment / ask a question</h3>
     <textarea name="Comments" id="Comments" cols="30" rows="10"></textarea>
 
+    
     <button id="to_top">Return to top</button>
 
 </template>
@@ -44,6 +53,13 @@ span{
     border-top-left-radius:20PX;
     border-top-right-radius:20PX;
     margin-top:1em;
+}
+
+#fi-fi-rr-heart{
+    
+    width: 10px;
+    height: 10px;
+    top: 3px;
 }
 
 .details_info{
