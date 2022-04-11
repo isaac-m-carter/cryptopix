@@ -1,10 +1,12 @@
 <script setup>
 import CreatorsVue from '../components/home/Creators.vue';
 import FilterVue from '../components/home/Filter.vue';
+
+
 </script>
 
 <template>
-    <FilterVue />
+    <!-- <FilterVue /> -->
     <h3>HOME</h3>
     <CreatorsVue />
 </template>
