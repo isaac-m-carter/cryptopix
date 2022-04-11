@@ -6,6 +6,7 @@
     <ImgLike/>
     <!-- <ImgLike v-if="nftitem.price <= value"/> -->
     <!-- <ImgLike v-if like = true /> -->
+</div>
 
 <div class="wrapper-watch">
     <div v-if="liked">

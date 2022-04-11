@@ -125,7 +125,7 @@ import CartResults from "../components/CartResults.vue";
 }
 
 .slidecontainer {
- width:500px;
+ /* width:500px; */
  height:60px;
  padding-left: 40px;
  display:flex;

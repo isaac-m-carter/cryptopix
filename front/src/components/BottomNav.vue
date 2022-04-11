@@ -16,7 +16,7 @@
     bottom: 0.5rem;
     display: flex;
     z-index: 1;
-    width: 90%;
+    /* width: 90%; */
 }
 
 .bottom-nav{
@@ -27,7 +27,6 @@
     width: 90vw;
     height: 5rem;
     border-radius: 40px;
-    padding: 0 .5rem;
 }
 
 .fi{
@@ -45,8 +44,10 @@
 }
 
 
-a{
+router-link{
     text-decoration: none;
+    padding: .25rem;
+    width: 1rem;
 }
 
 i{

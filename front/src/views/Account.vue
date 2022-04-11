@@ -5,6 +5,8 @@
 <template>
     <h1>Account</h1>
 
+    <router-link to="/Details">Details</router-link>
+
     <div class="main-container">
 
         <User />
