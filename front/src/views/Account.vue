@@ -9,6 +9,7 @@
         
 
         <User />
+        <!--maybe logic issss....uhhh if nftitem.seller_id == user_id then show listing???-->
 
     </div>
 

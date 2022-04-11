@@ -2,15 +2,15 @@
 <template>
     <h1>Search</h1>
     <div class="search-container">
-        <form action="">
+        
         <input type="text" id="search" name="search" placeholder="Search">
-        <button type="submit"><i class="fi fi-rr-search"></i></button>
-        </form>
+        <button><i class="fi fi-rr-search"></i></button>
+        
     </div>
 
     <div class="refine">
         
-        <h5>PRICE RANGE</h5>
+        <h5>MAXIMUM PRICE</h5>
         <div class="slidecontainer">
             <input v-model="nftvalue" type="range" min="0" max="10" class="slider" id="RangeETH">
             <p>{{nftvalue}}</p> 
@@ -23,35 +23,35 @@
 
         <h5>TAGS</h5>
 
-        <div class="radio-container">
-                <input id="arttag" name="tagtypes" type="radio" value="art">
-                <label for="arttag">Art</label>
-                <input id="gametag" name="tagtypes" type="radio" value="game">
-                <label for="gametag">Game</label>
-                <input id="photogtag" name="tagtypes" type="radio" value="photography">
-                <label for="photogtag">Photography</label>
-                <input id="musictag" name="tagtypes" type="radio" value="music">
-                <label for="musictag">Music</label>
+    <div class="highlight-container">
+        <div :class="{highlightClass:arttagWanted}" @click="arttagWanted = !arttagWanted">
+        <p>Art</p>
         </div>
+        <div :class="{highlightClass:gametagWanted}" @click="gametagWanted = !gametagWanted">
+        <p>Game</p>
+        </div>
+        <div :class="{highlightClass:photogtagWanted}" @click="photogtagWanted = !photogtagWanted">
+        <p>Photography</p>
+        </div>
+        <div :class="{highlightClass:musictagWanted}" @click="musictagWanted = !musictagWanted">
+        <p>Music</p>
+        </div>
+    </div>
 
         <div class="search">
-    <button id="searchbtn" >Search</button></div>
+    <button @click="api_fetch_func" id="searchbtn" >Search</button></div>
         <br><br><br>
     </div>
 
+  <div class="wrapper-results" :class="{hiddenclass:hide}">
 
+        <div v-for="nftitem in my_list_array" :key="nftitem._id" >
+            <CartResults v-if="((nftitem.tags.arttag == arttagWanted && arttagWanted) || (nftitem.tags.musictag == musictagWanted && musictagWanted) || (nftitem.tags.photogtag == photogtagWanted && photogtagWanted) || (nftitem.tags.gametag == gametagWanted && gametagWanted)) && nftitem.price <= nftvalue" :NftObject="nftitem"/>
+        </div>
 
-    <div class = "wrapper-results" v-for="nftitem in my_list_array" :key="nftitem.id" :NftObject="nftitem">
-        <CartResults v-if="nftitem.price <= nftvalue "/></div> <!--&& nftitem.tag == this.tagtypes -->
-        
-    <!-- <div class="wrapper-results">
-        <CartResults v-for="nftitem in my_list_array" :key="nftitem.id" :NftObject="nftitem"/>
-        </div>  
-        
-        results page
-how do i refine it? the tag = grab from radio container
-cartresults doesnt show anything-->
-
+</div>  
+            
+   
 </template>
 
 <script>
@@ -65,6 +65,24 @@ import CartResults from "../components/CartResults.vue";
                 my_list_array:[],
                 // fetch_API_link: ""
                 nftvalue:0,
+                inputNftNicheData:{
+                    product_name:'',
+                    seller_id:'',
+                    buyer_id:'',
+                    price:0,
+                    description:'',
+                    sold:false,
+                    clicks:0,
+                    image:'',
+                    tags:{arttag:false, gametag:false, musictag:false, photogtag:false},
+                    commentmsg:'None',
+                    like:false
+            },
+            arttagWanted: false,
+            musictagWanted:false,
+            photogtagWanted:false,
+            gametagWanted:false,
+            hide:true,
             };
         },
         methods:{
@@ -73,14 +91,18 @@ import CartResults from "../components/CartResults.vue";
                 const dataset = await response.json();
                 console.log(dataset);
                 this.my_list_array = dataset;
-
-                console.log(this.my_list_array);
+                this.hide=false;
             }
         },
         created(){
-            this.api_fetch_func();
+            // this.api_fetch_func();
             
         },
+        // computed:{
+        //     computedBoolean(){
+        //         return nftitem.tags.arttag == this.arttagWanted && nftitem.tags.musictag == this.musictagWanted;
+        //     }
+        // },
         components: { CartResults }
    }
 
@@ -90,6 +112,9 @@ import CartResults from "../components/CartResults.vue";
 
 <style scoped>
 
+.hiddenclass{
+    display:none;
+}
 .fi{
     color:white;
 }
@@ -125,7 +150,7 @@ import CartResults from "../components/CartResults.vue";
 }
 
 .slidecontainer {
- width:500px;
+ /* width:100%; */
  height:60px;
  padding-left: 40px;
  display:flex;
@@ -168,7 +193,7 @@ import CartResults from "../components/CartResults.vue";
     margin:0;
     padding:0;
 }
-.radio-container{
+/* .radio-container{
     margin:10px 0;
     display:flex;
     justify-content: space-between;
@@ -202,8 +227,36 @@ import CartResults from "../components/CartResults.vue";
   background: #3670FA;
   border: 1px solid rgba(0, 0, 0, 0.1);
   color:white;
+} */
+
+.highlight-container{
+  font-weight: 400;
+  display:flex;
+  justify-content: space-between;
+  border: 1px solid rgba(54, 112, 250, 0.3);
+  border-radius: 20px;
+  text-align: center;
+  margin: 10px 0;
+  height: 40px;
+  line-height: 10px;
+  width:100%;
+  overflow-x: hidden;
+  overflow-x: scroll;
 }
 
+.highlight-container p{
+  width: 8em;
+}
+.highlightClass
+{
+  border-radius: 20px;
+  transition: 0.2s all ease-in-out;
+  background-color:#3670FA;
+  width: 8em;
+  color:white;
+  height: 40px;
+line-height: 10px;
+}
 
 #searchbtn{
     text-decoration: none;

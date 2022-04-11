@@ -9,6 +9,9 @@
   <input v-model="inputNftNicheData.product_name" type="text" id="artname" name="artname" placeholder="Artwork Title" required><br>
   <!-- <span>{{inputNftNicheData.product_name}}</span> -->
 
+  <label for="sellername">Creator</label><br>
+  <input v-model="inputNftNicheData.seller_id" type="text" id="sellername" name="sellername" placeholder="Creator Name" required><br>
+
   <label for="imgURL">Image URL</label><br>
   <input v-model="inputNftNicheData.image" type="text" id="imgURL" name="imgURL" placeholder="Image URL" required><br>
 
@@ -19,39 +22,22 @@
   <input v-model="inputNftNicheData.price" type="number" id="price" name="price" placeholder="Item Price" >
 
   <label for="tags">Tags</label>
-<!-- 
-    <div class="radio-container">
-                <input id="arttag" name="tagtypes" type="radio" value="art">
-                <label for="arttag">Art</label>
-                <input id="gametag" name="tagtypes" type="radio" value="game">
-                <label for="gametag">Game</label>
-                <input id="photogtag" name="tagtypes" type="radio" value="photography">
-                <label for="photogtag">Photography</label>
-                <input id="musictag" name="tagtypes" type="radio" value="music">
-                <label for="musictag">Music</label>
 
-
-    </div> -->
-
-
-
-    <!--div @onclick="input.tags.arttag = !input.tags.arttag" 
-    :class="{highlightClass : inputnfthdata.tags.arttag }"
-    CSS 4 diff divs-->
-
-<div :class="{highlightClass:inputNftNicheData.tags.arttag}" @click="inputNftNicheData.tags.arttag = !inputNftNicheData.tags.arttag">
-  <p>Art</p>
-</div>
-<div :class="{highlightClass:inputNftNicheData.tags.gametag}" @click="inputNftNicheData.tags.gametag = !inputNftNicheData.tags.gametag">
-  <p>Game</p>
-</div>
-<div :class="{highlightClass:inputNftNicheData.tags.photogtag}" @click="inputNftNicheData.tags.photogtag = !inputNftNicheData.tags.photogtag">
-  <p>Photography</p>
-</div>
-<div :class="{highlightClass:inputNftNicheData.tags.musictag}" @click="inputNftNicheData.tags.musictag = !inputNftNicheData.tags.musictag">
-  <p>Music</p>
-</div>
-    
+<div class="highlight-container">
+    <div :class="{highlightClass:inputNftNicheData.tags.arttag}" @click="inputNftNicheData.tags.arttag = !inputNftNicheData.tags.arttag">
+      <p>Art</p>
+    </div>
+    <div :class="{highlightClass:inputNftNicheData.tags.gametag}" @click="inputNftNicheData.tags.gametag = !inputNftNicheData.tags.gametag">
+      <p>Game</p>
+    </div>
+    <div :class="{highlightClass:inputNftNicheData.tags.photogtag}" @click="inputNftNicheData.tags.photogtag = !inputNftNicheData.tags.photogtag">
+      <p>Photography</p>
+    </div>
+    <div :class="{highlightClass:inputNftNicheData.tags.musictag}" @click="inputNftNicheData.tags.musictag = !inputNftNicheData.tags.musictag">
+      <p>Music</p>
+    </div>
+        
+    </div>
 
  <div class="submit">
     <button @click="addNftNiche" id="submitbtn" type="submit">Submit</button></div>
@@ -69,8 +55,8 @@
             inputNftNicheData:{
                //replace with schema String(); bool = true ; Array()
                product_name:'',
-               seller_id:'A',
-               buyer_id:'B',
+               seller_id:'',
+               buyer_id:'',
                price:0,
                description:'',
                sold:false,
@@ -97,11 +83,33 @@
 </script>
 
 <style scoped>
+.highlight-container{
+  font-weight: 400;
+  display:flex;
+  justify-content: space-between;
+  border: 1px solid rgba(54, 112, 250, 0.3);
+  border-radius: 20px;
+  text-align: center;
+  margin: 10px 0;
+  height: 40px;
+  line-height: 10px;
+  width:100%;
+  overflow-x: hidden;
+  overflow-x: scroll;
+}
 
+.highlight-container p{
+  width: 8em;
+}
 .highlightClass
 {
-background-color:#3670FA;
-height:30px;
+  border-radius: 20px;
+  transition: 0.2s all ease-in-out;
+  background-color:#3670FA;
+  width: 8em;
+  color:white;
+  height: 40px;
+line-height: 10px;
 }
 .uploadbtn{
     text-align: center;
@@ -134,18 +142,9 @@ height:30px;
 }
 
 
-.radio-container{
-    margin:10px 0;
-    display:flex;
-    justify-content: space-between;
-    width:100%; 
-      background: white;
-  border: 1px solid rgba(54, 112, 250, 0.3);
-  border-radius: 20px;
-  padding: 5px;
-}
 
-.radio-container label {
+
+/* .radio-container label {
   background: transparent;
   border: 1px solid transparent;
   border-radius: 20px;
@@ -158,8 +157,8 @@ height:30px;
   transition: 0.2s all ease-in-out;
   width:100%;
   font-weight: 400;
-}
-
+} */
+/* 
 .radio-container input[type="radio"] {
   display: none;
 }
@@ -168,7 +167,7 @@ height:30px;
   background: #3670FA;
   border: 1px solid rgba(0, 0, 0, 0.1);
   color:white;
-}
+} */
 
 .listingcontainer #submitbtn{
     text-decoration: none;

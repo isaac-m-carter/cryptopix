@@ -2,27 +2,26 @@
 <template>
 <h1>Discovery</h1>
 
-
-
 <h2>Trending</h2>
 <div class="wrapper">
-    
-    <ImgLike v-for="nftitem in my_list_array" :key="nftitem.id" :NftObject="nftitem"/>
-
-    <!-- v-if clicks> 20 -->
+    <div v-for="nftitem in my_list_array" :key="nftitem._id" >
+        <ImgLike v-if="nftitem.clicks >= 15" :NftObject="nftitem" />
+    </div>
 </div>
 
-<h2>Most Popular</h2>
+<h2>Most Expensive</h2>
 <div class="wrapper">
-    
+    <div v-for="nftitem in my_list_array" :key="nftitem._id" >
+        <ImgLike v-if="nftitem.price >= 7" :NftObject="nftitem" />
+    </div>
+</div>
+
+<h2>Recently Added</h2>
+<div class="wrapper">
     <ImgLike v-for="nftitem in my_list_array" :key="nftitem.id" :NftObject="nftitem"/>
 </div>
 
-<h2>Recently Listed</h2>
-<div class="wrapper">
-    
-    <ImgLike v-for="nftitem in my_list_array" :key="nftitem.id" :NftObject="nftitem"/>
-</div>
+
 </template>
 
 <script>
@@ -34,6 +33,19 @@ import ImgLike from "../components/ImgLike.vue";
             return{
                 my_list_array:[],
                 // fetch_API_link: ""
+                inputNftNicheData:{
+                    product_name:'',
+                    seller_id:'',
+                    buyer_id:'',
+                    price:0,
+                    description:'',
+                    sold:false,
+                    clicks:0,
+                    image:'',
+                    tags:{arttag:false, gametag:false, musictag:false, photogtag:false},
+                    commentmsg:'None',
+                    like:false
+            }
             };
         },
         methods:{
