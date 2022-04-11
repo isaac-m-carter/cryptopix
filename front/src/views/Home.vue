@@ -6,8 +6,9 @@ import FilterVue from '../components/home/Filter.vue';
 </script>
 
 <template>
-    <!-- <FilterVue /> -->
+    
     <h3>HOME</h3>
+    <FilterVue />
     <CreatorsVue />
 </template>
 
