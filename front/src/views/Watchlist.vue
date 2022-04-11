@@ -2,29 +2,15 @@
 <template>
 <h1>Watchlist</h1>
 
-<br><br><br><br><br>
-<h3>Error 404! This page is currently a work in progress.</h3>
+<!-- <br><br><br><br><br>
+<h3>Error 404! This page is currently a work in progress.</h3> -->
+ 
 
-<div class="wrapper-watch" v-for="nftitem in my_list_array" :key="nftitem.id" :NftObject="nftitem">
-    <ImgLike/>
-    <!-- <ImgLike v-if="nftitem.price <= value"/> -->
-    <!-- <ImgLike v-if like = true /> -->
-</div>
 <div class="wrapper-watch">
-    <div v-if="liked">
-        <ImgLike v-for="nftitem in my_list_array" :key="nftitem.id" :NftObject="nftitem"/>
+    <div v-for="nftitem in my_list_array" :key="nftitem._id" >
+        <ImgLike v-if="nftitem.like == true" :NftObject="nftitem" />
     </div>
-
-<!-- 
-<div class="wrapper-watch">
-    <ImgLike v-for="nftitem in my_list_array" :key="nftitem.id" :NftObject="nftitem" />
-     <ImgLike v-if= "nftitem.like == true"/> 
-</div>  -->
-
-<div class="wrapper-watch"  v-for="nftitem in my_list_array" :key="nftitem.id" :NftObject="nftitem">
-     <ImgLike v-if= "nftitem.like == true"/> 
-</div> 
-
+</div>
 
 </template>
 
@@ -37,6 +23,19 @@ import ImgLike from "../components/ImgLike.vue";
             return{
                 my_list_array:[],
                 // fetch_API_link: ""
+                inputNftNicheData:{
+                    product_name:'',
+                    seller_id:'',
+                    buyer_id:'',
+                    price:0,
+                    description:'',
+                    sold:false,
+                    clicks:0,
+                    image:'',
+                    tags:{arttag:false, gametag:false, musictag:false, photogtag:false},
+                    commentmsg:'None',
+                    like:false
+            }
             };
         },
         methods:{

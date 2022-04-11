@@ -4,26 +4,22 @@
 
 <h2>Trending</h2>
 <div class="wrapper">
-    <ImgLike v-for="nftitem in my_list_array" :key="nftitem.id" :NftObject="nftitem"/>
-</div>
-
-<h2>Most Popular</h2>
-<div class="wrapper">
-    <ImgLike v-for="nftitem in my_list_array" :key="nftitem.id" :NftObject="nftitem"/>
-</div>
-
-<h2>Recently Listed</h2>
-<div class="wrapper">
-    <ImgLike v-for="nftitem in my_list_array" :key="nftitem.id" :NftObject="nftitem"/>
-</div>
-
-
- <!-- <h2>Most Expensive</h2>
-<div class="wrapper">
-    <div v-for="nftitem in my_list_array" :key="nftitem.id" :NftObject="nftitem">
-        <ImgLike v-if="nftitem.price >= 7" />
+    <div v-for="nftitem in my_list_array" :key="nftitem._id" >
+        <ImgLike v-if="nftitem.clicks >= 15" :NftObject="nftitem" />
     </div>
-</div> -->
+</div>
+
+<h2>Most Expensive</h2>
+<div class="wrapper">
+    <div v-for="nftitem in my_list_array" :key="nftitem._id" >
+        <ImgLike v-if="nftitem.price >= 7" :NftObject="nftitem" />
+    </div>
+</div>
+
+<h2>Recently Added</h2>
+<div class="wrapper">
+    <ImgLike v-for="nftitem in my_list_array" :key="nftitem.id" :NftObject="nftitem"/>
+</div>
 
 
 </template>

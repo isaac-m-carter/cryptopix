@@ -2,15 +2,15 @@
 <template>
     <h1>Search</h1>
     <div class="search-container">
-        <form action="">
+        
         <input type="text" id="search" name="search" placeholder="Search">
-        <button type="submit"><i class="fi fi-rr-search"></i></button>
-        </form>
+        <button><i class="fi fi-rr-search"></i></button>
+        
     </div>
 
     <div class="refine">
         
-        <h5>PRICE RANGE</h5>
+        <h5>MAXIMUM PRICE</h5>
         <div class="slidecontainer">
             <input v-model="nftvalue" type="range" min="0" max="10" class="slider" id="RangeETH">
             <p>{{nftvalue}}</p> 
@@ -24,16 +24,16 @@
         <h5>TAGS</h5>
 
     <div class="highlight-container">
-        <div :class="{highlightClass:inputNftNicheData.tags.arttag}" @click="inputNftNicheData.tags.arttag = !inputNftNicheData.tags.arttag">
+        <div :class="{highlightClass:arttagWanted}" @click="arttagWanted = !arttagWanted">
         <p>Art</p>
         </div>
-        <div :class="{highlightClass:inputNftNicheData.tags.gametag}" @click="inputNftNicheData.tags.gametag = !inputNftNicheData.tags.gametag">
+        <div :class="{highlightClass:gametagWanted}" @click="gametagWanted = !gametagWanted">
         <p>Game</p>
         </div>
-        <div :class="{highlightClass:inputNftNicheData.tags.photogtag}" @click="inputNftNicheData.tags.photogtag = !inputNftNicheData.tags.photogtag">
+        <div :class="{highlightClass:photogtagWanted}" @click="photogtagWanted = !photogtagWanted">
         <p>Photography</p>
         </div>
-        <div :class="{highlightClass:inputNftNicheData.tags.musictag}" @click="inputNftNicheData.tags.musictag = !inputNftNicheData.tags.musictag">
+        <div :class="{highlightClass:musictagWanted}" @click="musictagWanted = !musictagWanted">
         <p>Music</p>
         </div>
     </div>
@@ -43,19 +43,14 @@
         <br><br><br>
     </div>
 
-  <div class="wrapper-results hiddenclass">
-        <CartResults v-for="nftitem in my_list_array" :key="nftitem.id" :NftObject="nftitem"/>
-     </div>  
+  <div class="wrapper-results" :class="{hiddenclass:hide}">
+
+        <div v-for="nftitem in my_list_array" :key="nftitem._id" >
+            <CartResults v-if="((nftitem.tags.arttag == arttagWanted && arttagWanted) || (nftitem.tags.musictag == musictagWanted && musictagWanted) || (nftitem.tags.photogtag == photogtagWanted && photogtagWanted) || (nftitem.tags.gametag == gametagWanted && gametagWanted)) && nftitem.price <= nftvalue" :NftObject="nftitem"/>
+        </div>
+
+</div>  
             
-
-
-    <!-- 
-        when you click search = shows based on price and tag
-        
-        <div v-for="nftitem in my_list_array" :key="nftitem.id" :NftObject="nftitem">
-        <CartResults v-if="nftitem.price <= nftvalue && nftitem.tag == true"/>
-    </div> -->
-
    
 </template>
 
@@ -82,7 +77,12 @@ import CartResults from "../components/CartResults.vue";
                     tags:{arttag:false, gametag:false, musictag:false, photogtag:false},
                     commentmsg:'None',
                     like:false
-            }
+            },
+            arttagWanted: false,
+            musictagWanted:false,
+            photogtagWanted:false,
+            gametagWanted:false,
+            hide:true,
             };
         },
         methods:{
@@ -91,12 +91,18 @@ import CartResults from "../components/CartResults.vue";
                 const dataset = await response.json();
                 console.log(dataset);
                 this.my_list_array = dataset;
+                this.hide=false;
             }
         },
         created(){
-            this.api_fetch_func();
+            // this.api_fetch_func();
             
         },
+        // computed:{
+        //     computedBoolean(){
+        //         return nftitem.tags.arttag == this.arttagWanted && nftitem.tags.musictag == this.musictagWanted;
+        //     }
+        // },
         components: { CartResults }
    }
 
