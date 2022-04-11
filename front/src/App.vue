@@ -7,9 +7,10 @@
   <Head />
   <Nav />
 
-  <router-view></router-view>
+ <router-view></router-view>
   
 </template>
+
 
 <style>
 @import './assets/base.css';
@@ -22,7 +23,5 @@
     padding: 3%;
     scroll-behavior: smooth;
     font-family: Montserrat;
-  
 }
-
 </style>
