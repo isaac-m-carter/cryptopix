@@ -1,20 +1,9 @@
 <template>
-    <!-- <a href ="ArticleObject.url"> goes to Details.vue? / Artwork.vue-->
-    <!-- <a href = "./details/Artwork.vue"> -->
     <div class="mainimage">
         <img class="NFTImg" :src="NftObject.image" alt="">   
         <div class="like"><i class="fi fi-rr-heart"></i>  </div><!-- this should toggle on and off. if on = show up in watchlist  -->
-        <div @click="liked_toggle"  :class="{liked_NFT_circle: liked}" class="like"><i :class="{liked_NFT: liked}" class="fi fi-rr-heart"></i>  </div>
-        
+        <div @click="liked_toggle"  :class="{liked_NFT_circle: liked}" class="like"><i :class="{liked_NFT: liked}" class="fi fi-rr-heart"></i>  </div>   
     </div>
-
-    <!-- {{NftObject.product_name}} Price:{{NftObject.price}} 
-    
-     NftObject.like  -->
-
-   <!-- <div :class="{likedclass:inputNftNicheData.like}" @click="inputNftNicheData.like = !inputNftNicheData.like">
-<i class="fi fi-rr-heart"></i>
-</div> -->
 
 </template>
 
@@ -75,13 +64,29 @@ i{
 export default {
     data() {
         return {
+            my_list_array:[],
             liked: false,
+
+            inputNftNicheData:{
+                    product_name:'',
+                    seller_id:'',
+                    buyer_id:'',
+                    price:0,
+                    description:'',
+                    sold:false,
+                    clicks:0,
+                    image:'',
+                    tags:{arttag:false, gametag:false, musictag:false, photogtag:false},
+                    commentmsg:'None',
+                    like:false
+            }
         }
     },
 
     methods: {
         liked_toggle() {
             this.liked = !this.liked;
+            
         }
     }
     

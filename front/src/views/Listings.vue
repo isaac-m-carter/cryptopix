@@ -22,25 +22,6 @@
   <input v-model="inputNftNicheData.price" type="number" id="price" name="price" placeholder="Item Price" >
 
   <label for="tags">Tags</label>
-<!-- 
-    <div class="radio-container">
-                <input id="arttag" name="tagtypes" type="radio" value="art">
-                <label for="arttag">Art</label>
-                <input id="gametag" name="tagtypes" type="radio" value="game">
-                <label for="gametag">Game</label>
-                <input id="photogtag" name="tagtypes" type="radio" value="photography">
-                <label for="photogtag">Photography</label>
-                <input id="musictag" name="tagtypes" type="radio" value="music">
-                <label for="musictag">Music</label>
-
-
-    </div> -->
-
-
-
-    <!--div @onclick="input.tags.arttag = !input.tags.arttag" 
-    :class="{highlightClass : inputnfthdata.tags.arttag }"
-    CSS 4 diff divs-->
 
 <div class="highlight-container">
     <div :class="{highlightClass:inputNftNicheData.tags.arttag}" @click="inputNftNicheData.tags.arttag = !inputNftNicheData.tags.arttag">
