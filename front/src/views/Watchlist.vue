@@ -2,6 +2,9 @@
 <template>
 <h1>Watchlist</h1>
 
+<br><br><br><br><br>
+<h3>Error 404! This page is currently a work in progress.</h3>
+
 <div class="wrapper-watch" v-for="nftitem in my_list_array" :key="nftitem.id" :NftObject="nftitem">
     <ImgLike/>
     <!-- <ImgLike v-if="nftitem.price <= value"/> -->
@@ -12,9 +15,15 @@
         <ImgLike v-for="nftitem in my_list_array" :key="nftitem.id" :NftObject="nftitem"/>
     </div>
 
+<!-- 
+<div class="wrapper-watch">
+    <ImgLike v-for="nftitem in my_list_array" :key="nftitem.id" :NftObject="nftitem" />
+     <ImgLike v-if= "nftitem.like == true"/> 
+</div>  -->
 
-</div>
-
+<div class="wrapper-watch"  v-for="nftitem in my_list_array" :key="nftitem.id" :NftObject="nftitem">
+     <ImgLike v-if= "nftitem.like == true"/> 
+</div> 
 
 
 </template>
