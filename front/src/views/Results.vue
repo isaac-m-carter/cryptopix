@@ -31,7 +31,7 @@
         <p>Game</p>
         </div>
         <div :class="{highlightClass:photogtagWanted}" @click="photogtagWanted = !photogtagWanted">
-        <p>Photography</p>
+        <p>Photos</p>
         </div>
         <div :class="{highlightClass:musictagWanted}" @click="musictagWanted = !musictagWanted">
         <p>Music</p>
@@ -161,7 +161,7 @@ import CartResults from "../components/CartResults.vue";
  font-size:26px;
  font-weight:600;
  font-family: Montserrat;
- padding-left:30px;
+ padding-left:20px;
  color:#3670FA;
 }
 
@@ -193,69 +193,35 @@ import CartResults from "../components/CartResults.vue";
     margin:0;
     padding:0;
 }
-/* .radio-container{
-    margin:10px 0;
-    display:flex;
-    justify-content: space-between;
-    width:100%; 
-      background: white;
-  border: 1px solid rgba(54, 112, 250, 0.3);
-  border-radius: 20px;
-  padding: 5px;
-}
-
-.radio-container label {
-  background: transparent;
-  border: 1px solid transparent;
-  border-radius: 20px;
-  display: inline-block;
-  height: 26px;
-  line-height: 26px;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-  transition: 0.2s all ease-in-out;
-  width:100%;
-  font-weight: 400;
-}
-
-.radio-container input[type="radio"] {
-  display: none;
-}
-
-.radio-container input[type="radio"]:checked + label {
-  background: #3670FA;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  color:white;
-} */
 
 .highlight-container{
   font-weight: 400;
+  font-size: 13px;
   display:flex;
-  justify-content: space-between;
+  justify-content: space-around;
   border: 1px solid rgba(54, 112, 250, 0.3);
   border-radius: 20px;
   text-align: center;
   margin: 10px 0;
   height: 40px;
-  line-height: 10px;
-  width:100%;
+  line-height: 13px;
+  /* width:100%;
   overflow-x: hidden;
-  overflow-x: scroll;
+  overflow-x: scroll; */
 }
 
 .highlight-container p{
-  width: 8em;
+  width: 5em;
 }
 .highlightClass
 {
   border-radius: 20px;
   transition: 0.2s all ease-in-out;
   background-color:#3670FA;
-  width: 8em;
+  width: 5em;
   color:white;
   height: 40px;
-line-height: 10px;
+line-height: 13px;
 }
 
 #searchbtn{

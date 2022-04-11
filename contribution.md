@@ -41,3 +41,14 @@ April 11 Monday
 -Added new database from the Listings page to see if it is working properly. It did.
 -changed tags to boolean in the backend
 -Finally got search page - refining using price and tags to work using v-if.
+
+April 12 Tuesday
+-Cleaned up Sign Up page and connected it with backend
+-edited backend schema for user to remove required:true
+-fixed like buttons and router link of imglike. -  need to add watchlist
+-added router links from accounts to sign out - want to use onboarding but having problems
+-fixed bottom nav z-index
+-polished styling for signup to match with the rest of the app
+-polished listings and results radiocontainer styling to fit the app 
+-changed photography to photos
+

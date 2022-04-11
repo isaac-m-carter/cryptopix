@@ -14,9 +14,11 @@
     </h2>
 </div>
 <div class="buttonContainer">
+    <router-link to="/SignUp">
     <div class="signUp">
         <h2>Sign up</h2>
     </div>
+    </router-link>
     <div class="buttonSpace">
         <hr>
     </div>
@@ -26,13 +28,21 @@
     <div class="forgotPassword">
         <p>Forgot password</p>
     </div>
+    <router-link to="/">
     <div class="continueGuest">
-        <p>Continue as guest</p>
+        <h5>Continue as guest</h5>
     </div>
+    </router-link>
 </div>
 </template>
 
 <style scoped>
+h5{
+    text-align: center;
+    text-decoration: underline;
+    color:black;
+
+}
 .h2Normal{
     font-size: 22px;
 }
