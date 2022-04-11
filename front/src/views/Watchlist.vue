@@ -1,7 +1,7 @@
 <template>
     <h1>Watchlist</h1>
     <div v-for="NTFitem in NTFallinfo" :key="NTFitem._id">  
-    <h3 class="tags_item">{{NTFitem.tags}}</h3>  
+    <div class="liked">{{NTFitem.cart}}</div>  
 </div>
 </template>
 
@@ -17,7 +17,7 @@ export default{
     },
     methods:{
         async fetchAPI(){
-            const response = await fetch('http://localhost:4000/nftniches/');
+            const response = await fetch('http://localhost:4000/users/');
             const fetchedData = await response.json();
             this.NTFallinfo= fetchedData;
         }
