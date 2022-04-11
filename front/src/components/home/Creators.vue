@@ -21,16 +21,7 @@
     color: #3772FF;
 }
 
-.tags_item{
-    background-color: aqua;
-    border-radius: 14px;
-    margin: 2%;
-    
-}
-.wrapper-tags{
-    display: flex;
-    justify-content: space-between;
-}
+
 </style>
 
 
@@ -40,11 +31,6 @@
 <template>
 
 
-<div class="wrapper-tags"> 
-<div v-for="NTFitem in NTFallinfo" :key="NTFitem._id">  
-    <h3 class="tags_item">{{NTFitem.tags}}</h3>  
-</div>
-</div>
 
 
 
