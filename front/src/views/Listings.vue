@@ -31,7 +31,7 @@
       <p>Game</p>
     </div>
     <div :class="{highlightClass:inputNftNicheData.tags.photogtag}" @click="inputNftNicheData.tags.photogtag = !inputNftNicheData.tags.photogtag">
-      <p>Photography</p>
+      <p>Photos</p>
     </div>
     <div :class="{highlightClass:inputNftNicheData.tags.musictag}" @click="inputNftNicheData.tags.musictag = !inputNftNicheData.tags.musictag">
       <p>Music</p>
@@ -85,31 +85,32 @@
 <style scoped>
 .highlight-container{
   font-weight: 400;
+  font-size: 13px;
   display:flex;
-  justify-content: space-between;
+  justify-content: space-around;
   border: 1px solid rgba(54, 112, 250, 0.3);
   border-radius: 20px;
   text-align: center;
   margin: 10px 0;
   height: 40px;
-  line-height: 10px;
-  width:100%;
+  line-height: 13px;
+  /* width:100%;
   overflow-x: hidden;
-  overflow-x: scroll;
+  overflow-x: scroll; */
 }
 
 .highlight-container p{
-  width: 8em;
+  width: 5em;
 }
 .highlightClass
 {
   border-radius: 20px;
   transition: 0.2s all ease-in-out;
   background-color:#3670FA;
-  width: 8em;
+  width: 5em;
   color:white;
   height: 40px;
-line-height: 10px;
+line-height: 13px;
 }
 .uploadbtn{
     text-align: center;
@@ -141,34 +142,6 @@ line-height: 10px;
     width:100%;
 }
 
-
-
-
-/* .radio-container label {
-  background: transparent;
-  border: 1px solid transparent;
-  border-radius: 20px;
-  display: inline-block;
-  height: 26px;
-  line-height: 26px;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-  transition: 0.2s all ease-in-out;
-  width:100%;
-  font-weight: 400;
-} */
-/* 
-.radio-container input[type="radio"] {
-  display: none;
-}
-
-.radio-container input[type="radio"]:checked + label {
-  background: #3670FA;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  color:white;
-} */
-
 .listingcontainer #submitbtn{
     text-decoration: none;
   height: 38px;
@@ -193,4 +166,7 @@ line-height: 10px;
     margin-top: 40px;
 }
 
+h1{
+  margin:30px 0;
+}
 </style>

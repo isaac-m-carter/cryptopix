@@ -11,11 +11,9 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: true},
     cart: {
-        type: Array,
-        required: true},
+        type: Array},
     sell: {
-        type: Array,
-        required: true}
+        type: Array}
     
 });
 

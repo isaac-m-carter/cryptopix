@@ -53,6 +53,12 @@
             
         </div>
     </div>
+
+    <router-link to="../views/SignUp">
+        <div class="btn-container">
+            <button class="submit" type="submit">Sign Out</button></div>
+        
+    </router-link>
 </template>
 
 <style scoped>

@@ -1,74 +1,125 @@
 <template>
-    <div>
+
+
     <div id="signUpHeader">
-        <h3>Enter you details</h3>
+        <h3>Enter Your Details</h3>
     </div>
-    <form class="createAccount" action="" method="get">
-        <div class="SignUpFormC">
-            <label for="uname"><b></b></label>
-            <input class="SignUpFormC" type="text" placeholder="Username" name="uname" required>
-        </div>
-        <div class="SignUpFormC">
-            <label for="psw"><b></b></label>
-            <input class="SignUpFormC" type="password" placeholder="Password" name="psw" required>
-        </div>
-        <div class="SignUpFormC">
-            <label for="uname"><b></b></label>
-            <input class="SignUpFormC" type="text" placeholder="Email" name="uname" required>
-        </div>
-        <div class="SignUpFormC">
-            <label for="uname"><b></b></label>
-            <input class="SignUpFormC" type="text" placeholder="Confirm Email" name="uname" required>
-        </div>
-        <div class="SignUpFormC">
-            <label for="uname"><b></b></label>
-            <input class="SignUpFormC" type="text" placeholder="Phone" name="uname" required>
-        </div>
-        <div class="SignUpFormC">
-            <button class="signUpButton" type="submit">Sign Up</button>
-        </div>
+
+    <div class="signup-container">
+    <form id="createAccount" action="" method="get">
+        
+            <label for="uname">Username</label><br>
+            <input v-model="inputUserData.username" class="SignUpFormC" type="text" placeholder="Username" name="uname" required>
+        
+        
+            <label for="psw">Password</label><br>
+            <input v-model="inputUserData.password" class="SignUpFormC" type="password" placeholder="Password" name="psw" required>
+        
+        
+            <label for="email">Email</label><br>
+            <input v-model="inputUserData.email" class="SignUpFormC" type="text" placeholder="Email" name="email" required>
+        
+        
+            <label for="cemail">Confirm Email</label><br>
+            <input class="SignUpFormC" type="text" placeholder="Confirm Email" name="cemail">
+
+            <div class="submit">
+            <button @click="addUser" class="signUpButton" type="submit">Sign Up</button></div>
+        
+        <router-link to= "/">
+            <h5>Skip to Home Page</h5>
+        </router-link>
     </form>
-</div>
+    </div>
 </template>
 
+ <script>
+ export default{
+    data(){
+        return{
+            usersData:[],
+            inputUserData:{
+               username:'',
+               password:'',
+               email:'',
+               cart:[],
+               sell:[],
+            }
+        };
+    },
+    methods:{
+        async addUser(){
+            const response = await fetch('http://localhost:4000/users/adduser',
+            { 
+                method:"POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(this.inputUserData)
+                });
+            const fetchedData = await response.json();
+        }
+    }
+}
+</script>
+
+
 <style scoped>
-.logInLogoParent{
-    position: relative;
-    margin-bottom: 100px;
-}
- 
- .accountsLogo{
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-     justify-content: center;
-     padding: 64px;
+
+h5{
+    text-align: center;
+    text-decoration: underline;
+    color:black;
+
 }
 
+.signup-container input, .signup-container textarea{
+    margin: 20px 0;
+    border: 1px solid rgba(54, 112, 250, 0.3);
+    border-radius: 20px;
+    height: 38px;
+    line-height: 38px;
+    font-family: Montserrat;
+    padding-left:5px;
+}
 
-.SignUpFormC{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-color: #3670FA;
-    height: 58px;
-    width: 100%;
-    margin-top: 16px ;
-    border-radius: 32px;
+.signup-container label{
+    color: #3670FA;
+    font-family: Montserrat;
+    width:100%;
+    font-weight: 600;
+}
+
+.signup-container input, .signup-container textarea{
+    font-family: Montserrat;
+    width:100%;
 }
 
 .signUpButton{
-    background-color: #3670FA;
-    border: none;
-    height: 64px;
-    width: 100%;
-    margin-top: 16px ;
-    border-radius: 32px;
-    color: white;
+    text-decoration: none;
+  height: 38px;
+  width: 180px;
+  border-radius: 20px;
+  background: #3670FA;
+  color:white;
+  border: 1px solid transparent;
+  font-family: Montserrat;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.signUpButton:hover{
+    background: white;
+   border: 1px solid #3670FA;
+   color:#3670FA;
 }
 
 #signUpHeader{
     text-align: center;
-    font-family: sans-serif;
+    font-family: Montserrat;
+    margin: 50px;
+}
+
+.submit{
+    text-align: center;
+    margin-top: 40px;
 }
 </style>
