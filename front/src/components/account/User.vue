@@ -1,13 +1,8 @@
 <template>
-    <div class="btn-container">
-        <router-link to="/Login">
-            <span id="sign-out">Sign out</span>
-        </router-link>
-    </div>
     <div id="user-profile" class="mm">
 
-        <div>
-            <img class="user-p-photo" src="https://i.stack.imgur.com/5Kgaq.jpg?s=192&g=1" alt="no img">
+        <div class="user-pp-container">
+            <img class="user-p-photo" src="https://www.lego.com/cdn/cs/set/assets/blt167d8e20620e4817/DC_-_Character_-_Details_-_Sidekick-Standard_-_Batman.jpg?fit=crop&format=jpg&quality=80&width=800&height=426&dpr=1" alt="no img">
         </div>
 
         <div class="user-details">
@@ -18,11 +13,11 @@
                 
                     
                     <!-- <label>name</label> -->
-                    <input type="text" v-model="username" id="user-name" name="user-name" placeholder="Name">
+                    <input type="text" v-model="username" id="user-name" name="user-name" placeholder="Bruce Wayne">
                     <!-- <label>email</label> -->
-                    <input type="e-mail" v-model="email" id="user-email" name="user-email" placeholder="Email">
+                    <input type="e-mail" v-model="email" id="user-email" name="user-email" placeholder="batman@gmail.com">
                     <!-- <label>password</label> -->
-                    <input type="password" v-model="password" id="password" name="password" placeholder="Password">
+                    <input type="password" v-model="password" id="password" name="password" placeholder="imnotbatman">
                     
                     <h3>ETH</h3>
                     <div class="btn-container">
@@ -54,7 +49,7 @@
         </div>
     </div>
 
-    <router-link to="../views/SignUp">
+     <router-link to="../views/Onboarding">
         <div class="btn-container">
             <button class="submit" type="submit">Sign Out</button></div>
         
@@ -85,8 +80,15 @@
 
     .user-p-photo{
         height: 8rem;
+        width: auto;
+    }
+
+    .user-pp-container {
+        display: flex;
+        justify-content: center;
         border-radius: 50%;
         margin-right: 1rem;
+        overflow: hidden;
     }
 
     .account-container{
@@ -176,10 +178,8 @@
         top: 1.6rem;
         right: 8rem;
         margin: .25rem;
-        border-bottom: 2px solid #3670FA;
         font-size: 12pt;
         /* padding-bottom: .rem; */
-        background: #fff;
     }
 
 
@@ -192,10 +192,35 @@
                 username: '',
                 email: '',
                 password: '',
-                hideState: true
+                hideState: true,
+
+                userListings: []
                 };
         },
+
+
+
+        
         methods: {
+            async addUserListing(listing){
+            const response = await fetch('http://localhost:4000/users/update/:id',
+            { 
+                method:"PUT",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(listing)
+                });
+
+            const data = await response.json();
+
+            this.L
+            }, 
+            
+            
+
+
+
+
+
             editUserDetail_modal() {
                 this.hideState = !this.hideState;
             },
