@@ -9,10 +9,13 @@
 </div>
 
 <hr>
+
 </template>
+
 
 <style scoped>
 .container{
+    margin-top:1em;
     width:100%;
     display:flex;
     justify-content: space-between;
@@ -44,9 +47,16 @@
 .right{
     width: 20%;
     font-weight: 900;
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    border-left:thin solid #3670FA;
+    padding-left:1em;
 }
 
-
+hr{
+    color:#3670FA;
+}
 
 </style>
 
