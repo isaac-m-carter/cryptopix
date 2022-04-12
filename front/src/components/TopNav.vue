@@ -10,7 +10,7 @@
         position: fixed;
         top: 2rem;
         right: 1.5rem;
-        z-index: 2;
+        z-index: 3;
         
     }
 

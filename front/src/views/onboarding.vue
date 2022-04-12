@@ -1,16 +1,18 @@
 <template>
-    <div class="accountsLogo">
-    <img src="./assets/Group53.svg" alt="" srcset="">
-    <img src="./assets/CryptoPix.svg" alt="" srcset="">
+<div class="accountsLogo">
+    <img src="../assets/cryptopix-logo/Group53.svg" alt="" srcset="">
+    <img src="../assets/cryptopix-logo/CryptoPix.svg" alt="" srcset="">
 </div>
 <div class="imageShowcase">
- <img  class="imageShowcase1" src="../assets/Mask group.png" alt="" srcset="">
- <img src="../assets/Mask group-1.png" alt="" srcset="">
- <img class="imageShowcase1" src="../assets/Mask group-2.png" alt="" srcset="">
+    <img  class="imageShowcase1" src="../assets/Mask group.png" alt="" srcset="">
+    <img src="../assets/Mask group-1.png" alt="" srcset="">
+    <img class="imageShowcase1" src="../assets/Mask group-2.png" alt="" srcset="">
 </div>
-<div>
+
+<br>
+<div class="h2Div">
     <h2 class="h2Normal">
-        A leading platform in <span class="h2Style">Buying, Selling</span> and  <span class="h2Style"> Discovery</span> of <span class="h2Style"> Quality</span> NFTS
+        A leading platform in <br><span class="h2Style">Buying, Selling</span> and <br> <span class="h2Style"> Discovery</span> of <span class="h2Style"> Quality</span> NFTS
     </h2>
 </div>
 <div class="buttonContainer">
@@ -19,20 +21,15 @@
         <h2>Sign up</h2>
     </div>
     </router-link>
-    <div class="buttonSpace">
-        <hr>
-    </div>
+    <hr>
     <router-link to="/Login">
     <div class="logIn">
         <h2>Log in</h2>
     </div>
     </router-link>
-    <div class="forgotPassword">
-        <p>Forgot password</p>
-    </div>
     <router-link to="/">
     <div class="continueGuest">
-        <h5>Continue as guest</h5>
+        <h5>CONTINUE AS GUEST</h5>
     </div>
     </router-link>
 </div>
@@ -47,19 +44,26 @@ h5{
 }
 .h2Normal{
     font-size: 22px;
+    font-weight: 700;
+    color:black;
+    text-align: left;
 }
 
 .h2Style{
     color: #3670FA;
     font-size: 32px;
+    font-weight: 800;
 
 }
 
+.h2Div{
+    margin: 20px;
+}
 .imageShowcase{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 16px 0 16px 0;
+    margin: 5px 0;
 }
 
 .imageShowcase1{
@@ -71,7 +75,7 @@ h5{
      flex-direction: column;
      align-items: center;
      justify-content: center;
-     padding: 32px;
+     padding: 50px 0 26px 0;
 }
 
 .signUp{
@@ -80,6 +84,8 @@ h5{
     background-color: #3670FA;
     display: flex;
     justify-content: center;
+    max-width:100%;
+    
 }
 
 .signUp h2{
@@ -88,20 +94,21 @@ h5{
 
 .logIn{
     height: 64px;
-    width: 100%;
+   
     border: solid #3670FA;
     border-radius: 32px;
     border-width: 1px;
     display: flex;
     justify-content: center;
+     max-width:100%;
 }
 
 .logIn h2{
     color: #3670FA;
 }
 
-.buttonSpace{
-    padding: 16px 0px 16px 0px;
+.buttonContainer{
+    margin:10px;
 }
 
 .forgotPassword{
