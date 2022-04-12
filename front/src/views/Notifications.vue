@@ -1,101 +1,213 @@
 <template>
-      <div class="accountsLogo">
-    <img src="./assets/cryptopix-logo/Group53.svg" alt="" srcset="">
-    <img src="./assets/cryptopix-logo/CryptoPix.svg" alt="" srcset="">
-</div>
-<div class="enterDetails">
-    <div id="signUpHeader">
-        <h3>Enter you details</h3>
+ <div class="navBackground">
+    <h1 class="center-align">Notifications</h1>
+  </div>
+  <div class="notiSection">
+    <div class="notiDivP">
+        <div class="notiImageDiv">
+            <img src="./assets/notifications/notification(1).png" alt="" srcset="">
+        </div>
+        <div class="notiDescDivP">
+            <div class="notiDescDivC">
+                <p class="notiTitle noSpacingP">ETH received</p>
+                <p class="notiDesc noSpacingP">0.08 ETH received</p>
+            </div>
+            <div class="notiDate">
+                <p class="noSpacingP">Just now</p>
+            </div>
+        </div>
+        <div class="notiCheckmark">
+            <img src="./assets/notifications/Ellipse1.svg" alt="" srcset="">
+        </div>
     </div>
-    <form class="createAccount" action="" method="get">
-        <div class="SignUpFormC">
-            <input class="SignUpFormC" type="text" v-model="userBody.username" placeholder="Username" required>
+        <div class="notiDivP">
+        <div class="notiImageDiv">
+            <img src="./assets/notifications/notification(2).png" alt="" srcset="">
         </div>
-        <span>{{userBody.username}}</span>
-        <div class="SignUpFormC">
-            <input class="SignUpFormC" type="password" v-model="userBody.password" placeholder="Password" name="psw" required>
+        <div class="notiDescDivP">
+            <div class="notiDescDivC">
+                <p class="notiTitle noSpacingP">ETH received</p>
+                <p class="notiDesc noSpacingP">0.08 ETH received</p>
+            </div>
+            <div class="notiDate">
+                <p class="noSpacingP">Just now</p>
+            </div>
         </div>
-        <span>{{userBody.password}}</span>
-        <div class="SignUpFormC">
-            <input class="SignUpFormC" type="text" v-model="userBody.email" placeholder="Email" name="uname" required>
+        <div class="notiCheckmark">
+            <img src="./assets/notifications/Ellipse1.svg" alt="" srcset="">
         </div>
-        <span>{{userBody.email}}</span>
-        <div class="SignUpFormC">
-            <input class="SignUpFormC" type="text" placeholder="Confirm Email" name="uname" required>
+    </div>
+        <div class="notiDivP">
+        <div class="notiImageDiv">
+            <img src="./assets/notifications/notification(3).png" alt="" srcset="">
         </div>
-        <div class="SignUpFormC">
-            <input class="SignUpFormC" type="text" placeholder="Phone" name="uname" required>
+        <div class="notiDescDivP">
+            <div class="notiDescDivC">
+                <p class="notiTitle noSpacingP">ETH received</p>
+                <p class="notiDesc noSpacingP">0.08 ETH received</p>
+            </div>
+            <div class="notiDate">
+                <p class="noSpacingP">Just now</p>
+            </div>
         </div>
-        <div class="SignUpFormC">
-            <button class="signUpButton" type="submit">Sign Up</button>
+        <div class="notiCheckmark">
+            <img src="./assets/notifications/Ellipse1.svg" alt="" srcset="">
         </div>
-    </form>
-</div>
+    </div>
+            <div class="notiDivP">
+        <div class="notiImageDiv">
+            <img src="./assets/notifications/notification(4).png" alt="" srcset="">
+        </div>
+        <div class="notiDescDivP">
+            <div class="notiDescDivC">
+                <p class="notiTitle noSpacingP">ETH received</p>
+                <p class="notiDesc noSpacingP">0.08 ETH received</p>
+            </div>
+            <div class="notiDate">
+                <p class="noSpacingP">Just now</p>
+            </div>
+        </div>
+        <div class="notiCheckmark">
+            <img src="./assets/notifications/Ellipse1.svg" alt="" srcset="">
+        </div>
+    </div>
+            <div class="notiDivP">
+        <div class="notiImageDiv">
+            <img src="./assets/notifications/notification(5).png" alt="" srcset="">
+        </div>
+        <div class="notiDescDivP">
+            <div class="notiDescDivC">
+                <p class="notiTitle noSpacingP">ETH received</p>
+                <p class="notiDesc noSpacingP">0.08 ETH received</p>
+            </div>
+            <div class="notiDate">
+                <p class="noSpacingP">Just now</p>
+            </div>
+        </div>
+        <div class="notiCheckmark">
+            <img src="./assets/notifications/Ellipse1.svg" alt="" srcset="">
+        </div>
+    </div>
+            <div class="notiDivP">
+        <div class="notiImageDiv">
+            <img src="./assets/notifications/notification(6).png" alt="" srcset="">
+        </div>
+        <div class="notiDescDivP">
+            <div class="notiDescDivC">
+                <p class="notiTitle noSpacingP">ETH received</p>
+                <p class="notiDesc noSpacingP">0.08 ETH received</p>
+            </div>
+            <div class="notiDate">
+                <p class="noSpacingP">Just now</p>
+            </div>
+        </div>
+        <div class="notiCheckmark">
+            <img src="./assets/notifications/Ellipse1.svg" alt="" srcset="">
+        </div>
+    </div>
+            <div class="notiDivP">
+        <div class="notiImageDiv">
+            <img src="./assets/notifications/notification(7).png" alt="" srcset="">
+        </div>
+        <div class="notiDescDivP">
+            <div class="notiDescDivC">
+                <p class="notiTitle noSpacingP">ETH received</p>
+                <p class="notiDesc noSpacingP">0.08 ETH received</p>
+            </div>
+            <div class="notiDate">
+                <p class="noSpacingP">Just now</p>
+            </div>
+        </div>
+        <div class="notiCheckmark">
+            <img src="./assets/notifications/Ellipse1.svg" alt="" srcset="">
+        </div>
+    </div>
+            <div class="notiDivP">
+        <div class="notiImageDiv">
+            <img src="./assets/notifications/notification(8).png" alt="" srcset="">
+        </div>
+        <div class="notiDescDivP">
+            <div class="notiDescDivC">
+                <p class="notiTitle noSpacingP">ETH received</p>
+                <p class="notiDesc noSpacingP">0.08 ETH received</p>
+            </div>
+            <div class="notiDate">
+                <p class="noSpacingP">Just now</p>
+            </div>
+        </div>
+        <div class="notiCheckmark">
+            <img src="./assets/notifications/Ellipse1.svg" alt="" srcset="">
+        </div>
+    </div>
+    <div>
+      <p class="return2Top">Return to top</p>
+    </div>
+  </div>
 </template>
-
-<script>
-export default {
-  data(){
-      return{
-            userBody:{
-            username:'',
-            password:'',
-            email:'',
-            cart:[],
-            sell:[]
-      }
-  }
-},
-methods:{
-        //functions here
-    },
-    created(){
-        //code that runs the momemnt this component is on
-    }
-}
-</script>
 
 <style scoped>
 
-.logInLogoParent{
-    position: relative;
-    margin-bottom: 100px;
-}
- 
- .accountsLogo{
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-     justify-content: center;
-     padding: 64px;
+.return2Top{
+text-align: center;
+color: #3670FA;
+text-decoration-line: underline;
+padding: 16px;
 }
 
+.center-align{
+  max-width: 438px;
+  margin: auto;
+}
 
-.SignUpFormC{
+.notiSection{
+  max-width: 428px;
+  margin: auto;
+  padding-bottom: 80px;
+}
+
+.notiCheckmark{
+    display: flex;
+    justify-content: flex-end;
+    width: 55px;
+    padding: 16px;
+}
+
+.notiDate{
+    margin-left: 16px;
+}
+
+.notiTitle{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.notiDescDivP{
+    height: 90px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.notiDescDivC{
+    margin-left: 16px;
+}
+
+.noSpacingP{
+    margin: 0;
+    padding: 0;
+}
+
+.notiDivP{
+  margin-top: 16px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    border-color: #3670FA;
-    height: 58px;
-    width: 100%;
-    margin-top: 16px ;
-    border-radius: 32px;
+    justify-content: flex-start;
 }
 
-
-.signUpButton{
-    background-color: #3670FA;
-    border: none;
-    height: 64px;
-    width: 100%;
-    margin-top: 16px ;
-    border-radius: 32px;
-    color: white;
-}
-
-#signUpHeader{
-    text-align: center;
-    font-family: sans-serif;
+.notiImageDiv img{
+    height: 100px;
 }
 
 </style>
