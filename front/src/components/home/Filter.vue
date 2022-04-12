@@ -1,9 +1,11 @@
 
 <template>
  <div class="wrapper-tags"> 
-<div v-for="NTFitem in NTFallinfo" :key="NTFitem._id">  
-    <h3 class="tags_item">{{NTFitem.tags}}</h3>  
-</div>
+<p class="tags_item">All Items</p>
+<p class="tags_item">Art</p>
+<p class="tags_item">Game</p>
+<p class="tags_item">Photography</p>
+<p class="tags_item">Musician</p>
 </div>
 
     
@@ -36,11 +38,15 @@ export default{
 </script>
 <style scoped>
 .tags_item{
-    background-color: aqua;
+    background-color: #515661;
     border-radius: 14px;
-    margin: 2%;
+   padding: 6px;
+   color: white;
     
 }
+.tags_item:hover{
+    background-color: #3772FF;
+}、
 .wrapper-tags{
     display: flex;
     justify-content: space-between;
