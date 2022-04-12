@@ -25,9 +25,13 @@
         
             <label for="cemail">Confirm Email</label><br>
             <input class="SignUpFormC" type="text" placeholder="Confirm Email" name="cemail">
-
+            
+            <router-link to= "/Login">
             <div class="submit">
-            <button class="signUpButton" type="submit">Sign Up</button></div>
+            <button @click="addUser" class="signUpButton" type="submit">Sign Up</button></div>
+            </router-link>
+
+
         
         <router-link to= "/">
             <h5>Skip to Home Page</h5>
