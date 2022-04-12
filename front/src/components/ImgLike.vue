@@ -8,7 +8,7 @@
         
 
 
-        <div class="like"><i class="fi fi-rr-heart"></i>  </div><!-- this should toggle on and off. if on = show up in watchlist  -->
+        <!-- <div class="like"><i class="fi fi-rr-heart"></i>  </div>this should toggle on and off. if on = show up in watchlist  -->
     
 
         <div @click="liked_toggle"  :class="{liked_NFT_circle: liked}" class="like"><i :class="{liked_NFT: liked}" class="fi fi-rr-heart"></i>  </div>
@@ -16,13 +16,8 @@
         
     </div>
     </router-link>
-        <span>{{NftObject.like}}</span>
-
-        <div class="like liked_NFT_circle"><i class="fi fi-rr-heart"></i></div>
-          <!-- <div class="like" :class="{liked_NFT_circle:NftObject.like}" @click="NftObject.like = !NftObject.like">
-              <i class="fi fi-rr-heart"></i>
-           </div> 
-     -->
+        
+        
 
 
 
