@@ -1,6 +1,9 @@
 <template>
 
-
+    <div class="accountsLogo">
+    <img src="../assets/cryptopix-logo/Group53.svg" alt="" srcset="">
+    <img src="../assets/cryptopix-logo/CryptoPix.svg" alt="" srcset="">
+</div>
     <div id="signUpHeader">
         <h3>Enter Your Details</h3>
     </div>
@@ -65,6 +68,14 @@
 
 
 <style scoped>
+
+.accountsLogo{
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+     padding-top: 34px;
+}
 
 h5{
     text-align: center;

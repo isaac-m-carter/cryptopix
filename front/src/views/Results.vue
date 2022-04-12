@@ -1,56 +1,59 @@
 
 <template>
-    <h1>Search</h1>
-    <div class="search-container">
-        
-        <input type="text" id="search" name="search" placeholder="Search">
-        <button><i class="fi fi-rr-search"></i></button>
-        
-    </div>
+    <div class="title"><h1>Search</h1></div>
 
-    <div class="refine">
-        
-        <h5>MAXIMUM PRICE</h5>
-        <div class="slidecontainer">
-            <input v-model="nftvalue" type="range" min="0" max="10" class="slider" id="RangeETH">
-            <p>{{nftvalue}}</p> 
-
-             <!-- rangeValue.innerText = this.value -->
-        </div>
-
-        <div class="ethlabels"><h5>0.01 ETH</h5><h5>10 ETH</h5>
-        </div>
-
-        <h5>TAGS</h5>
-
-    <div class="highlight-container">
-        <div :class="{highlightClass:arttagWanted}" @click="arttagWanted = !arttagWanted">
-        <p>Art</p>
-        </div>
-        <div :class="{highlightClass:gametagWanted}" @click="gametagWanted = !gametagWanted">
-        <p>Game</p>
-        </div>
-        <div :class="{highlightClass:photogtagWanted}" @click="photogtagWanted = !photogtagWanted">
-        <p>Photos</p>
-        </div>
-        <div :class="{highlightClass:musictagWanted}" @click="musictagWanted = !musictagWanted">
-        <p>Music</p>
-        </div>
-    </div>
-
-        <div class="search">
-    <button @click="api_fetch_func" id="searchbtn" >Search</button></div>
-        <br><br><br>
-    </div>
-
-  <div class="wrapper-results" :class="{hiddenclass:hide}">
-
-        <div v-for="nftitem in my_list_array" :key="nftitem._id" >
-            <CartResults v-if="((nftitem.tags.arttag == arttagWanted && arttagWanted) || (nftitem.tags.musictag == musictagWanted && musictagWanted) || (nftitem.tags.photogtag == photogtagWanted && photogtagWanted) || (nftitem.tags.gametag == gametagWanted && gametagWanted)) && nftitem.price <= nftvalue" :NftObject="nftitem"/>
-        </div>
-
-</div>  
+    <div class="section">
+        <div class="search-container">
             
+            <input type="text" id="search" name="search" placeholder="Search">
+            <button><i class="fi fi-rr-search"></i></button>
+            
+        </div>
+
+            <div class="refine">
+                
+                <h5>MAXIMUM PRICE</h5>
+                <div class="slidecontainer">
+                    <input v-model="nftvalue" type="range" min="0" max="10" class="slider" id="RangeETH">
+                    <p>{{nftvalue}}</p> 
+
+                    <!-- rangeValue.innerText = this.value -->
+                </div>
+
+                <div class="ethlabels"><h5>0.01 ETH</h5><h5>10 ETH</h5>
+                </div>
+
+                <h5>TAGS</h5>
+
+                <div class="highlight-container">
+                    <div :class="{highlightClass:arttagWanted}" @click="arttagWanted = !arttagWanted">
+                    <p>Art</p>
+                    </div>
+                    <div :class="{highlightClass:gametagWanted}" @click="gametagWanted = !gametagWanted">
+                    <p>Game</p>
+                    </div>
+                    <div :class="{highlightClass:photogtagWanted}" @click="photogtagWanted = !photogtagWanted">
+                    <p>Photos</p>
+                    </div>
+                    <div :class="{highlightClass:musictagWanted}" @click="musictagWanted = !musictagWanted">
+                    <p>Music</p>
+                    </div>
+                </div>
+
+                <div class="search">
+                    <button @click="api_fetch_func" id="searchbtn" >Search</button>
+                </div>
+
+                <br><br><br>
+            </div>
+
+            <div class="wrapper-results" :class="{hiddenclass:hide}">
+                    <div v-for="nftitem in my_list_array" :key="nftitem._id" >
+                        <CartResults v-if="((nftitem.tags.arttag == arttagWanted && arttagWanted) || (nftitem.tags.musictag == musictagWanted && musictagWanted) || (nftitem.tags.photogtag == photogtagWanted && photogtagWanted) || (nftitem.tags.gametag == gametagWanted && gametagWanted)) && nftitem.price <= nftvalue" :NftObject="nftitem"/>
+                    </div>
+            </div>  
+            
+    </div>    
    
 </template>
 
@@ -111,6 +114,18 @@ import CartResults from "../components/CartResults.vue";
 
 
 <style scoped>
+
+.title{
+  background-color:white;
+  position:fixed;
+  padding:30px 0;
+  width:100%; 
+  top:0;
+}
+
+.section{
+    margin:100px 0;
+}
 
 .hiddenclass{
     display:none;

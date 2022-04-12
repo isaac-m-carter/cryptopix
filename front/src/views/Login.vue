@@ -1,7 +1,7 @@
 <template>
     <div class="accountsLogo">
-    <img src="./assets/Group53.svg" alt="" srcset="">
-    <img src="./assets/CryptoPix.svg" alt="" srcset="">
+    <img src="../assets/cryptopix-logo/Group53.svg" alt="" srcset="">
+    <img src="../assets/cryptopix-logo/CryptoPix.svg" alt="" srcset="">
 </div>
 <div>
     <div id="logInHeader">
@@ -9,6 +9,7 @@
     </div>
     <form @submit="handleSubmit" class="logInForm" action="" method="">
         <div class="logInForm_C">
+
             <label for="uname"><b></b></label>
             <input class="logInForm_C" type="text" v-model="userid" placeholder="Enter id" name="uname">
         </div>
@@ -18,7 +19,11 @@
         </div>
         <div class="logInForm_C">
            <button class="LogInForm_Button" type="submit">Login</button>
+
         </div>
+        <router-link to= "/">
+            <h5>Skip to Home Page</h5>
+        </router-link>
     </form>
 </div>
 </template>
@@ -32,39 +37,62 @@
      padding: 64px;
 }
 
-.logInForm{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+
+h5{
+    text-align: center;
+    text-decoration: underline;
+    color:black;
+
 }
 
-.logInForm_C{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-color: #3670FA;
-    height: 58px;
-    margin-top: 16px;
-    width: 100%;
-    border-radius: 32px;
+.logInForm input{
+        margin: 20px 0;
+    border: 1px solid rgba(54, 112, 250, 0.3);
+    border-radius: 20px;
+    height: 38px;
+    line-height: 38px;
+    font-family: Montserrat;
+    padding-left:5px;
+    width:100%;
 }
+
+.logInForm label{
+    color: #3670FA;
+    font-family: Montserrat;
+    width:100%;
+    font-weight: 600;
+}
+
 
 .LogInForm_Button{
-    background-color: #3670FA;
-    border: none;
-    height: 64px;
-    margin-top: 16px;
-    width: 100%;
-    border-radius: 32px;
-    color: white;
+    text-decoration: none;
+  height: 38px;
+  width: 180px;
+  border-radius: 20px;
+  background: #3670FA;
+  color:white;
+  border: 1px solid transparent;
+  font-family: Montserrat;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.LogInForm_Button:hover{
+    background: white;
+   border: 1px solid #3670FA;
+   color:#3670FA;
 }
 
 #logInHeader{
     text-align: center;
-    font-family: sans-serif;
+    font-family: Montserrat;
 }
-</style>
+
+.submit{
+    text-align: center;
+    margin-top: 40px;
+}
+</style>>
 
 <script>
     export default{
@@ -90,5 +118,4 @@
             this.userid = this.activeUserID;
         }
     }
-    
 </script>

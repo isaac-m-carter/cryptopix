@@ -25,7 +25,10 @@
     padding-bottom: 100px;
     scroll-behavior: smooth;
     font-family: Montserrat;
+
 }
+
+
 </style>
 
 <script>

@@ -1,49 +1,50 @@
 <template>
-<h1>Listings</h1>
+<div class="title"><h1>Listings</h1></div>
 
-<br>
-<div class ="listingcontainer">
-<!-- <form action="./Account.vue" id="listingform" method="GET"> -->
-<form action="" id="listingform" method="GET">
-  <label for="artname">Artwork Name</label><br>
-  <input v-model="inputNftNicheData.product_name" type="text" id="artname" name="artname" placeholder="Artwork Title" required><br>
-  <!-- <span>{{inputNftNicheData.product_name}}</span> -->
+      <div class="section">
+          <div class ="listingcontainer">
+         
+              <form action="" id="listingform" method="GET">
+                <label for="artname">Artwork Name</label><br>
+                <input v-model="inputNftNicheData.product_name" type="text" id="artname" name="artname" placeholder="Artwork Title" required><br>
+                <!-- <span>{{inputNftNicheData.product_name}}</span> -->
 
-  <label for="sellername">Creator</label><br>
-  <input v-model="inputNftNicheData.seller_id" type="text" id="sellername" name="sellername" placeholder="Creator Name" required><br>
+                <label for="sellername">Creator</label><br>
+                <input v-model="inputNftNicheData.seller_id" type="text" id="sellername" name="sellername" placeholder="Creator Name" required><br>
 
-  <label for="imgURL">Image URL</label><br>
-  <input v-model="inputNftNicheData.image" type="text" id="imgURL" name="imgURL" placeholder="Image URL" required><br>
+                <label for="imgURL">Image URL</label><br>
+                <input v-model="inputNftNicheData.image" type="text" id="imgURL" name="imgURL" placeholder="Image URL" required><br>
 
-  <label for="desc">Description</label><br>
-  <textarea v-model="inputNftNicheData.description" name="desc" id="desc" placeholder="Enter artwork details here"></textarea>
+                <label for="desc">Description</label><br>
+                <textarea v-model="inputNftNicheData.description" name="desc" id="desc" placeholder="Enter artwork details here"></textarea>
 
-  <label for="price">Price</label><br>
-  <input v-model="inputNftNicheData.price" type="number" id="price" name="price" placeholder="Item Price" >
+                <label for="price">Price</label><br>
+                <input v-model="inputNftNicheData.price" type="number" id="price" name="price" placeholder="Item Price" >
 
-  <label for="tags">Tags</label>
+                <label for="tags">Tags</label>
 
-<div class="highlight-container">
-    <div :class="{highlightClass:inputNftNicheData.tags.arttag}" @click="inputNftNicheData.tags.arttag = !inputNftNicheData.tags.arttag">
-      <p>Art</p>
-    </div>
-    <div :class="{highlightClass:inputNftNicheData.tags.gametag}" @click="inputNftNicheData.tags.gametag = !inputNftNicheData.tags.gametag">
-      <p>Game</p>
-    </div>
-    <div :class="{highlightClass:inputNftNicheData.tags.photogtag}" @click="inputNftNicheData.tags.photogtag = !inputNftNicheData.tags.photogtag">
-      <p>Photos</p>
-    </div>
-    <div :class="{highlightClass:inputNftNicheData.tags.musictag}" @click="inputNftNicheData.tags.musictag = !inputNftNicheData.tags.musictag">
-      <p>Music</p>
-    </div>
-        
-    </div>
+                <div class="highlight-container">
+                    <div :class="{highlightClass:inputNftNicheData.tags.arttag}" @click="inputNftNicheData.tags.arttag = !inputNftNicheData.tags.arttag">
+                      <p>Art</p>
+                    </div>
+                    <div :class="{highlightClass:inputNftNicheData.tags.gametag}" @click="inputNftNicheData.tags.gametag = !inputNftNicheData.tags.gametag">
+                      <p>Game</p>
+                    </div>
+                    <div :class="{highlightClass:inputNftNicheData.tags.photogtag}" @click="inputNftNicheData.tags.photogtag = !inputNftNicheData.tags.photogtag">
+                      <p>Photos</p>
+                    </div>
+                    <div :class="{highlightClass:inputNftNicheData.tags.musictag}" @click="inputNftNicheData.tags.musictag = !inputNftNicheData.tags.musictag">
+                      <p>Music</p>
+                    </div>
+                        
+                </div>
 
- <div class="submit">
-    <button @click="addNftNiche" id="submitbtn" type="submit">Submit</button></div>
-    </form>
-
-</div>
+                <div class="submit">
+                    <button @click="addNftNiche" id="submitbtn" type="submit">Submit</button>
+                </div>
+              </form>
+          </div>
+        </div>
     
 </template>
 
@@ -83,6 +84,18 @@
 </script>
 
 <style scoped>
+
+.title{
+  background-color:white;
+  position:fixed;
+  padding:30px 0;
+  width:100%; 
+  top:0;
+}
+.section{
+    margin:100px 0;
+}
+
 .highlight-container{
   font-weight: 400;
   font-size: 13px;
@@ -166,7 +179,4 @@ line-height: 13px;
     margin-top: 40px;
 }
 
-h1{
-  margin:30px 0;
-}
 </style>
