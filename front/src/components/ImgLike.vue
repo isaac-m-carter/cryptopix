@@ -1,26 +1,23 @@
 <template>
 
-  
-    <router-link to="/Details">
-
-    <div class="mainimage">
-        <img class="NFTImg" :src="NftObject.image" alt="">   
-        
-
-
-        <!-- <div class="like"><i class="fi fi-rr-heart"></i>  </div>this should toggle on and off. if on = show up in watchlist  -->
     
+    <div class="mainimage">
+        <router-link to="../views/Details">
+        <!-- <a href = "../views/Details"> -->
+        <div class="cheatfix">
+            <img class="NFTImg" :src="NftObject.image" alt="">
+        </div>   
+        <!-- </a> -->
+        </router-link>
+            <div class="like" :class="{liked_NFT_circle:NftObject.like}" @click="NftObject.like = !NftObject.like">
+              <i class="fi fi-rr-heart"></i>
 
-        <div @click="liked_toggle"  :class="{liked_NFT_circle: liked}" class="like"><i :class="{liked_NFT: liked}" class="fi fi-rr-heart"></i>  </div>
-
-        
-    </div>
-    </router-link>
-        
-        
+           </div> 
 
 
 
+
+            </div> 
 </template>
 
 <style scoped>
@@ -34,9 +31,6 @@
 }
 
 .mainimage img{
-    position:absolute;
-    top:0;
-    left:0;
     border-radius: 20px;
     height:180px;
     width: 180px;
@@ -45,15 +39,24 @@
 
 }
 
+.mainimage .cheatfix{
+    border-radius: 20px;
+    height:180px;
+    width: 180px;
+    background:transparent;
+}
+
 .like{
     position:absolute;
     right:0;
     bottom:0;
+    z-index: 1;
     padding:5px 7px .5px 7px;
     margin:5px;
     border-radius:50%;
     background: rgba(0, 0, 0, 0.507);
     cursor:pointer;
+    
 
 }
 

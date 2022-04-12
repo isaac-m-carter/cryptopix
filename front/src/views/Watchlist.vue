@@ -1,16 +1,15 @@
 
 <template>
-<h1>Watchlist</h1>
+    <div class="title"><h1>Watchlist</h1></div>
 
-<!-- <br><br><br><br><br>
-<h3>Error 404! This page is currently a work in progress.</h3> -->
- 
-
-<div class="wrapper-watch">
-    <div v-for="nftitem in my_list_array" :key="nftitem._id" >
-        <ImgLike v-if="nftitem.like == true" :NftObject="nftitem" />
+    <div class="section">
+        <div class="wrapper-watch">
+            <ImgLike v-for="nftitem in my_list_array" :key="nftitem._id" :NftObject="nftitem" />
+            <!-- <div v-for="nftitem in my_list_array" :key="nftitem._id" >
+                <ImgLike v-if="nftitem.like == true" :NftObject="nftitem" />
+            </div> -->
+        </div>
     </div>
-</div>
 
 </template>
 
@@ -23,19 +22,19 @@ import ImgLike from "../components/ImgLike.vue";
             return{
                 my_list_array:[],
                 // fetch_API_link: ""
-                inputNftNicheData:{
-                    product_name:'',
-                    seller_id:'',
-                    buyer_id:'',
-                    price:0,
-                    description:'',
-                    sold:false,
-                    clicks:0,
-                    image:'',
-                    tags:{arttag:false, gametag:false, musictag:false, photogtag:false},
-                    commentmsg:'None',
-                    like:false
-            }
+            //     inputNftNicheData:{
+            //         product_name:'',
+            //         seller_id:'',
+            //         buyer_id:'',
+            //         price:0,
+            //         description:'',
+            //         sold:false,
+            //         clicks:0,
+            //         image:'',
+            //         tags:{arttag:false, gametag:false, musictag:false, photogtag:false},
+            //         commentmsg:'None',
+            //         like:false
+            // }
             };
         },
         methods:{
@@ -56,16 +55,27 @@ import ImgLike from "../components/ImgLike.vue";
 </script>
 
 <style>
+.title{
+  background-color:white;
+  position:fixed;
+  padding:30px 0;
+  width:100%; 
+  top:0;
+  z-index:2;
+}
+
+.section{
+    margin:100px 0;
+}
+
 .wrapper-watch{
-    
     display:grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 38% 38%;
     grid-auto-rows: minmax(50px, auto);
-    grid-gap: 10px;
+    grid-gap: 50px;
     justify-content: center;
     text-align: center;
-    padding-top: 50px;
-    padding-bottom: 20px;
     width: 95%;
+    z-index: -2;
 }
 </style>

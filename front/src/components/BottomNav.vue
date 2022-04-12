@@ -15,7 +15,7 @@
     position: fixed;
     bottom: 0.5rem;
     display: flex;
-    z-index: 1;
+    z-index: 2;
     width: 90%;
 }
 

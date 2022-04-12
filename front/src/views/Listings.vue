@@ -1,49 +1,50 @@
 <template>
-<h1>Listings</h1>
+<div class="title"><h1>Listings</h1></div>
 
-<br>
-<div class ="listingcontainer">
-<!-- <form action="./Account.vue" id="listingform" method="GET"> -->
-<form action="" id="listingform" method="GET">
-  <label for="artname">Artwork Name</label><br>
-  <input v-model="inputNftNicheData.product_name" type="text" id="artname" name="artname" placeholder="Artwork Title" required><br>
-  <!-- <span>{{inputNftNicheData.product_name}}</span> -->
+      <div class="section">
+          <div class ="listingcontainer">
+         
+              <form action="" id="listingform" method="GET">
+                <label for="artname">Artwork Name</label><br>
+                <input v-model="inputNftNicheData.product_name" type="text" id="artname" name="artname" placeholder="Artwork Title" required><br>
+                <!-- <span>{{inputNftNicheData.product_name}}</span> -->
 
-  <label for="sellername">Creator</label><br>
-  <input v-model="inputNftNicheData.seller_id" type="text" id="sellername" name="sellername" placeholder="Creator Name" required><br>
+                <label for="sellername">Creator</label><br>
+                <input v-model="inputNftNicheData.seller_id" type="text" id="sellername" name="sellername" placeholder="Creator Name" required><br>
 
-  <label for="imgURL">Image URL</label><br>
-  <input v-model="inputNftNicheData.image" type="text" id="imgURL" name="imgURL" placeholder="Image URL" required><br>
+                <label for="imgURL">Image URL</label><br>
+                <input v-model="inputNftNicheData.image" type="text" id="imgURL" name="imgURL" placeholder="Image URL" required><br>
 
-  <label for="desc">Description</label><br>
-  <textarea v-model="inputNftNicheData.description" name="desc" id="desc" placeholder="Enter artwork details here"></textarea>
+                <label for="desc">Description</label><br>
+                <textarea v-model="inputNftNicheData.description" name="desc" id="desc" placeholder="Enter artwork details here"></textarea>
 
-  <label for="price">Price</label><br>
-  <input v-model="inputNftNicheData.price" type="number" id="price" name="price" placeholder="Item Price" >
+                <label for="price">Price</label><br>
+                <input v-model="inputNftNicheData.price" type="number" id="price" name="price" placeholder="Item Price" >
 
-  <label for="tags">Tags</label>
+                <label for="tags">Tags</label>
 
-<div class="highlight-container">
-    <div :class="{highlightClass:inputNftNicheData.tags.arttag}" @click="inputNftNicheData.tags.arttag = !inputNftNicheData.tags.arttag">
-      <p>Art</p>
-    </div>
-    <div :class="{highlightClass:inputNftNicheData.tags.gametag}" @click="inputNftNicheData.tags.gametag = !inputNftNicheData.tags.gametag">
-      <p>Game</p>
-    </div>
-    <div :class="{highlightClass:inputNftNicheData.tags.photogtag}" @click="inputNftNicheData.tags.photogtag = !inputNftNicheData.tags.photogtag">
-      <p>Photography</p>
-    </div>
-    <div :class="{highlightClass:inputNftNicheData.tags.musictag}" @click="inputNftNicheData.tags.musictag = !inputNftNicheData.tags.musictag">
-      <p>Music</p>
-    </div>
-        
-    </div>
+                <div class="highlight-container">
+                    <div :class="{highlightClass:inputNftNicheData.tags.arttag}" @click="inputNftNicheData.tags.arttag = !inputNftNicheData.tags.arttag">
+                      <p>Art</p>
+                    </div>
+                    <div :class="{highlightClass:inputNftNicheData.tags.gametag}" @click="inputNftNicheData.tags.gametag = !inputNftNicheData.tags.gametag">
+                      <p>Game</p>
+                    </div>
+                    <div :class="{highlightClass:inputNftNicheData.tags.photogtag}" @click="inputNftNicheData.tags.photogtag = !inputNftNicheData.tags.photogtag">
+                      <p>Photos</p>
+                    </div>
+                    <div :class="{highlightClass:inputNftNicheData.tags.musictag}" @click="inputNftNicheData.tags.musictag = !inputNftNicheData.tags.musictag">
+                      <p>Music</p>
+                    </div>
+                        
+                </div>
 
- <div class="submit">
-    <button @click="addNftNiche" id="submitbtn" type="submit">Submit</button></div>
-    </form>
-
-</div>
+                <div class="submit">
+                    <button @click="addNftNiche" id="submitbtn" type="submit">Submit</button>
+                </div>
+              </form>
+          </div>
+        </div>
     
 </template>
 
@@ -83,33 +84,46 @@
 </script>
 
 <style scoped>
+
+.title{
+  background-color:white;
+  position:fixed;
+  padding:30px 0;
+  width:100%; 
+  top:0;
+}
+.section{
+    margin:100px 0;
+}
+
 .highlight-container{
   font-weight: 400;
+  font-size: 13px;
   display:flex;
-  justify-content: space-between;
+  justify-content: space-around;
   border: 1px solid rgba(54, 112, 250, 0.3);
   border-radius: 20px;
   text-align: center;
   margin: 10px 0;
   height: 40px;
-  line-height: 10px;
-  width:100%;
+  line-height: 13px;
+  /* width:100%;
   overflow-x: hidden;
-  overflow-x: scroll;
+  overflow-x: scroll; */
 }
 
 .highlight-container p{
-  width: 8em;
+  width: 5em;
 }
 .highlightClass
 {
   border-radius: 20px;
   transition: 0.2s all ease-in-out;
   background-color:#3670FA;
-  width: 8em;
+  width: 5em;
   color:white;
   height: 40px;
-line-height: 10px;
+line-height: 13px;
 }
 .uploadbtn{
     text-align: center;
@@ -140,34 +154,6 @@ line-height: 10px;
     font-family: Montserrat;
     width:100%;
 }
-
-
-
-
-/* .radio-container label {
-  background: transparent;
-  border: 1px solid transparent;
-  border-radius: 20px;
-  display: inline-block;
-  height: 26px;
-  line-height: 26px;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-  transition: 0.2s all ease-in-out;
-  width:100%;
-  font-weight: 400;
-} */
-/* 
-.radio-container input[type="radio"] {
-  display: none;
-}
-
-.radio-container input[type="radio"]:checked + label {
-  background: #3670FA;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  color:white;
-} */
 
 .listingcontainer #submitbtn{
     text-decoration: none;

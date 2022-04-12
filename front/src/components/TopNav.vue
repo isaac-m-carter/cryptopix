@@ -10,6 +10,8 @@
         position: fixed;
         top: 2rem;
         right: 1.5rem;
+        z-index: 3;
+        
     }
 
     .fi{
