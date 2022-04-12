@@ -7,7 +7,7 @@
     <div id="logInHeader">
         <h3>Log In</h3>
     </div>
-    <form class="logInForm" action="" method="get">
+    <form @submit="handleSubmit" class="logInForm" action="" method="get">
         <div class="logInForm_C">
             <label for="uname"><b></b></label>
             <input class="logInForm_C" type="text" placeholder="Enter Username" name="uname" required>
@@ -69,3 +69,13 @@ a {
     width: 100%;
 }
 </style>
+
+<script>
+    export default{
+        methods: {
+            handleSubmit() {
+                console.log('submitted')
+            }
+        }
+    }
+</script>

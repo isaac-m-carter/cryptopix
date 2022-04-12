@@ -87,7 +87,9 @@ h2{
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  align-items: center;
   overflow-x: auto;
+  overflow-y: hidden;
 }
 
 .wrapper ::-webkit-scrollbar {
