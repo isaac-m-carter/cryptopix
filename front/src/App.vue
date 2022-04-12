@@ -1,13 +1,14 @@
 <script setup>
   import Head from './components/Head.vue';
   import Nav from './components/Nav.vue';
+  import { computed } from 'vue'
 </script>
 
 <template>
   <Head />
   <Nav />
 
- <router-view></router-view>
+ <router-view @userCreated="upd_UserID"></router-view>
   
 </template>
 
@@ -21,6 +22,7 @@
     margin-left: auto;
     margin-right: auto;
     padding: 3%;
+    padding-bottom: 100px;
     scroll-behavior: smooth;
     font-family: Montserrat;
 
@@ -28,3 +30,26 @@
 
 
 </style>
+
+<script>
+  export default {
+      data() {
+        return {
+          local_userID: ''
+        }
+      },
+      methods: {
+        upd_UserID(input_id) {
+          this.local_userID = input_id;
+        },
+        created() {
+          console.log(this.local_userID)
+        }
+      },
+      provide() {
+      return {
+        activeUserID: computed(() => this.local_userID)
+      }
+    }
+  }
+</script>

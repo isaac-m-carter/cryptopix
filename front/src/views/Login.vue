@@ -7,19 +7,19 @@
     <div id="logInHeader">
         <h3>Log In</h3>
     </div>
-    <form class="logInForm" action="" method="get">
+    <form @submit="handleSubmit" class="logInForm" action="" method="">
         <div class="logInForm_C">
-            <label for="uname">Username</label><br>
-            <input class="logInForm_C" type="text" placeholder="Username" name="uname" required>
+
+            <label for="uname"><b></b></label>
+            <input class="logInForm_C" type="text" v-model="userid" placeholder="Enter id" name="uname">
         </div>
         <div class="logInForm_C">
-            <label for="psw">Password</label><br>
-            <input class="logInForm_C" type="password" placeholder="Password" name="psw" required>
+            <label for="psw"><b></b></label>
+            <input class="logInForm_C" type="password" v-model="password" placeholder="Enter Password" name="psw">
         </div>
-        <div class="submit">
-            <router-link to="/Account">
-            <button class="LogInForm_Button" type="submit">Login</button>
-            </router-link>
+        <div class="logInForm_C">
+           <button class="LogInForm_Button" type="submit">Login</button>
+
         </div>
         <router-link to= "/">
             <h5>Skip to Home Page</h5>
@@ -92,4 +92,30 @@ h5{
     text-align: center;
     margin-top: 40px;
 }
-</style>
+</style>>
+
+<script>
+    export default{
+        data() {
+            return {
+                userid: '',
+                password: ''
+            }
+        },
+
+        // methods: {
+        //     async handleSubmit(){
+        //     const response = await fetch('http://localhost:4000/users/get/:id');
+        //     const fetchedData = await response.json();
+        //     this.usersData = fetchedData;
+        //     console.log(fetchedData);
+        // },
+        // emits: ['userCreated'],
+
+        inject: ['activeUserID'],
+
+        created() {
+            this.userid = this.activeUserID;
+        }
+    }
+</script>

@@ -9,7 +9,7 @@
     </div>
 
     <div class="signup-container">
-    <form id="createAccount" action="" method="get">
+    <form @submit.prevent="addUser" id="createAccount" action="" method="get">
         
             <label for="uname">Username</label><br>
             <input v-model="inputUserData.username" class="SignUpFormC" type="text" placeholder="Username" name="uname" required>
@@ -27,7 +27,7 @@
             <input class="SignUpFormC" type="text" placeholder="Confirm Email" name="cemail">
 
             <div class="submit">
-            <button @click="addUser" class="signUpButton" type="submit">Sign Up</button></div>
+            <button class="signUpButton" type="submit">Sign Up</button></div>
         
         <router-link to= "/">
             <h5>Skip to Home Page</h5>
@@ -59,8 +59,10 @@
                 body: JSON.stringify(this.inputUserData)
                 });
             const fetchedData = await response.json();
+            this.$emit('userCreated', fetchedData._id)
         }
-    }
+    },
+    emits: ['userCreated']
 }
 </script>
 
