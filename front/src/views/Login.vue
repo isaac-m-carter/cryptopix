@@ -17,7 +17,7 @@
             <label for="psw"><b></b></label>
             <input class="logInForm_C" type="password" v-model="password" placeholder="Enter Password" name="psw">
         </div>
-        <div class="logInForm_C">
+        <div class="submit">
            <button class="LogInForm_Button" type="submit">Login</button>
 
         </div>
@@ -29,6 +29,7 @@
 </template>
 
 <style scoped>
+
 .accountsLogo{
      display: flex;
      flex-direction: column;

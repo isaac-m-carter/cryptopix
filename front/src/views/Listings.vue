@@ -92,9 +92,6 @@
   width:100%; 
   top:0;
 }
-.section{
-    margin:100px 0;
-}
 
 .highlight-container{
   font-weight: 400;
