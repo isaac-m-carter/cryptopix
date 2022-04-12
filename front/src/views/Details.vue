@@ -32,8 +32,24 @@
 
     <h1 class="blue_text_2">Comments</h1>
 
+    <div class="User_comments">
+
+        <div class="Profile_img"></div>
+
+        <h3>User#1373</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, eaque!</p>
+
+    </div>
+
+
     <h3 class="blue_text_2">Write a comment / ask a question</h3>
     <textarea name="Comments" id="Comments" cols="30" rows="10"></textarea>
+
+    <div class="comment_buttons">
+        <input id="submit" type="submit" value="Comment">
+        
+        <button id="Cancel_Button">Cancel</button>
+    </div>
 
     
     <button id="to_top">Return to top</button>
@@ -120,6 +136,13 @@ span{
     margin-bottom:1em;
 }
 
+.Profile_img{
+    width:50px;
+    height:50px;
+    border-radius:30px;
+    border: thin black solid;
+}
+
 textarea{
     width: 70%;
     border-style: none;
@@ -127,6 +150,32 @@ textarea{
     border-radius:25px;
     display: block;
     margin: 0 auto;
+}
+
+.comment_buttons{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    margin-top: 0.5em;
+    width: 40%;
+    
+}
+
+#submit{
+    color:white;
+    background-color:#3670FA;
+    border-style:none;
+    border-radius:10px;
+    padding: 1em;
+    padding-top:0.5em;
+    padding-bottom: 0.5em;
+}
+
+#Cancel_Button{
+    background: none;
+    border-style: none;
+    border-bottom: #3670FA thin solid;
+    color: #3670FA;
 }
 
 #to_top{
@@ -140,5 +189,8 @@ textarea{
     margin-top: 1em;
     margin-bottom:7em;
 }
-
 </style>
+
+<script>
+
+</script>
