@@ -82,7 +82,6 @@ export default {
     data() {
         return {
             my_list_array:[],
-            liked: false,
         }
     },
 
