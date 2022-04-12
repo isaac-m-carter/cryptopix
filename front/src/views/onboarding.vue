@@ -4,9 +4,9 @@
     <img src="./assets/CryptoPix.svg" alt="" srcset="">
 </div>
 <div class="imageShowcase">
- <img  class="imageShowcase1" src="./assets/Mask group.png" alt="" srcset="">
- <img src="./assets/Mask group-1.png" alt="" srcset="">
- <img class="imageShowcase1" src="./assets/Mask group-2.png" alt="" srcset="">
+ <img  class="imageShowcase1" src="../assets/Mask group.png" alt="" srcset="">
+ <img src="../assets/Mask group-1.png" alt="" srcset="">
+ <img class="imageShowcase1" src="../assets/Mask group-2.png" alt="" srcset="">
 </div>
 <div>
     <h2 class="h2Normal">
@@ -57,7 +57,7 @@ h5{
 
 .imageShowcase{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     margin: 16px 0 16px 0;
 }
