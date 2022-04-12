@@ -46,7 +46,7 @@ export default{
 }
 .tags_item:hover{
     background-color: #3772FF;
-}、
+}
 .wrapper-tags{
     display: flex;
     justify-content: space-between;
