@@ -22,9 +22,11 @@
     <div class="buttonSpace">
         <hr>
     </div>
+    <router-link to="/Login">
     <div class="logIn">
         <h2>Log in</h2>
     </div>
+    </router-link>
     <div class="forgotPassword">
         <p>Forgot password</p>
     </div>

@@ -13,8 +13,14 @@ import Notifications from '../views/Notifications.vue'
 import Login from '../views/Login.vue'
 import SignUp from '../views/SignUp.vue'
 import Details from '../views/Details.vue'
+import Onboarding from '../views/Onboarding.vue'
 
 const routes = [
+    {
+        path: '/Onboarding',
+        name: 'Onboarding',
+        component: Onboarding
+    },
     {
         path: '/',
         name: 'Home',
