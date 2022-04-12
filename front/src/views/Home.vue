@@ -1,23 +1,28 @@
 <template>
-<h1>Discovery</h1>
+<div class="title"><h1>Discovery</h1></div>
 
-<h2>Trending</h2>
-<div class="wrapper">
-    <div v-for="nftitem in my_list_array" :key="nftitem._id" >
-        <ImgLike v-if="nftitem.clicks >= 15" :NftObject="nftitem" />
-    </div>
-</div>
+<div class="section">
 
-<h2>Most Expensive</h2>
-<div class="wrapper">
-    <div v-for="nftitem in my_list_array" :key="nftitem._id" >
-        <ImgLike v-if="nftitem.price >= 7" :NftObject="nftitem" />
-    </div>
-</div>
+        <!-- filtering system here -->
 
-<h2>Recently Added</h2>
-<div class="wrapper">
-    <ImgLike v-for="nftitem in my_list_array" :key="nftitem.id" :NftObject="nftitem"/>
+        <h2>Trending</h2>
+        <div class="wrapper">
+            <div v-for="nftitem in my_list_array" :key="nftitem._id" >
+                <ImgLike v-if="nftitem.clicks >= 15" :NftObject="nftitem" />
+            </div>
+        </div>
+
+        <h2>Most Expensive</h2>
+        <div class="wrapper">
+            <div v-for="nftitem in my_list_array" :key="nftitem._id" >
+                <ImgLike v-if="nftitem.price >= 7" :NftObject="nftitem" />
+            </div>
+        </div>
+
+        <h2>Recently Added</h2>
+        <div class="wrapper">
+            <ImgLike v-for="nftitem in my_list_array" :key="nftitem.id" :NftObject="nftitem"/>
+        </div>
 </div>
 
 
@@ -65,6 +70,17 @@ import ImgLike from "../components/ImgLike.vue";
 </script>
 
 <style>
+.title{
+  background-color:white;
+  position:fixed;
+  padding:30px 0;
+  width:100%; 
+  top:0;
+}
+
+.section{
+    margin:100px 0;
+}
 
 h2{
     color:#3670FA;

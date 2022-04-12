@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    <h1>Account</h1>
+    <div class="title"><h1>Account</h1></div>
 
     <div class="main-container">
         
@@ -15,9 +15,18 @@
 </template>
 
 <style>
+.title{
+  background-color:white;
+  position:fixed;
+  padding:30px 0;
+  width:100%; 
+  top:0;
+}
+
+
 
     .main-container{
-        margin-top: 1rem;
+        margin:5rem 0;
         padding: 1rem;
     }
 </style>
