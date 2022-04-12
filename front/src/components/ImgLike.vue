@@ -1,13 +1,11 @@
 <template>
 
-    <!-- <a href ="ArticleObject.url"> goes to Details.vue? / Artwork.vue-->
-    <!-- <a href = "./details/Artwork.vue"> -->
+  
     <router-link to="/Details">
 
     <div class="mainimage">
         <img class="NFTImg" :src="NftObject.image" alt="">   
-        <!--<div class="like"><i class="fi fi-rr-heart"></i>  </div> this should toggle on and off. if on = show up in watchlist  -->
-        <!-- <div @click="liked_toggle"  :class="{liked_NFT_circle: liked}" class="like"><i :class="{liked_NFT: liked}" class="fi fi-rr-heart"></i>  </div>  -->
+        
 
 
         <div class="like"><i class="fi fi-rr-heart"></i>  </div><!-- this should toggle on and off. if on = show up in watchlist  -->
@@ -18,20 +16,13 @@
         
     </div>
     </router-link>
-    <!-- {{NftObject.product_name}} Price:{{NftObject.price}} 
-    
-     NftObject.like  -->
-   
-  
+        <span>{{NftObject.like}}</span>
 
-   <!-- <div :class="{likedclass:inputNftNicheData.like}" @click="inputNftNicheData.like = !inputNftNicheData.like"> -->
-<!-- <i class="fi fi-rr-heart"></i> -->
-<!-- </div> -->
-
-          <div class="like" :class="{liked_NFT_circle:NftObject.like}" @click="NftObject.like = !NftObject.like">
+        <div class="like liked_NFT_circle"><i class="fi fi-rr-heart"></i></div>
+          <!-- <div class="like" :class="{liked_NFT_circle:NftObject.like}" @click="NftObject.like = !NftObject.like">
               <i class="fi fi-rr-heart"></i>
            </div> 
-    </div>
+     -->
 
 
 
@@ -72,7 +63,7 @@
 }
 
 .liked_NFT_circle{
-    background-color: #E0456B; /*rgba(203, 203, 203, 0.775);*/
+    background-color: #E0456B !important; /*rgba(203, 203, 203, 0.775);*/
 }
 
 /* .liked_NFT{
