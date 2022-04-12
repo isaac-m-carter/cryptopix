@@ -9,15 +9,14 @@
             <form @submit="onSubmit" id="edit-details" onsubmit="return false">
                 <i class="fi fi-rr-edit" @click="editUserDetail_modal"></i>
                 <h2>Details</h2>
-
                 
-                    
-                    <!-- <label>name</label> -->
-                    <input type="text" v-model="username" id="user-name" name="user-name" placeholder="Bruce Wayne">
+                    <input type="text" v-model="userid" id="userid" name="userid" placeholder="">
+                     <!-- <label>name</label> -->
+                    <input type="text" v-model="username" id="user-name" name="user-name" placeholder="">
                     <!-- <label>email</label> -->
-                    <input type="e-mail" v-model="email" id="user-email" name="user-email" placeholder="batman@gmail.com">
+                    <input type="e-mail" v-model="email" id="user-email" name="user-email" placeholder="">
                     <!-- <label>password</label> -->
-                    <input type="password" v-model="password" id="password" name="password" placeholder="imnotbatman">
+                    <input type="password" v-model="password" id="password" name="password" placeholder="">
                     
                     <h3>ETH</h3>
                     <div class="btn-container">
@@ -211,16 +210,8 @@
                 });
 
             const data = await response.json();
-
-            this.L
             }, 
             
-            
-
-
-
-
-
             editUserDetail_modal() {
                 this.hideState = !this.hideState;
             },
@@ -232,7 +223,8 @@
                this.email.placeholder = this.email
                this.password.placeholder = this.password
             }
-        }
+        },
+        inject: ['activeUserID'],
         }
     }
 
