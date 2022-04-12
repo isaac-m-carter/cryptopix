@@ -17,7 +17,7 @@
             <input class="logInForm_C" type="password" placeholder="Enter Password" name="psw" required>
         </div>
         <div class="logInForm_C">
-            <router-link to="/Account"><button class="LogInForm_Button" type="submit">Login</button></router-link>
+           <button class="LogInForm_Button" type="submit">Login</button>
         </div>
     </form>
 </div>
@@ -64,18 +64,14 @@
     text-align: center;
     font-family: sans-serif;
 }
-
-a {
-    width: 100%;
-}
 </style>
 
 <script>
     export default{
         methods: {
             handleSubmit() {
+                e.preventDefault()
                 console.log('submitted')
             }
         }
     }
-</script>
