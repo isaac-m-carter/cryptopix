@@ -34,6 +34,8 @@
       app.get("/", (res, req) => {
           res.send("reached homepage");
       });
+
+      app.use(cors());
       
       // this below 'UserRoute' is a variable for this project (not syntax)
       const UsersRoute = require('./routes/users');

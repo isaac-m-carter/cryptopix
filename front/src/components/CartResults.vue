@@ -10,7 +10,9 @@
 </div>
 </router-link>
 
+
 </template>
+
 
 <style scoped>
 .container{
@@ -53,6 +55,7 @@
 .right{
     width: 8em;
     font-weight: 900;
+
     color:#3670FA;
     line-height: 60px;
     margin-left: 2em;
@@ -62,9 +65,18 @@
 .vl {
   border-left: 2px solid rgba(0, 0, 0, 0.055) ;
   height: 5em;
+
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    border-left:thin solid #3670FA;
+    padding-left:1em;
+
 }
 
-
+hr{
+    color:#3670FA;
+}
 
 </style>
 

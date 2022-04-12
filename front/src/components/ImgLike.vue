@@ -1,4 +1,5 @@
 <template>
+
     
     <div class="mainimage">
         <router-link to="../views/Details">
@@ -12,6 +13,7 @@
               <i class="fi fi-rr-heart"></i>
 
            </div> 
+
 
 
 
@@ -59,7 +61,7 @@
 }
 
 .liked_NFT_circle{
-    background-color: #E0456B; /*rgba(203, 203, 203, 0.775);*/
+    background-color: #E0456B !important; /*rgba(203, 203, 203, 0.775);*/
 }
 
 /* .liked_NFT{
