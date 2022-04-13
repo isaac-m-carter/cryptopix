@@ -30,7 +30,7 @@
                 userObjBody:{}
             };
         },
-        inject: ['activeUserID'],
+        // inject: ['activeUserID'],
         methods:{
 
             async localstoragefunc(input){

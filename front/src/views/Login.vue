@@ -25,14 +25,14 @@
         <button class="LogInForm_Button" type="submit">Login</button>
         </div>
         
-        <router-link to= "/">
-            <h5>Skip to Home Page</h5>
-        </router-link>
     </form>
 </div>
 </template>
 
 <style scoped>
+.hiddenclass{
+    display:none;
+}
 .warning{
     display: none;
     color: red;
@@ -132,7 +132,7 @@ h5{
 
                     localStorage.setItem('userid', this.userid);
                     // this.$emit('userCreated', this.userid);
-                    this.$router.push('/');
+                    this.$router.push('/Home');
 
                 }
             }

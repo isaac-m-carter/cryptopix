@@ -3,7 +3,7 @@
 
 <div class="container">
     <div class="left"><img class="NFTImg" :src="NftObject.image" alt=""></div>
-    <div class=" middle">Title: {{NftObject.product_name}} <br> Price: {{NftObject.price}}</div>    
+    <div class=" middle">{{NftObject.product_name}} <br> {{NftObject.price}} ETH</div>    
     <div class="edit" @click="updateEmit"><i class="fi fi-rr-edit"></i></div>
     <div class="delete" @click="delEmit"><i class="fi fi-rr-trash"></i></div>
 </div>
@@ -77,8 +77,8 @@
     font-weight: 700;
     overflow: hidden;
     color:black;
-    font-size: 14px;
-
+    font-size: 10px;
+    margin: 0 15px;
 }
 
 .edit{
