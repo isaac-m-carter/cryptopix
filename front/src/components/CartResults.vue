@@ -3,7 +3,6 @@
 <router-link to="../views/Details">
 <div class="container">
     <div class="left"><img class="NFTImg" :src="NftObject.image" alt=""></div>
-    
     <div class=" middle">{{NftObject.product_name}} <br> Creator: {{NftObject.seller_id}}</div>
     <div class="vl"></div>
     <div class="right">Price: {{NftObject.price}}</div>

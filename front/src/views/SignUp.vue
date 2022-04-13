@@ -31,7 +31,6 @@
             <button @click="addUser" class="signUpButton" type="submit">Sign Up</button></div>
             </router-link>
 
-
         
         <router-link to= "/">
             <h5>Skip to Home Page</h5>

@@ -4,24 +4,33 @@
 <div class="section">
 
         <!-- filtering system here -->
+        <div class="wrapper-tags"> 
+        <p class="tags_item" :class="{tag_selected: filterTags.allItems}" @click="filterTags.allItems= !filterTags.allItems">All Items</p>
+        <p class="tags_item" :class="{tag_selected: filterTags.artFiltered}" @click="filterTags.artFiltered= !filterTags.artFiltered">Art</p>
+        <p class="tags_item" :class="{tag_selected: filterTags.gameFiltered}" @click="filterTags.gameFiltered= !filterTags.gameFiltered">Game</p>
+        <p class="tags_item" :class="{tag_selected: filterTags.photoFiltered}" @click="filterTags.photoFiltered= !filterTags.photoFiltered">Photos</p>
+        <p class="tags_item" :class="{tag_selected: filterTags.musicFiltered}" @click="filterTags.musicFiltered= !filterTags.musicFiltered">Music</p>
+        </div>
+
+ <!-- v-if="((filterTags.arttag == artFiltered && artFiltered) || (filterTags.musictag == musicFiltered && musicFiltered) || (filterTags.photogtag == photoFiltered && photoFiltered) || (filterTags.gametag == gameFiltered && gameFiltered)) -->
 
         <h2>Trending</h2>
         <div class="wrapper">
             <div v-for="nftitem in my_list_array" :key="nftitem._id" >
-                <ImgLike v-if="nftitem.clicks >= 15" :NftObject="nftitem" />
+                <ImgLike @click="localstoragefunc(nftitem._id)" v-if=" nftitem.clicks >= 15" :NftObject="nftitem" />
             </div>
         </div>
 
         <h2>Most Expensive</h2>
         <div class="wrapper">
             <div v-for="nftitem in my_list_array" :key="nftitem._id" >
-                <ImgLike v-if="nftitem.price >= 7" :NftObject="nftitem" />
+                <ImgLike @click="localstoragefunc(nftitem._id)" v-if="nftitem.price >= 7" :NftObject="nftitem" />
             </div>
         </div>
 
         <h2>Recently Added</h2>
         <div class="wrapper">
-            <ImgLike v-for="nftitem in my_list_array" :key="nftitem.id" :NftObject="nftitem"/>
+            <ImgLike @click="localstoragefunc(nftitem._id)" v-for="nftitem in my_list_array" :key="nftitem.id" :NftObject="nftitem"/>
         </div>
 </div>
 
@@ -36,6 +45,13 @@ import ImgLike from "../components/ImgLike.vue";
         data(){
             return{
                 my_list_array:[],
+                filterTags:{
+                allItems:false,
+                artFiltered:false,
+                gameFiltered:false,
+                photoFiltered:false,
+                musicFiltered:false
+                },
                 // fetch_API_link: ""
                 inputNftNicheData:{
                     product_name:'',
@@ -47,7 +63,7 @@ import ImgLike from "../components/ImgLike.vue";
                     clicks:0,
                     image:'',
                     tags:{arttag:false, gametag:false, musictag:false, photogtag:false},
-                    commentmsg:'None',
+                    commentmsg:{},
                     like:false
             }
             };
@@ -59,10 +75,15 @@ import ImgLike from "../components/ImgLike.vue";
                 console.log(dataset);
                 this.my_list_array = dataset;
 
+            },
+            async localstoragefunc(input){
+                localStorage.setItem("localnftid", input);
             }
         },
         created(){
+            
             this.api_fetch_func();
+            
             
         },
         components: { ImgLike }
@@ -111,5 +132,29 @@ h2{
 .wrapper ::-webkit-scrollbar {
   width: 0;
   }
+
+
+.tags_item{
+    background-color: #515661;
+    border-radius: 14px;
+    padding:10px;
+    margin: 1%;
+    color: white;
+    font-weight: 400;
+    text-align: center;
+    width:100px;
+    
+}
+.tag_selected{
+    font-weight: 600;
+    text-align: center;
+    background-color: #3670FA;
+}
+.wrapper-tags{
+    display: flex;
+    align-items: center;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
   
 </style>

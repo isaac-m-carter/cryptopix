@@ -1,33 +1,37 @@
 <template>
-    <h1>Details</h1>
+    <div class="title"><h1>Listings</h1></div>
 
-    <p class="blue_text">Clicks <span>n/a</span></p>
-
-    <div id="NFT_img">
-
-        <div class="like"><i class="fi-fi-rr-heart"></i>  </div>
-
+    <!-- <p class="blue_text">Clicks <span>n/a</span></p> -->
+    <div class="section">
+    <div class = "mainsection">
+        <img id="NFT_img" class="NFTImg" :src="nicheproduct.image" alt="">
+         <div class="like" :class="{liked_NFT_circle:nicheproduct.like}" @click="nicheproduct.like = !nicheproduct.like">
+              <i class="fi fi-rr-heart"></i>
+        </div> 
     </div>
     <div class="details_info">
 
         <div class="Name_wrap">
-            <h1 id="NFT_name">Name</h1>
-            <h1 id="Price">1.02 ETH</h1>
+            <h1 id="NFT_name">{{nicheproduct.product_name}}</h1>
+            <!-- <span>{{nicheproduct}}</span> -->
+            <h1 id="Price">{{nicheproduct.price}} ETH</h1>
         </div>
 
         <div class="Name_wrap">
-            <p class="blue_text"> <span>By</span> Artist name</p>
-            <p id="amount">1 of 1</p>
+            <p class="blue_text"> <span>By</span> {{nicheproduct.seller_id}}</p>
+            
         </div>
 
-        <p id="about_NFT">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero ab quod culpa voluptatem dolores sequi tenetur deleniti maxime consequatur dolore, debitis mollitia reiciendis omnis vero consequuntur cumque tempora labore, assumenda ea corrupti?</p>
+        <p id="about_NFT">{{nicheproduct.description}}</p>
 
-        <p class="blue_text">Tags</p>
+        <!-- <p class="blue_text">Tags</p> -->
 
     </div>
 
-    <router-link to="/Cart.vue">
+    <router-link to="/Cart">
+    <div class="submit">
     <button id="Add_to_cart">Add to cart</button>
+    </div>
     </router-link>
 
     <h1 class="blue_text_2">Comments</h1>
@@ -53,29 +57,61 @@
 
     
     <button id="to_top">Return to top</button>
-
+    </div>
 </template>
 
 <style scoped>
-span{
-    color: grey;
-    font-weight: 400;
+
+.title{
+  background-color:white;
+  position:fixed;
+  padding:30px 0;
+  width:100%; 
+  top:0;
+}
+.section{
+    margin:80px 0;
+}
+
+.mainsection{
+     position:relative;
 }
 
 #NFT_img{
     width: 100%;
-    height: 380px;
+    height: 600px;
     border: thin black solid;
     border-top-left-radius:20PX;
     border-top-right-radius:20PX;
     margin-top:1em;
+    object-fit:cover;
 }
 
-#fi-fi-rr-heart{
-    
-    width: 10px;
-    height: 10px;
-    top: 3px;
+.like{
+    position:absolute;
+    right:0;
+    bottom:0;
+    z-index: 1;
+    padding:10px;
+    margin:20px;
+    border-radius:50%;
+    background: rgba(0, 0, 0, 0.507);
+    cursor:pointer;
+    height:60px;
+    width:60px;
+}
+.liked_NFT_circle{
+    background-color: #E0456B !important; 
+}
+
+i{
+    color:white;
+    font-size:60px;
+}
+
+span{
+    color: grey;
+    font-weight: 400;
 }
 
 .details_info{
@@ -123,17 +159,27 @@ span{
 }
 
 #Add_to_cart{
-    background-color: #3670FA;
+    text-decoration: none;
+    height: 38px;
+    width: 180px;
+    border-radius: 20px;
+    background: #3670FA;
     color:white;
-    padding:4em;
-    padding-top:1em;
-    padding-bottom:1em;
-    border-style:none;
-    border-radius:25px;
-    display: block;
-    margin: 0 auto;
-    margin-top:1.5em;
-    margin-bottom:1em;
+    border: 1px solid transparent;
+    font-family: Montserrat;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+#Add_to_cart:hover{
+    background: white;
+   border: 1px solid #3670FA;
+   color:#3670FA;
+}
+
+.submit{
+    text-align: center;
+    margin-top: 40px;
 }
 
 .Profile_img{
@@ -192,5 +238,36 @@ textarea{
 </style>
 
 <script>
+    export default{
+        data(){
+            return{
+                nicheproduct:{}, //add id of comment
+                nicheid:'',
+                
+            };
+        },
+        methods:{
+            // async localstoragefunc(input){
+            //     localStorage.setItem("localnftid", input);
+            //     }
+
+                // GET one item with ID
+                async getNftNicheFunc(nftnicheID){
+                   
+                    const fetchURL = 'http://localhost:4000/nftniches/get/'+nftnicheID;
+                    console.log(fetchURL);
+                    const response = await fetch(fetchURL);
+                    const fetchedData = await response.json(); 
+                    console.log(fetchedData);
+                    this.nicheproduct=fetchedData;
+                    
+                },
+        },
+        created(){
+         localStorage.getItem("localnftid");
+         this.nicheid = localStorage.getItem("localnftid");
+         this.getNftNicheFunc(this.nicheid);
+        },
+   }
 
 </script>
