@@ -14,6 +14,7 @@ import Login from '../views/Login.vue'
 import SignUp from '../views/SignUp.vue'
 import Details from '../views/Details.vue'
 import Onboarding from '../views/Onboarding.vue'
+import EditListing from '../views/EditListing.vue'
 
 const routes = [
     {
@@ -45,6 +46,11 @@ const routes = [
         path: '/Watchlist',
         name: 'Watchlist', 
         component: Watchlist
+    },
+    {
+        path: '/EditListing',
+        name: 'EditListing', 
+        component: EditListing
     },
     {
         path: '/Cart',

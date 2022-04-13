@@ -3,8 +3,9 @@
 
 <div class="container">
     <div class="left"><img class="NFTImg" :src="NftObject.image" alt=""></div>
-    <div class=" middle">{{NftObject.product_name}} <br> {{NftObject.price}} ETH</div>    
-    <div class="edit" @click="updateEmit"><i class="fi fi-rr-edit"></i></div>
+    <div class=" middle">{{NftObject.product_name}} <br> {{NftObject.price}} ETH
+    <br> {{NftObject.description}}</div>    
+    <div class="edit" @click="updateFunc()"><i class="fi fi-rr-edit"></i></div>
     <div class="delete" @click="delEmit"><i class="fi fi-rr-trash"></i></div>
 </div>
 
@@ -16,15 +17,20 @@
     export default{
         data(){
             return{
-            NftObject:{}
+            NftObject:{},
+        
+            itemid:'',
             }
         },
         methods:{
             delEmit(){
                 this.$emit('delNftNicheEmit',this.NftObject._id)
             },
-            updateEmit(){
-                // this.$emit('updNftNicheEmit',this.NftObject._id)
+            updateFunc(){
+                 const temp = JSON.stringify(this.NftObject); 
+                   
+                localStorage.setItem('nftitem', temp);
+                this.$router.push('/EditListing');
             },
             // GET one item with ID
             async getNFTFunc(){
@@ -38,6 +44,7 @@
         emits:['delNftNicheEmit'],
         created(){
             this.getNFTFunc();
+            
         }
 }
    
