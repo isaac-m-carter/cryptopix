@@ -39,11 +39,11 @@
                     </div>
                         
                 </div>
-                <router-link to= "/Account">
+
                 <div class="submit">
                     <button @click="addNftNiche" id="submitbtn" type="submit">Submit</button>
                 </div>
-                </router-link>
+
               </form>
           </div>
         </div>
@@ -71,6 +71,7 @@
             },
             userid: '',
             password: '',
+            userObjBody:{}
         };
     },
     inject: ['activeUserID'],
@@ -83,9 +84,32 @@
                 body: JSON.stringify(this.inputNftNicheData)
                 });
             const fetchedData = await response.json();
-        }
+            
+            this.userObjBody.sell.push(fetchedData._id)
+            this.updateUser();
+        },
+          // GET current user Obj
+        async getUserbyID(){
+        const response = await fetch('http://localhost:4000/users/get/' + this.activeUserID);
+        const fetchedData = await response.json();
+        this.userObjBody = fetchedData;
+        },
+        // UPDATE one item with ID (requires providing BODY of data)
+        async updateUser(){
+            const fetchURL = 'http://localhost:4000/users/update/'+this.activeUserID;
+            const response = await fetch(fetchURL, 
+                { 
+                method:"PUT",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(this.userObjBody)
+                });
+            const fetchedData = await response.json();  
+            console.log(fetchedData);
+            this.$router.push('/Account');
+            },
     },
     created() {
+            this.getUserbyID();
             this.userid = this.activeUserID;
             this.inputNftNicheData.seller_id = this.activeUserID;
     }
