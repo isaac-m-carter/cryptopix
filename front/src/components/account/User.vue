@@ -291,9 +291,10 @@
         created(){
 
             // this.userid = this.activeUserID;
-            this.userDetails();
          
             this.userid = localStorage.getItem("userid");
+            
+            this.userDetails();
         }
     }
 
