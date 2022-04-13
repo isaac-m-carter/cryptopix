@@ -4,7 +4,7 @@
 
     <div class="section">
         <div class="wrapper-watch">
-            <ImgLike v-for="nftitem in my_list_array" :key="nftitem._id" :NftObject="nftitem" />
+            <ImgLike @click="localstoragefunc(nftitem._id)" v-for="nftitem in my_list_array" :key="nftitem._id" :NftObject="nftitem" />
             <!-- <div v-for="nftitem in my_list_array" :key="nftitem._id" >
                 <ImgLike v-if="nftitem.like == true" :NftObject="nftitem" />
             </div> -->
@@ -44,7 +44,10 @@ import ImgLike from "../components/ImgLike.vue";
                 console.log(dataset);
                 this.my_list_array = dataset;
 
-            }
+            },
+            async localstoragefunc(input){
+                localStorage.setItem("localnftid", input);
+                }
         },
         created(){
             this.api_fetch_func();

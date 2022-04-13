@@ -1,23 +1,19 @@
 <template>
 
-    
+    <router-link to="../views/Details">
     <div class="mainimage">
-        <router-link to="../views/Details">
-        <!-- <a href = "../views/Details"> -->
+        
         <div class="cheatfix">
             <img class="NFTImg" :src="NftObject.image" alt="">
         </div>   
-        <!-- </a> -->
-        </router-link>
-            <div class="like" :class="{liked_NFT_circle:NftObject.like}" @click="NftObject.like = !NftObject.like">
-              <i class="fi fi-rr-heart"></i>
-
-           </div> 
-
-
-
-
-            </div> 
+        
+        <div class="like" :class="{liked_NFT_circle:NftObject.like}" @click="NftObject.like = !NftObject.like">
+            <i class="fi fi-rr-heart"></i>
+        </div> 
+    </div> 
+    </router-link>
+  
+    
 </template>
 
 <style scoped>
@@ -64,14 +60,6 @@
     background-color: #E0456B !important; /*rgba(203, 203, 203, 0.775);*/
 }
 
-/* .liked_NFT{
-    color: white;
-}
-
-.likedclass{
-    color:#E0456B;
-}*/
-
 i{
     color:white;
     font-size:23px;
@@ -80,22 +68,17 @@ i{
 </style>
 
 <script>
-export default {
-    data() {
-        return {
-            my_list_array:[],
-            liked: false,
-        }
-    },
+// export default {
+//     data() {
+//         return {
+//             my_list_array:[],
+//         }
+//     },
 
-    methods: {
-        // liked_toggle() {
-        //     this.liked = !this.liked;
-            
-        // }
-    }
+//     methods: {
+//     }
     
-}
+// }
 </script>
 
 <script setup>

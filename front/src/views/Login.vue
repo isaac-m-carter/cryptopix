@@ -12,16 +12,21 @@
 
             <label for="userid"><b></b></label>
             <input class="logInForm_C" type="text" v-model="userid" placeholder="Enter id" name="userid">
+            <label for="uname">User ID</label><br>
+            <input class="logInForm_C" type="text" v-model="userid" placeholder="Enter id" name="uname">
+
         </div>
         <div class="logInForm_C">
-            <label for="psw"><b></b></label>
+            <label for="psw">Password</label><br>
             <input class="logInForm_C" type="password" v-model="password" placeholder="Enter Password" name="psw">
             <!-- <p class="wrong-pw" :class="{hidden : hideState}">Sorry, password is incorrect. Please try again.</p> -->
         </div>
-        <div class="submit">
-           <button class="LogInForm_Button" type="submit">Login</button>
 
-        </div>
+        <router-link to= "/">
+            <div class="submit">
+            <button class="LogInForm_Button" type="submit">Login</button>
+            </div>
+        </router-link>
         <router-link to= "/">
             <h5>Skip to Home Page</h5>
         </router-link>

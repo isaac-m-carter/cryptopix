@@ -217,9 +217,42 @@
                 console.log(this.userData);
              },
         inject: ['activeUserID'],
-        created() {
-           this.getUserDetails()
-           console.log(activeUserID)
+        
+                        // GET all data
+        async fetchAPI(){
+            const response = await fetch('http://localhost:4000/nftniches/');
+            const fetchedData = await response.json();
+            this.nftnichesData = fetchedData;
+            console.log(fetchedData);
+        },
+                // GET one item with ID
+        async getNftNicheFunc(nftnicheID){
+            const fetchURL = 'http://localhost:4000/nftniches/get/'+nftnicheID;
+            console.log(fetchURL);
+            const response = await fetch(fetchURL);
+            const fetchedData = await response.json(); 
+            console.log(fetchedData);
+        },
+                // DELETE one item with ID
+        async delNftNicheFunc(nftnicheID){
+            const fetchURL = 'http://localhost:4000/nftniches/delete/'+nftnicheID;
+            console.log(fetchURL);
+            const response = await fetch(fetchURL, { method:"DELETE"});
+            const fetchedData = await response.json(); 
+            console.log(fetchedData);
+        },
+                // UPDATE one item with ID (requires providing BODY of data)
+        async updateNftNicheFunc(nftnicheID){
+            const fetchURL = 'http://localhost:4000/nftniches/update/'+nftnicheID;
+            console.log(fetchURL);
+            const response = await fetch(fetchURL, 
+                { 
+                method:"PUT",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(this.newNftNicheInfo)
+                });
+            const fetchedData = await response.json();  
+            console.log(fetchedData);
         }
     }
 }

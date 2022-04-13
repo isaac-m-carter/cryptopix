@@ -9,9 +9,10 @@
                 <input v-model="inputNftNicheData.product_name" type="text" id="artname" name="artname" placeholder="Artwork Title" required><br>
                 <!-- <span>{{inputNftNicheData.product_name}}</span> -->
 
-                <label for="sellername">Creator</label><br>
-                <input v-model="inputNftNicheData.seller_id" type="text" id="sellername" name="sellername" placeholder="Creator Name" required><br>
-
+                 <label for="sellername">Creator</label><br>
+                <input v-model="userid" type="text" id="sellername" name="sellername" placeholder="{{userid}}" required><br> 
+                <!-- <input v-model="inputNftNicheData.seller_id" type="text" id="sellername" name="sellername" placeholder="Creator Name" required><br>   -->
+                 
                 <label for="imgURL">Image URL</label><br>
                 <input v-model="inputNftNicheData.image" type="text" id="imgURL" name="imgURL" placeholder="Image URL" required><br>
 
@@ -38,10 +39,11 @@
                     </div>
                         
                 </div>
-
+                <router-link to= "/Account">
                 <div class="submit">
                     <button @click="addNftNiche" id="submitbtn" type="submit">Submit</button>
                 </div>
+                </router-link>
               </form>
           </div>
         </div>
@@ -64,11 +66,14 @@
                clicks:0,
                image:'',
                tags:{arttag:false, gametag:false, musictag:false, photogtag:false},
-               commentmsg:'None',
+               commentmsg:[],
                like:false
-            }
+            },
+            userid: '',
+            password: '',
         };
     },
+    inject: ['activeUserID'],
     methods:{
         async addNftNiche(){
             const response = await fetch('http://localhost:4000/nftniches/addnftniche',
@@ -79,6 +84,10 @@
                 });
             const fetchedData = await response.json();
         }
+    },
+    created() {
+            this.userid = this.activeUserID;
+            this.inputNftNicheData.seller_id = this.activeUserID;
     }
 }
 </script>
