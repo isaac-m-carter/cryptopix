@@ -1,5 +1,7 @@
 <template>
+
     <!-- <span>{{ activeUserID.value }}</span> -->
+
     <div id="user-profile" class="mm">
         
         <div class="user-pp-container">
@@ -285,12 +287,13 @@
                 console.log(fetchedData);
             },
         },
-        inject: ['activeUserID'],
 
         created(){
+
             this.userid = this.activeUserID;
             this.userDetails();
-            console.log(this.details)
+         
+            this.userid = localStorage.getItem("userid");
         }
     }
 

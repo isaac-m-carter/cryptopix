@@ -1,5 +1,5 @@
 <template>
-    <div class="title"><h1>Listings</h1></div>
+    <div class="title"><h1>{{nicheproduct.product_name}}</h1></div>
 
     <!-- <p class="blue_text">Clicks <span>n/a</span></p> -->
     <div class="section">
