@@ -3,11 +3,9 @@
 
     <div class="section">
         <div class="wrapper-results">
-        <CartResults v-for="nftitem in my_list_array" :key="nftitem.id" :NftObject="nftitem"/></div>
+        <CartResults @click="localstoragefunc(nftitem._id)" v-for="nftitem in my_list_array" :key="nftitem.id" :NftObject="nftitem"/></div>
     </div>
- <!--change nftitem.sold == true
- v-if user._id cart array
- -->
+
 </template>
 
 <script>
@@ -27,9 +25,11 @@ import CartResults from "../components/CartResults.vue";
                 const dataset = await response.json();
                 console.log(dataset);
                 this.my_list_array = dataset;
+            },
+            async localstoragefunc(input){
+                localStorage.setItem("localnftid", input);
+                }
 
-                console.log(this.my_list_array[0].image);
-            }
         },
         created(){
             this.api_fetch_func();

@@ -49,7 +49,7 @@
 
             <div class="wrapper-results" :class="{hiddenclass:hide}">
                     <div v-for="nftitem in my_list_array" :key="nftitem._id" >
-                        <CartResults v-if="((nftitem.tags.arttag == arttagWanted && arttagWanted) || (nftitem.tags.musictag == musictagWanted && musictagWanted) || (nftitem.tags.photogtag == photogtagWanted && photogtagWanted) || (nftitem.tags.gametag == gametagWanted && gametagWanted)) && nftitem.price <= nftvalue" :NftObject="nftitem"/>
+                        <CartResults @click="localstoragefunc(nftitem._id)" v-if="((nftitem.tags.arttag == arttagWanted && arttagWanted) || (nftitem.tags.musictag == musictagWanted && musictagWanted) || (nftitem.tags.photogtag == photogtagWanted && photogtagWanted) || (nftitem.tags.gametag == gametagWanted && gametagWanted)) && nftitem.price <= nftvalue" :NftObject="nftitem"/>
                     </div>
             </div>  
             
@@ -95,7 +95,10 @@ import CartResults from "../components/CartResults.vue";
                 console.log(dataset);
                 this.my_list_array = dataset;
                 this.hide=false;
-            }
+            },
+            async localstoragefunc(input){
+                localStorage.setItem("localnftid", input);
+                }
         },
         created(){
             // this.api_fetch_func();

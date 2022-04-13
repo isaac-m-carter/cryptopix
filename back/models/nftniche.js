@@ -26,7 +26,7 @@ const NftNicheSchema = new mongoose.Schema({
         type: Object,
         required: true},
     commentmsg: {
-        type: String},
+        type: Array},
     like:{
         type:Boolean},
 });

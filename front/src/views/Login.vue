@@ -17,10 +17,12 @@
             <label for="psw"><b></b></label>
             <input class="logInForm_C" type="password" v-model="password" placeholder="Enter Password" name="psw">
         </div>
-        <div class="submit">
-           <button class="LogInForm_Button" type="submit">Login</button>
 
-        </div>
+        <router-link to= "/">
+            <div class="submit">
+            <button class="LogInForm_Button" type="submit">Login</button>
+            </div>
+        </router-link>
         <router-link to= "/">
             <h5>Skip to Home Page</h5>
         </router-link>
