@@ -1,27 +1,38 @@
 <template>
+    <span>{{ activeUserID }}</span>
     <div id="user-profile" class="mm">
-
+        
         <div class="user-pp-container">
             <img class="user-p-photo" src="https://www.lego.com/cdn/cs/set/assets/blt167d8e20620e4817/DC_-_Character_-_Details_-_Sidekick-Standard_-_Batman.jpg?fit=crop&format=jpg&quality=80&width=800&height=426&dpr=1" alt="no img">
         </div>
 
-        <div class="user-details">
-            <form @submit="onSubmit" id="edit-details" onsubmit="return false">
-                <i class="fi fi-rr-edit" @click="editUserDetail_modal"></i>
+        <div class="user-details-container">
+            <form @submit="onSubmit" id="edit-details" onsubmit="">
+                <div>
+                    <i class="fi fi-rr-edit" @click="editUserDetail_modal"></i>
                 <h2>Details</h2>
+                </div>
+
+                <div class="user-details">
+                    <label>name</label>
+                    <label>email</label>
+                    <label>password</label>
+                </div>
+
+                <div class="edit-user-details" :class="{hidden: hideState}" >
+                    <h2>Edit</h2>
+                    <input type="text" v-model="username" id="user-name" name="user-name" placeholder="name">
+                    <input type="e-mail" v-model="email" id="user-email" name="user-email" placeholder="email">
+                    <input type="password" v-model="password" id="password" name="password" placeholder="password">
                 
-                    <input type="text" v-model="userid" id="userid" name="userid" placeholder="">
-                     <!-- <label>name</label> -->
-                    <input type="text" v-model="username" id="user-name" name="user-name" placeholder="">
-                    <!-- <label>email</label> -->
-                    <input type="e-mail" v-model="email" id="user-email" name="user-email" placeholder="">
-                    <!-- <label>password</label> -->
-                    <input type="password" v-model="password" id="password" name="password" placeholder="">
-                    
-                    <h3>ETH</h3>
-                    <div class="btn-container">
-                       <button class="submit" type="submit">Done</button>
-                    </div>
+                <div class="btn-container">
+                    <button class="submit" type="submit">Done</button>
+                </div>
+                </div>
+     
+
+                
+                <h3>ETH</h3>
             </form>
         </div>
     </div>
@@ -56,7 +67,9 @@
 </template>
 
 <style scoped>
-
+    form{
+        width: 100%;
+    }
 
     .edit-user-details{
         position: absolute;
@@ -69,24 +82,34 @@
     #user-profile{
         display: flex;
         flex-direction: row;
-        align-items: center;
     }
 
     .user-details{
+        display: flex;
+        position: absolute;
+        flex-direction: column;
         position: relative;
         width: 100%;
     }
 
+    .user-details-container {
+        display: flex;
+        position: relative;
+        min-width: 55%;
+    }
+
     .user-p-photo{
-        height: 8rem;
+        height: 10rem;
         width: auto;
     }
 
     .user-pp-container {
         display: flex;
         justify-content: center;
+        align-items: center;
         border-radius: 50%;
         margin-right: 1rem;
+        height: 8rem;
         overflow: hidden;
     }
 
@@ -111,7 +134,7 @@
         border-bottom: 2px solid #3670FA;
     }
 
-    h3, input{
+    h3, input, label{
         font-weight: 500;
         font-size: 12pt;
         margin: 0;
@@ -188,6 +211,7 @@
     export default{
         data() {
             return {
+                userid: '',
                 username: '',
                 email: '',
                 password: '',
@@ -196,10 +220,7 @@
                 userListings: []
                 };
         },
-
-
-
-        
+       
         methods: {
             async addUserListing(listing){
             const response = await fetch('http://localhost:4000/users/update/:id',
@@ -215,53 +236,49 @@
             editUserDetail_modal() {
                 this.hideState = !this.hideState;
             },
-            methods: {
-            onSubmit(e) {
-               e.preventDefault()
 
-               this.username.placeholder = this.username
-               this.email.placeholder = this.email
-               this.password.placeholder = this.password
-            }
+            
+                            // GET all data
+            async fetchAPI(){
+                const response = await fetch('http://localhost:4000/nftniches/');
+                const fetchedData = await response.json();
+                this.nftnichesData = fetchedData;
+                console.log(fetchedData);
+            },
+                    // GET one item with ID
+            async getNftNicheFunc(nftnicheID){
+                const fetchURL = 'http://localhost:4000/nftniches/get/'+nftnicheID;
+                console.log(fetchURL);
+                const response = await fetch(fetchURL);
+                const fetchedData = await response.json(); 
+                console.log(fetchedData);
+            },
+                    // DELETE one item with ID
+            async delNftNicheFunc(nftnicheID){
+                const fetchURL = 'http://localhost:4000/nftniches/delete/'+nftnicheID;
+                console.log(fetchURL);
+                const response = await fetch(fetchURL, { method:"DELETE"});
+                const fetchedData = await response.json(); 
+                console.log(fetchedData);
+            },
+                    // UPDATE one item with ID (requires providing BODY of data)
+            async updateNftNicheFunc(nftnicheID){
+                const fetchURL = 'http://localhost:4000/nftniches/update/'+nftnicheID;
+                console.log(fetchURL);
+                const response = await fetch(fetchURL, 
+                    { 
+                    method:"PUT",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(this.newNftNicheInfo)
+                    });
+                const fetchedData = await response.json();  
+                console.log(fetchedData);
+            },
         },
         inject: ['activeUserID'],
-        },
 
-                        // GET all data
-        async fetchAPI(){
-            const response = await fetch('http://localhost:4000/nftniches/');
-            const fetchedData = await response.json();
-            this.nftnichesData = fetchedData;
-            console.log(fetchedData);
-        },
-                // GET one item with ID
-        async getNftNicheFunc(nftnicheID){
-            const fetchURL = 'http://localhost:4000/nftniches/get/'+nftnicheID;
-            console.log(fetchURL);
-            const response = await fetch(fetchURL);
-            const fetchedData = await response.json(); 
-            console.log(fetchedData);
-        },
-                // DELETE one item with ID
-        async delNftNicheFunc(nftnicheID){
-            const fetchURL = 'http://localhost:4000/nftniches/delete/'+nftnicheID;
-            console.log(fetchURL);
-            const response = await fetch(fetchURL, { method:"DELETE"});
-            const fetchedData = await response.json(); 
-            console.log(fetchedData);
-        },
-                // UPDATE one item with ID (requires providing BODY of data)
-        async updateNftNicheFunc(nftnicheID){
-            const fetchURL = 'http://localhost:4000/nftniches/update/'+nftnicheID;
-            console.log(fetchURL);
-            const response = await fetch(fetchURL, 
-                { 
-                method:"PUT",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(this.newNftNicheInfo)
-                });
-            const fetchedData = await response.json();  
-            console.log(fetchedData);
+        created(){
+            this.userid = this.activeUserID;
         }
     }
 
