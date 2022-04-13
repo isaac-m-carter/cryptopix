@@ -9,9 +9,10 @@
                 <input v-model="inputNftNicheData.product_name" type="text" id="artname" name="artname" placeholder="Artwork Title" required><br>
                 <!-- <span>{{inputNftNicheData.product_name}}</span> -->
 
-                 <!-- <label for="sellername">Creator</label><br>
-                <input v-model="inputNftNicheData.seller_id" type="text" id="sellername" name="sellername" placeholder="Creator Name" required><br>  -->
-                
+                 <label for="sellername">Creator</label><br>
+                <input v-model="userid" type="text" id="sellername" name="sellername" placeholder="{{userid}}" required><br> 
+                <!-- <input v-model="inputNftNicheData.seller_id" type="text" id="sellername" name="sellername" placeholder="Creator Name" required><br>   -->
+                 
                 <label for="imgURL">Image URL</label><br>
                 <input v-model="inputNftNicheData.image" type="text" id="imgURL" name="imgURL" placeholder="Image URL" required><br>
 
@@ -67,7 +68,9 @@
                tags:{arttag:false, gametag:false, musictag:false, photogtag:false},
                commentmsg:[],
                like:false
-            }
+            },
+            userid: '',
+            password: '',
         };
     },
     inject: ['activeUserID'],
@@ -81,9 +84,10 @@
                 });
             const fetchedData = await response.json();
         }
-
-
-
+    },
+    created() {
+            this.userid = this.activeUserID;
+            this.inputNftNicheData.seller_id = this.activeUserID;
     }
 }
 </script>

@@ -80,6 +80,7 @@ hr{
 </style>
 
 
+
 <script setup>
 defineProps({
 NftObject:{

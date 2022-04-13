@@ -10,11 +10,11 @@
     <form @submit="handleSubmit" class="logInForm" action="" method="">
         <div class="logInForm_C">
 
-            <label for="uname"><b></b></label>
+            <label for="uname">User ID</label><br>
             <input class="logInForm_C" type="text" v-model="userid" placeholder="Enter id" name="uname">
         </div>
         <div class="logInForm_C">
-            <label for="psw"><b></b></label>
+            <label for="psw">Password</label><br>
             <input class="logInForm_C" type="password" v-model="password" placeholder="Enter Password" name="psw">
         </div>
 
