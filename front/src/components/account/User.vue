@@ -58,11 +58,15 @@
     <!--<div id="user-sold" class="mm">
         <h2>Sold Items</h2>
         <div class="sold-items-container account-container">
-            
+           
         </div>
     </div>
 
+
       <router-link to="../views/Onboarding">
+
+     <router-link to="../views/Home">
+
         <div class="btn-container">
             <button class="submit" type="submit">Sign Out</button></div>
         
@@ -291,9 +295,10 @@
         created(){
 
             // this.userid = this.activeUserID;
-            this.userDetails();
          
             this.userid = localStorage.getItem("userid");
+            
+            this.userDetails();
         }
     }
 
