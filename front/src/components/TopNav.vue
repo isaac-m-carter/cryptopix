@@ -1,10 +1,11 @@
 <template>
-    <span>Logged in as <br>{{userid}}</span>
+    <span :class="{hidden : !activeUser}">Logged in as <br>{{userid}}</span>
     <div class="top-nav">
         <!-- <router-link to="/"><h4>Login/<br>Sign Up</h4></router-link> -->
-        <router-link to="/Notifications"><i class="fi fi-rs-bell"></i></router-link>
-        <router-link to="/Account"><i class="fi fi-sr-user"></i></router-link>
-        <router-link to="/"><div class="submit"><h4>Sign Up</h4></div></router-link>
+        <router-link :class="{hidden : !activeUser}" to="/Notifications"><i class="fi fi-rs-bell"></i></router-link>
+        <router-link :class="{hidden : !activeUser}" to="/Account"><i class="fi fi-sr-user"></i></router-link>
+        <router-link :class="{hidden : activeUser}" to="/"><div id="signup-btn" class="submit"><h4>Sign Up</h4></div></router-link>
+        <div :key="signup-btn" @click="signOut" :class="{hidden : !activeUser}" to="/"><div class="submit"><h4>Sign Out</h4></div></div>
     </div>
     
         
@@ -12,17 +13,28 @@
 </template>
 
 
-<script>
+<script>import { RouterLink } from "vue-router";
+
     export default{
         data() {
             return {
                 userid: '',
+                activeUser: false,
             }
         },
         methods: {
+            verifyActiveUser() {
+                if(this.userid.length <= 0) 
+                    this.activeUser =!this.activeUser;
+            },
+            signOut() {
+                // localStorage.clear('userid')
+                this.$router.push('/Home');
+            }
         },
         created() {  
-                this.userid = localStorage.getItem('userid');
+            this.verifyActiveUser();
+            this.userid = localStorage.getItem('userid')
         }
     }
 </script>
@@ -43,6 +55,7 @@ span{
     border-radius: 20px;
     background: #3670FA;
     color:white;
+    cursor: pointer;
     
     font-family: Montserrat;
     line-height:25px;
@@ -87,5 +100,9 @@ span{
 
     a:visited {
         color: #3670FA;
+    }
+
+    .hidden{
+        display: none;
     }
 </style>
