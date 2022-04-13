@@ -13,7 +13,7 @@
         </div>
 
  <!-- v-if="((filterTags.arttag == artFiltered && artFiltered) || (filterTags.musictag == musicFiltered && musicFiltered) || (filterTags.photogtag == photoFiltered && photoFiltered) || (filterTags.gametag == gameFiltered && gameFiltered)) -->
-
+        
         <h2>Trending</h2>
         <div class="wrapper">
             <div v-for="nftitem in my_list_array" :key="nftitem._id" >
@@ -38,6 +38,7 @@
 </template>
 
 <script>
+import { inject } from '@vue/runtime-core';
 
 import ImgLike from "../components/ImgLike.vue";
 
@@ -50,7 +51,8 @@ import ImgLike from "../components/ImgLike.vue";
                 artFiltered:false,
                 gameFiltered:false,
                 photoFiltered:false,
-                musicFiltered:false
+                musicFiltered:false,
+                hiddenState: false
                 },
                 // fetch_API_link: ""
                 inputNftNicheData:{
@@ -86,7 +88,8 @@ import ImgLike from "../components/ImgLike.vue";
             
             
         },
-        components: { ImgLike }
+        components: { ImgLike },
+        inject: ['activeUserID'],
    }
 </script>
 

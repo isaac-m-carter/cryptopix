@@ -125,7 +125,7 @@ h5{
             else    
                 {
                     this.$emit('userCreated', this.userid);
-                    this.$router.push('/');
+                    this.$router.push('/Home');
                 }
             }
         },

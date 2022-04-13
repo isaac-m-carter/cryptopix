@@ -1,7 +1,7 @@
 <template>
     <div class="bottom-nav-wrapper">
         <div class="bottom-nav">
-            <router-link to="/"><i class="fi fi-rr-home"></i></router-link>
+            <router-link to="/Home"><i class="fi fi-rr-home"></i></router-link>
             <router-link to="/Search"><i class="fi fi-rr-search"></i></router-link>
             <router-link to="/Listings"><i class="fi fi-rr-add"></i></router-link>
             <router-link to="/Watchlist"><i class="fi fi-rr-heart"></i></router-link>

@@ -26,10 +26,9 @@
             <label for="cemail">Confirm Email</label><br>
             <input class="SignUpFormC" type="text" placeholder="Confirm Email" name="cemail">
             
-            <router-link to= "/Login">
             <div class="submit">
-            <button @click="addUser" class="signUpButton" type="submit">Sign Up</button></div>
-            </router-link>
+            <button @click="addUser" class="signUpButton" type="submit">Sign Up</button>
+            </div>
 
         
         <router-link to= "/">
@@ -63,6 +62,8 @@
                 });
             const fetchedData = await response.json();
             this.$emit('userCreated', fetchedData._id)
+
+            this.$router.push('/Login');
         }
     },
     emits: ['userCreated']

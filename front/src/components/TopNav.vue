@@ -1,6 +1,6 @@
 <template>
     <div class="top-nav">
-        <router-link to="/Onboarding"><h4>Login/<br>Sign Up</h4></router-link>
+        <router-link to="/"><h4>Login/<br>Sign Up</h4></router-link>
         <router-link to="/Notifications"><i class="fi fi-rs-bell"></i></router-link>
         <router-link to="/Account"><i class="fi fi-sr-user"></i></router-link>
     </div>

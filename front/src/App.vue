@@ -22,7 +22,7 @@
     margin-left: auto;
     margin-right: auto;
     padding: 3%;
-    /* padding-bottom: 100px; */
+    padding-bottom: 100px;
     scroll-behavior: smooth;
     font-family: Montserrat;
 
