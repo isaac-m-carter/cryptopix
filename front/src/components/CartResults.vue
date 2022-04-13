@@ -54,10 +54,10 @@
 .right{
     width: 8em;
     font-weight: 900;
-
+    text-align: center;
     color:#3670FA;
     line-height: 60px;
-    margin-left: 2em;
+    
 }
 
 
