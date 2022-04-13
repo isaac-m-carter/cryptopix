@@ -1,37 +1,16 @@
-
-
- 
-
-
-<style scoped>
-.content{
-    background-color: blue;
-    margin: 2px;
-    min-width: 200px;
-    height: 200px;
-}
-
-.slideContainer{
-    display: flex;
-    overflow: scroll;
-}
-.viewcontainer{
-    display: flex;
-    justify-content: space-between;
-    color: #3772FF;
-}
-
-
-</style>
-
+<script setup>
+defineProps({
+  filterTags: {
+    type: Object,
+    required: true
+  }
+})
+</script>
 
 
 
 
 <template>
-
-
-
 
 
 <div class="viewcontainer">
@@ -40,7 +19,14 @@
 </div>
  <div class="slideContainer">
         <div  v-for="NTFitem in NTFallinfo" :key="NTFitem._id">
-    <img :src="NTFitem.image" alt="" class="content"> 
+    <img :src="NTFitem.image" alt="" class="content"
+    v-if="
+        filterTags.allItems ||
+        ( NTFitem.tags.arttag && filterTags.artFiltered ) ||
+        ( NTFitem.tags.musictag && filterTags.musicFiltered ) ||
+        ( NTFitem.tags.gametag && filterTags.gameFiltered) ||
+        ( NTFitem.tags.photogtag && filterTags.photoFiltered )
+    "> 
 </div>
 </div>
 
@@ -109,4 +95,21 @@ export default{
     display: flex;
     justify-content: space-between;
 }
+.content{
+    background-color: blue;
+    margin: 2px;
+    min-width: 200px;
+    height: 200px;
+}
+
+.slideContainer{
+    display: flex;
+    overflow: scroll;
+}
+.viewcontainer{
+    display: flex;
+    justify-content: space-between;
+    color: #3772FF;
+}
+
 </style>
