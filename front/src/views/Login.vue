@@ -108,12 +108,11 @@ h5{
 
         // methods: {
         //     async handleSubmit(){
-        //     const response = await fetch('http://localhost:4000/users/get/:id');
+        //     const response = await fetch('http://localhost:4000/users/get' + activeUserID);
         //     const fetchedData = await response.json();
         //     this.usersData = fetchedData;
         //     console.log(fetchedData);
         // },
-        // emits: ['userCreated'],
 
         inject: ['activeUserID'],
 
