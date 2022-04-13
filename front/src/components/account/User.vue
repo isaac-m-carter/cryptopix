@@ -1,7 +1,7 @@
 <template>
 
     <div id="user-profile" class="mm">
-
+        
         <div class="user-pp-container">
             <img class="user-p-photo" src="https://www.lego.com/cdn/cs/set/assets/blt167d8e20620e4817/DC_-_Character_-_Details_-_Sidekick-Standard_-_Batman.jpg?fit=crop&format=jpg&quality=80&width=800&height=426&dpr=1" alt="no img">
         </div>
@@ -29,6 +29,7 @@
                     <button class="submit" type="submit">Done</button>
                 </div>
                 </div>
+     
 
                 
                 <h3>ETH</h3>
