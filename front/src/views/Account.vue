@@ -16,6 +16,12 @@
         </div>
 
     </div>
+
+    <!-- crude mylistings -->
+    <!-- <div v-for="listing in currentUserObject.sell">
+        <ntfitem :Prop="listing" />
+    </div> -->
+
 </template>
 
 <script>
