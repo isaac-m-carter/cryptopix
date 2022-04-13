@@ -116,6 +116,8 @@ h5{
             }
         },
 
+
+
         methods: {
             async handleSubmit(){
             const response = await fetch('http://localhost:4000/users/get/' + this.userid);
@@ -125,13 +127,15 @@ h5{
                 this.wrongPass = true;
             else    
                 {
-                    this.$emit('userCreated', this.userid);
+                    localStorage.setItem('userid', this.userid);
+                    // this.$emit('userCreated', this.userid);
                     this.$router.push('/');
                 }
             }
         },
 
         created() {
+               
                 this.userid = localStorage.getItem('userid');
         }
     }

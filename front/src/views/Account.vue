@@ -10,7 +10,7 @@
     <div class="main-container">
 
         <User />
-        <span>{{userObjBody}}</span>
+        <!-- <span>{{userObjBody}}</span> -->
         <div v-for="nftitemID in watchlisted" :key="nftitemID">
             <ListingsListSelfCall :NftID="nftitemID"  @delNftNicheEmit="delNftNicheFunc" />
         </div>
