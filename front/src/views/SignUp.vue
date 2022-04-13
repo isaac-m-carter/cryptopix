@@ -9,7 +9,9 @@
     </div>
 
     <div class="signup-container">
+
     <form @submit.prevent="addUser" id="createAccount" action="" method="get">
+
         
             <label for="uname">Username</label><br>
             <input v-model="inputUserData.username" class="SignUpFormC" type="text" placeholder="Username" name="uname" required>
@@ -30,6 +32,7 @@
             <div class="submit">
             <button class="signUpButton" type="submit">Sign Up</button></div>
             
+
 
         
         <router-link to= "/">
