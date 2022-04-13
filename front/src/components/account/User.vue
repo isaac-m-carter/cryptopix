@@ -275,10 +275,9 @@
                 console.log(fetchedData);
             },
         },
-        inject: ['activeUserID'],
 
         created(){
-            this.userid = this.activeUserID;
+            this.userid = localStorage.getItem("userid");
         }
     }
 

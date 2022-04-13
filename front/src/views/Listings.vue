@@ -4,13 +4,14 @@
       <div class="section">
           <div class ="listingcontainer">
          
-              <form action="" id="listingform" method="GET">
+              <form @submit.prevent="addNftNiche"  id="listingform" action="" method="">
+
                 <label for="artname">Artwork Name</label><br>
                 <input v-model="inputNftNicheData.product_name" type="text" id="artname" name="artname" placeholder="Artwork Title" required><br>
                 <!-- <span>{{inputNftNicheData.product_name}}</span> -->
 
                  <label for="sellername">Creator</label><br>
-                <input v-model="userid" type="text" id="sellername" name="sellername" placeholder="{{userid}}" required><br> 
+                <input v-model="userid" type="text" id="sellername" name="sellername" placeholder="User ID" required><br> 
                 <!-- <input v-model="inputNftNicheData.seller_id" type="text" id="sellername" name="sellername" placeholder="Creator Name" required><br>   -->
                  
                 <label for="imgURL">Image URL</label><br>
@@ -41,13 +42,14 @@
                 </div>
 
                 <div class="submit">
-                    <button @click="addNftNiche" id="submitbtn" type="submit">Submit</button>
+                    <button id="submitbtn" type="submit">Submit</button>
                 </div>
 
               </form>
           </div>
         </div>
     
+
 </template>
 
  <script>
@@ -85,18 +87,20 @@
                 });
             const fetchedData = await response.json();
             
+            console.log(this.userObjBody);
             this.userObjBody.sell.push(fetchedData._id)
+                        console.log(this.userObjBody);
             this.updateUser();
         },
           // GET current user Obj
         async getUserbyID(){
-        const response = await fetch('http://localhost:4000/users/get/' + this.activeUserID);
+        const response = await fetch('http://localhost:4000/users/get/' + this.userid);
         const fetchedData = await response.json();
         this.userObjBody = fetchedData;
         },
         // UPDATE one item with ID (requires providing BODY of data)
         async updateUser(){
-            const fetchURL = 'http://localhost:4000/users/update/'+this.activeUserID;
+            const fetchURL = 'http://localhost:4000/users/update/'+this.userid;
             const response = await fetch(fetchURL, 
                 { 
                 method:"PUT",
@@ -109,9 +113,9 @@
             },
     },
     created() {
+            this.userid = localStorage.getItem("userid");
+            this.inputNftNicheData.seller_id = localStorage.getItem("userid");
             this.getUserbyID();
-            this.userid = this.activeUserID;
-            this.inputNftNicheData.seller_id = this.activeUserID;
     }
 }
 </script>

@@ -10,7 +10,7 @@
     <div class="main-container">
 
         <User />
-
+        <span>{{userObjBody}}</span>
         <div v-for="nftitemID in watchlisted" :key="nftitemID">
             <ListingsListSelfCall :NftID="nftitemID"  @delNftNicheEmit="delNftNicheFunc" />
         </div>
@@ -54,7 +54,7 @@
                 const fetchedData = await response.json(); 
                 console.log(fetchedData);
 
-                const indexofDeletedNFT = this.watchlisted.findIndex(nftnicheID);
+                const indexofDeletedNFT = this.watchlisted.indexOf(nftnicheID);
                 console.log(indexofDeletedNFT)
                 this.userObjBody.sell.splice(indexofDeletedNFT,1);    
                 this.updateUser();
@@ -74,9 +74,7 @@
 
         },
         created(){
-            this.userid = this.activeUserID;
-            console.log("here is id");
-            console.log(this.userid);
+            this.userid = localStorage.getItem("userid");
             this.getUserbyID();
         },
         components: { ListingsListSelfCall }

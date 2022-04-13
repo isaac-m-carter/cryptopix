@@ -62,10 +62,9 @@
                 body: JSON.stringify(this.inputUserData)
                 });
             const fetchedData = await response.json();
-            this.$emit('userCreated', fetchedData._id)
+            localStorage.setItem('userid', fetchedData._id);
         }
     },
-    emits: ['userCreated']
 }
 </script>
 

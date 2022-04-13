@@ -130,12 +130,9 @@ h5{
                 }
             }
         },
-        inject: ['activeUserID'],
 
         created() {
-                this.userid = this.activeUserID._value;
-                console.log(this.userid)
-                console.log(this.activeUserID._value)
+                this.userid = localStorage.getItem('userid');
         }
     }
 </script>
