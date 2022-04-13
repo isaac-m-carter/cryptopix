@@ -60,7 +60,7 @@
         </div>
     </div>
 
-     <router-link to="../views/Onboarding">
+     <router-link to="../views/Home">
         <div class="btn-container">
             <button class="submit" type="submit">Sign Out</button></div>
         
