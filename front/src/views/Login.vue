@@ -31,6 +31,7 @@
 </template>
 
 <style scoped>
+
 .accountsLogo{
      display: flex;
      flex-direction: column;

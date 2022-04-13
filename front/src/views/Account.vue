@@ -25,8 +25,8 @@
 
 
 
-    .main-container{
-        margin:5rem 0;
-        padding: 1rem;
-    }
+.main-container{
+    margin:5rem 0;
+    padding: 1rem;
+}
 </style>
