@@ -97,13 +97,13 @@ import ImgLike from "../components/ImgLike.vue";
 .title{
   background-color:white;
   position:fixed;
-  padding:30px 0;
+  padding:2em 0;
   width:100%; 
   top:0;
 }
 
 .section{
-    margin:100px 0;
+    margin:4em 0;
 }
 
 h2{

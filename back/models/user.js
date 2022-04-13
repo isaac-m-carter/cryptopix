@@ -13,7 +13,10 @@ const UserSchema = new mongoose.Schema({
     cart: {
         type: Array},
     sell: {
-        type: Array}
+        type: Array},
+
+    likeditems:{ 
+        type: Array},
     
 });
 

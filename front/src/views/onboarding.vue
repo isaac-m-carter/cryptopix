@@ -27,15 +27,13 @@
         <h2>Log in</h2>
     </div>
     </router-link>
-    <router-link to="/">
-    <div class="continueGuest">
-        <h5>CONTINUE AS GUEST</h5>
-    </div>
-    </router-link>
+    
 </div>
 </template>
 
 <style scoped>
+
+
 h5{
     text-align: center;
     text-decoration: underline;
@@ -85,11 +83,13 @@ h5{
     display: flex;
     justify-content: center;
     max-width:100%;
+    text-decoration: none;
     
 }
 
 .signUp h2{
     color: white;
+    text-decoration: none;
 }
 
 .logIn{
@@ -101,27 +101,19 @@ h5{
     display: flex;
     justify-content: center;
      max-width:100%;
+     text-decoration: none;
 }
 
 .logIn h2{
     color: #3670FA;
+    text-decoration: none;
 }
 
 .buttonContainer{
+    
     margin:10px;
 }
 
-.forgotPassword{
-    padding-top: 16px;
-    text-decoration-line: underline;
-    font-size: 14px;
-    text-align: center;
-    color: rgb(66, 66, 66);
-}
 
-.continueGuest{
-    font-size: 14px;
-    text-align: center;
-    color: grey;
-}
+
 </style>

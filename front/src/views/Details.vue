@@ -1,5 +1,10 @@
 <template>
-    <div class="title"><h1>{{nicheproduct.product_name}}</h1></div>
+    <div class="title"><h1>{{nicheproduct.product_name}}</h1> 
+    <br>
+            
+            <div class="back" @click="$router.back()"><i class="fi fi-sr-angle-left"></i></div>
+            
+    </div>
 
     <!-- <p class="blue_text">Clicks <span>n/a</span></p> -->
     <div class="section">
@@ -61,6 +66,11 @@
 </template>
 
 <style scoped>
+.back i{
+    font-weight: 900;
+    color:black;
+    font-size: 20px;
+}
 
 .title{
   background-color:white;
@@ -69,8 +79,13 @@
   width:100%; 
   top:0;
 }
+
+.title h1{
+    font-size: 25px;
+    width:50%
+}
 .section{
-    margin:80px 0;
+    margin:8.5em 0;
 }
 
 .mainsection{
@@ -99,15 +114,17 @@
     cursor:pointer;
     height:60px;
     width:60px;
+     color:white;
+     font-size:60px;
 }
 .liked_NFT_circle{
     background-color: #E0456B !important; 
 }
 
-i{
+/* i{
     color:white;
     font-size:60px;
-}
+} */
 
 span{
     color: grey;

@@ -28,21 +28,11 @@
             <label for="cemail">Confirm Email</label><br>
             <input class="SignUpFormC" type="text" placeholder="Confirm Email" name="cemail">
             
-
-            <div class="submit">
-            <button @click="addUser" class="signUpButton" type="submit">Sign Up</button>
-            </div>
-
             
             <div class="submit">
             <button class="signUpButton" type="submit">Sign Up</button></div>
             
 
-
-        
-        <router-link to= "/">
-            <h5>Skip to Home Page</h5>
-        </router-link>
     </form>
     </div>
 </template>
@@ -82,7 +72,9 @@
 
 
 <style scoped>
-
+.hiddenclass{
+    display:none;
+}
 .accountsLogo{
      display: flex;
      flex-direction: column;

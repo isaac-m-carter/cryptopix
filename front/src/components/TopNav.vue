@@ -1,23 +1,47 @@
 <template>
+    <span>Logged in as <br>{{userid}}</span>
     <div class="top-nav">
-
-        <router-link to="/"><h4>Login/<br>Sign Up</h4></router-link>
-
-        <!-- <span>Logged in as {{userid}}</span> -->
-
+        <!-- <router-link to="/"><h4>Login/<br>Sign Up</h4></router-link> -->
         <router-link to="/Notifications"><i class="fi fi-rs-bell"></i></router-link>
         <router-link to="/Account"><i class="fi fi-sr-user"></i></router-link>
-        <router-link to="/Onboarding"><div class="submit"><h4>Sign Out</h4></div></router-link>
+        <router-link to="/"><div class="submit"><h4>Sign Up</h4></div></router-link>
     </div>
+    
+        
+    
 </template>
 
 
+<script>
+    export default{
+        data() {
+            return {
+                userid: '',
+            }
+        },
+        methods: {
+        },
+        created() {  
+                this.userid = localStorage.getItem('userid');
+        }
+    }
+</script>
+
 <style scoped>
 
+span{
+    font-size: 10px;
+        display: flex;
+        text-align:end;
+        position: fixed;
+        top: 1rem;
+        right: 1.5rem;
+        z-index: 3;
+}
 .submit{
     text-decoration: none;
     border-radius: 20px;
-    background: black;
+    background: #3670FA;
     color:white;
     
     font-family: Montserrat;
@@ -35,7 +59,7 @@
         display: flex;
         align-items: center;
         position: fixed;
-        top: 2rem;
+        top: 3.1rem;
         right: 1.5rem;
         z-index: 3;
         

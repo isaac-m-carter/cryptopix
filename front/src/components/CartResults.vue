@@ -3,9 +3,10 @@
 <router-link to="../views/Details">
 <div class="container">
     <div class="left"><img class="NFTImg" :src="NftObject.image" alt=""></div>
-    <div class=" middle">{{NftObject.product_name}} <br> Creator: {{NftObject.seller_id}}</div>
     <div class="vl"></div>
-    <div class="right">Price: {{NftObject.price}}</div>
+    <div class=" middle"><span>{{NftObject.product_name}}</span> By<br> <span> {{NftObject.seller_id}}</span></div>
+    <div class="vl"></div>
+    <div class="right">{{NftObject.price}} ETH</div>
 </div>
 </router-link>
 
@@ -26,7 +27,7 @@
 }
 
 .left{
-    width: 10em;
+    width: 5em;
     border-radius:20px;
     justify-content: flex-start;
     height:5em;
@@ -35,41 +36,47 @@
 .left img{
     object-fit: cover;
     border-radius:20px;
-    width:10em;
+    width:5em;
     height:5em;
 }
 
 .middle{
     height:5em;
-    line-height: 2.5em;
+ line-height: 2.5em;
     width: 15em;
     font-weight: 700;
     overflow: hidden;
     color:black;
-    font-size: 14px;
-    margin-left: 4em;
+    font-size: 10px;
+    margin-left: 2em;
     margin-right:2em;
+      overflow-y: scroll;
+  overflow-x: scroll; 
+}
+
+.middle span{
+    color:#3670FA;
 }
 
 .right{
-    width: 8em;
-    font-weight: 900;
+    width: 5em;
+    font-weight: 800;
     text-align: center;
-    color:#3670FA;
-    line-height: 60px;
-    
+    color:black;
+    /* line-height: 60px; */
+    padding-right:1em;
 }
 
 
 .vl {
-  border-left: 2px solid rgba(0, 0, 0, 0.055) ;
-  height: 5em;
 
+    height: 5em;
     display:flex;
     flex-direction:column;
     justify-content: center;
-    border-left:thin solid #3670FA;
-    padding-left:1em;
+    border-right:thin solid #3670FA;
+    margin-right:1rem;
+    padding-left:1rem;
 
 }
 
