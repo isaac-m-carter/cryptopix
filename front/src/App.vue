@@ -25,10 +25,7 @@
     padding-bottom: 100px;
     scroll-behavior: smooth;
     font-family: Montserrat;
-
 }
-
-
 </style>
 
 <script>
@@ -41,15 +38,15 @@
       methods: {
         upd_UserID(input_id) {
           this.local_userID = input_id;
-        },
-        created() {
-          console.log(this.local_userID)
         }
       },
+      created() {
+        console.log(this.local_userID)
+      },
       provide() {
-      return {
-        activeUserID: computed(() => this.local_userID)
-      }
+        return {
+          activeUserID: computed(() => this.local_userID)
     }
   }
+}
 </script>

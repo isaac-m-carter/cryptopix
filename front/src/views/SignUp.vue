@@ -9,7 +9,7 @@
     </div>
 
     <div class="signup-container">
-    <form @submit.prevent="addUser" id="createAccount" action="" method="get">
+    <form @submit="addUser" id="createAccount" action="" method="get">
         
             <label for="uname">Username</label><br>
             <input v-model="inputUserData.username" class="SignUpFormC" type="text" placeholder="Username" name="uname" required>
@@ -59,10 +59,14 @@
                 body: JSON.stringify(this.inputUserData)
                 });
             const fetchedData = await response.json();
+            
+            localStorage.setItem(userid, fetchedData._id);
             this.$emit('userCreated', fetchedData._id)
         }
     },
-    emits: ['userCreated']
+    emits: ['userCreated'],
+    created() {
+    }
 }
 </script>
 
@@ -75,6 +79,7 @@
      align-items: center;
      justify-content: center;
      padding-top: 34px;
+     margin-top: 2rem;
 }
 
 h5{

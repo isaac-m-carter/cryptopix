@@ -7,15 +7,16 @@
     <div id="logInHeader">
         <h3>Log In</h3>
     </div>
-    <form @submit="handleSubmit" class="logInForm" action="" method="">
+    <form @submit="getUserDetails" class="logInForm" action="" method="">
         <div class="logInForm_C">
 
-            <label for="uname"><b></b></label>
-            <input class="logInForm_C" type="text" v-model="userid" placeholder="Enter id" name="uname">
+            <label for="userid"><b></b></label>
+            <input class="logInForm_C" type="text" v-model="userid" placeholder="Enter id" name="userid">
         </div>
         <div class="logInForm_C">
             <label for="psw"><b></b></label>
             <input class="logInForm_C" type="password" v-model="password" placeholder="Enter Password" name="psw">
+            <!-- <p class="wrong-pw" :class="{hidden : hideState}">Sorry, password is incorrect. Please try again.</p> -->
         </div>
         <div class="submit">
            <button class="LogInForm_Button" type="submit">Login</button>
@@ -100,23 +101,31 @@ h5{
         data() {
             return {
                 userid: '',
-                password: ''
+                password: '',
+                userData: {
+
+                },
+                hideState: true
             }
         },
+        methods: {
+            // async getUserDetails(){
+            //     const response = await fetch('http://localhost:4000/users/get/:id');
+            //     const fetchedData = await response.json();
+            //     this.userData = fetchedData;
+            //     console.log(fetchedData);
 
-        // methods: {
-        //     async handleSubmit(){
-        //     const response = await fetch('http://localhost:4000/users/get/:id');
-        //     const fetchedData = await response.json();
-        //     this.usersData = fetchedData;
-        //     console.log(fetchedData);
-        // },
-        // emits: ['userCreated'],
+            //     if(fetchedData.password !== this.password)
+            //         this.hideState = !this.hideState
+                    
+            // }
+        },
 
         inject: ['activeUserID'],
 
         created() {
             this.userid = this.activeUserID;
+            // console.log(fetchedData)
         }
     }
 </script>

@@ -5,23 +5,32 @@
             <img class="user-p-photo" src="https://www.lego.com/cdn/cs/set/assets/blt167d8e20620e4817/DC_-_Character_-_Details_-_Sidekick-Standard_-_Batman.jpg?fit=crop&format=jpg&quality=80&width=800&height=426&dpr=1" alt="no img">
         </div>
 
-        <div class="user-details">
-            <form @submit="onSubmit" id="edit-details" onsubmit="return false">
+        <div class="user-details-container">
+            <form @submit="onSubmit" id="" onsubmit="">
                 <i class="fi fi-rr-edit" @click="editUserDetail_modal"></i>
+
+                <div class="user-details">
                 <h2>Details</h2>
-                
-                    <input type="text" v-model="userid" id="userid" name="userid" placeholder="">
-                     <!-- <label>name</label> -->
-                    <input type="text" v-model="username" id="user-name" name="user-name" placeholder="">
-                    <!-- <label>email</label> -->
-                    <input type="e-mail" v-model="email" id="user-email" name="user-email" placeholder="">
-                    <!-- <label>password</label> -->
-                    <input type="password" v-model="password" id="password" name="password" placeholder="">
-                    
-                    <h3>ETH</h3>
+                {{ activeUserID }}
+                <label >{{ userData.name }}</label>
+                <label>{{ userData.email }}</label>
+                <label>{{ userData.password }}</label>
+                </div>
+
+                <div class="edit-user-details" :class="{hidden: hideState}">
+                    <h2>Edit</h2>
+                    <input type="text" v-model="username" id="user-name" name="user-name" placeholder="username">
+                    <input type="e-mail" v-model="email" id="user-email" name="user-email" placeholder="email">
+                    <input type="password" v-model="password" id="password" name="password" placeholder="password">
+
                     <div class="btn-container">
                        <button class="submit" type="submit">Done</button>
                     </div>
+                </div>
+                    
+                    
+                    <h3>ETH</h3>
+                    
             </form>
         </div>
     </div>
@@ -56,8 +65,6 @@
 </template>
 
 <style scoped>
-
-
     .edit-user-details{
         position: absolute;
         width: 100%;
@@ -65,23 +72,23 @@
         background-color: #fff;
         top: 0;
     }
-
     #user-profile{
         display: flex;
         flex-direction: row;
-        align-items: center;
+        /* align-items: center; */
     }
-
-    .user-details{
+    .user-details-container{
         position: relative;
         width: 100%;
     }
-
+    .user-details {
+        display: flex;
+        flex-direction: column;
+    }
     .user-p-photo{
         height: 8rem;
         width: auto;
     }
-
     .user-pp-container {
         display: flex;
         justify-content: center;
@@ -89,18 +96,15 @@
         margin-right: 1rem;
         overflow: hidden;
     }
-
     .account-container{
         width: 100%;
         display: flex;
         flex-wrap: wrap;
     }
-
     .account-item{
         display: flex;
         padding: .58rem;
     }
-
     h2, span{
         color: #3670FA;
         font-weight: 600;
@@ -110,8 +114,7 @@
         line-height: 140%;
         border-bottom: 2px solid #3670FA;
     }
-
-    h3, input{
+    h3, input, label{
         font-weight: 500;
         font-size: 12pt;
         margin: 0;
@@ -119,33 +122,27 @@
         line-height: 140%;
         border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     }
-
     input{
         /* font-style: italic; */
         border: none;
         border-bottom: 1px solid rgba(0, 0, 0, 0.2);
         width: 10rem;
     }
-
     .mm{
         margin-bottom: 1.5rem;
     }
-
     .fi{
         color: #3670FA;
         font-size: 34pt;
     }
-
     .fi-rr-edit, .fi-rr-checkbox{
         position: absolute;
         right: 0;
         font-size: 20px;
     }
-
     i{
         display: flex;
     }
-
     .submit{
         text-decoration: none;
         height: 2rem;
@@ -160,18 +157,15 @@
         text-align: center;
         margin-top: .5rem;
 }
-
     .submit:active {
         background: white;
         border: 1px solid #3670FA;
         color:#3670FA;
 }
-
     .btn-container{
        display: flex;
        justify-content: center;
     }
-
     #sign-out {
         position: absolute;
         top: 1.6rem;
@@ -180,8 +174,6 @@
         font-size: 12pt;
         /* padding-bottom: .rem; */
     }
-
-
 </style>
 
 <script>
@@ -192,7 +184,9 @@
                 email: '',
                 password: '',
                 hideState: true,
+                userData: {
 
+                },
                 userListings: []
                 };
         },
@@ -215,17 +209,19 @@
             editUserDetail_modal() {
                 this.hideState = !this.hideState;
             },
-            methods: {
-            onSubmit(e) {
-               e.preventDefault()
 
-               this.username.placeholder = this.username
-               this.email.placeholder = this.email
-               this.password.placeholder = this.password
-            }
-        },
+            async getUserDetails(){
+                const response = await fetch('http://localhost:4000/users/get/' + this.activeUserID);
+                const fetchedData = await response.json();
+                this.userData = fetchedData;
+                console.log(this.userData);
+             },
         inject: ['activeUserID'],
+        created() {
+           this.getUserDetails()
+           console.log(activeUserID)
         }
     }
+}
 
 </script>
