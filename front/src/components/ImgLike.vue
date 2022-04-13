@@ -7,7 +7,7 @@
             <img class="NFTImg" :src="NftObject.image" alt="">
         </div>   
         
-        <div class="like" :class="{liked_NFT_circle:NftObject.like}" @click="NftObject.like = !NftObject.like">
+        <div class="like" :class="{liked_NFT_circle:likedItems.includes(NftObject._id)}" @click="$emit('liked',NftObject._id )">
             <i class="fi fi-rr-heart"></i>
         </div> 
     </div> 
@@ -67,24 +67,15 @@ i{
 
 </style>
 
-<script>
-// export default {
-//     data() {
-//         return {
-//             my_list_array:[],
-//         }
-//     },
-
-//     methods: {
-//     }
-    
-// }
-</script>
 
 <script setup>
 defineProps({
 NftObject:{
     type:Object,
+    required:true,
+    },
+likedItems:{
+    type:Array,
     required:true,
     },
 });
