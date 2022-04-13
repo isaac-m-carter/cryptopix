@@ -30,7 +30,10 @@
 
         <h2>Recently Added</h2>
         <div class="wrapper">
-            <ImgLike @click="localstoragefunc(nftitem._id)" v-for="nftitem in my_list_array" :key="nftitem.id" :NftObject="nftitem"/>
+            <ImgLike @click="localstoragefunc(nftitem._id)" v-for="nftitem in my_list_array" :key="nftitem.id" :NftObject="nftitem"
+            :likedItems="userObjBody.likeditems"
+            @liked="addtoLikeditems"
+            />
         </div>
 </div>
 
@@ -45,6 +48,8 @@ import ImgLike from "../components/ImgLike.vue";
    export default{
         data(){
             return{
+                userid:'',
+                userObjBody:{}, 
                 my_list_array:[],
                 filterTags:{
                 allItems:false,
@@ -71,6 +76,31 @@ import ImgLike from "../components/ImgLike.vue";
             };
         },
         methods:{
+            addtoLikeditems(nftID){
+                this.userObjBody.likeditems.push(nftID);
+                this.updateUserFunc();
+            },
+            // UPDATE one item with ID (requires providing BODY of data)
+            async updateUserFunc(){
+                const fetchURL = 'http://localhost:4000/users/update/'+this.userid;
+                console.log(fetchURL);
+                const response = await fetch(fetchURL, 
+                    { 
+                    method:"PUT",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(this.userObjBody)
+                    });
+                const fetchedData = await response.json();  
+                console.log(fetchedData);
+            },
+            // GET current user Obj
+            async getUserbyID(){
+                const fetchURL = 'http://localhost:4000/users/get/'+this.userid;
+                console.log(fetchURL);
+                const response = await fetch(fetchURL);
+                const fetchedData = await response.json();
+                this.userObjBody = fetchedData;
+            },
             async api_fetch_func(){
                 const response = await fetch("http://localhost:4000/nftniches/");
                 const dataset = await response.json();
@@ -82,11 +112,10 @@ import ImgLike from "../components/ImgLike.vue";
                 localStorage.setItem("localnftid", input);
             }
         },
-        created(){
-            
+        created(){  
             this.api_fetch_func();
-            
-            
+            this.userid = localStorage.getItem("userid");
+            this.getUserbyID();   
         },
         components: { ImgLike },
         inject: ['activeUserID'],
