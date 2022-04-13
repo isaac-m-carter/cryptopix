@@ -1,60 +1,83 @@
 <script setup>
     import User from '../components/account/User.vue'
+    import ListingsListSelfCall from '../components/ListingsListSelfCall.vue'
 </script>
 
 <template>
-<span>{{activeUserID}}</span>
+
     <div class="title"><h1>Account</h1></div>
 
     <div class="main-container">
-        
 
         <User />
-        
-        <div v-for="nftitem in my_list_array" :key="nftitem._id" >
-                <CartResults @click="localstoragefunc(nftitem._id)" v-if="nftitem.seller_id == userid" :NftObject="nftitem"/>
+        <!-- <span>{{userObjBody}}</span> -->
+        <div v-for="nftitemID in watchlisted" :key="nftitemID">
+            <ListingsListSelfCall :NftID="nftitemID"  @delNftNicheEmit="delNftNicheFunc" />
         </div>
-
     </div>
 
-    <!-- crude mylistings -->
-    <!-- <div v-for="listing in currentUserObject.sell">
-        <ntfitem :Prop="listing" />
-    </div> -->
 
 </template>
 
 <script>
-
-import CartResults from "../components/CartResults.vue";
-
     export default{
         data(){
             return{
                 my_list_array:[],
-                // fetch_API_link: ""
                 userid: '',
                 password: '',
+                watchlisted:[],
+                userObjBody:{}
             };
         },
         inject: ['activeUserID'],
         methods:{
-            async api_fetch_func(){
-                const response = await fetch("http://localhost:4000/nftniches/");
-                const dataset = await response.json();
-                console.log(dataset);
-                this.my_list_array = dataset;
-            },
+
             async localstoragefunc(input){
                 localStorage.setItem("localnftid", input);
-                }
+            },
+            // GET current user Obj
+            async getUserbyID(){
+                const fetchURL = 'http://localhost:4000/users/get/'+this.userid;
+                console.log(fetchURL);
+                const response = await fetch(fetchURL);
+                const fetchedData = await response.json();
+                this.watchlisted = fetchedData.sell;
+                this.userObjBody = fetchedData;
+            },
+
+                    // DELETE one item with ID
+            async delNftNicheFunc(nftnicheID){
+                const fetchURL = 'http://localhost:4000/nftniches/delete/'+nftnicheID;
+                console.log(fetchURL);
+                const response = await fetch(fetchURL, { method:"DELETE"});
+                const fetchedData = await response.json(); 
+                console.log(fetchedData);
+
+                const indexofDeletedNFT = this.watchlisted.indexOf(nftnicheID);
+                console.log(indexofDeletedNFT)
+                this.userObjBody.sell.splice(indexofDeletedNFT,1);    
+                this.updateUser();
+            },
+                // UPDATE one item with ID (requires providing BODY of data)
+            async updateUser(){
+                const fetchURL = 'http://localhost:4000/users/update/' + this.userid;
+                const response = await fetch(fetchURL, 
+                    { 
+                    method:"PUT",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(this.userObjBody)
+                    });
+                const fetchedData = await response.json();  
+                console.log(fetchedData);
+            },
 
         },
         created(){
-            this.api_fetch_func();
-            this.userid = this.activeUserID;
+            this.userid = localStorage.getItem("userid");
+            this.getUserbyID();
         },
-        components: { CartResults }
+        components: { ListingsListSelfCall }
    }
 
 

@@ -5,10 +5,11 @@
 </script>
 
 <template>
+
   <Head />
   <Nav />
 
- <router-view @userCreated="upd_UserID"></router-view>
+<router-view></router-view>
   
 </template>
 
@@ -30,26 +31,3 @@
 
 
 </style>
-
-<script>
-  export default {
-      data() {
-        return {
-          local_userID: ''
-        }
-      },
-      methods: {
-        upd_UserID(input_id) {
-          this.local_userID = input_id;
-        },
-        created() {
-          console.log(this.local_userID)
-        }
-      },
-      provide() {
-      return {
-        activeUserID: computed(() => this.local_userID)
-      }
-    }
-  }
-</script>
