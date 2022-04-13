@@ -1,35 +1,55 @@
+<script setup>
+defineProps({
+  filterTags: {
+    type: Object,
+    required: true
+  }
+})
+</script>
+
+
+
 
 <template>
 
 
-<!--<div class="wrapper-tags"> 
-<div v-for="NTFitem in NTFallinfo" :key="NTFitem._id">  
-    <h3>{{NTFitem.tags}}</h3>  
+<div class="viewcontainer">
+<h3>Trending</h3>
+<p>view all</p>
 </div>
-</div> -->
-
-
-<div  v-for="NTFitem in NTFallinfo" :key="NTFitem._id">
-    <div class="viewcontainer">
-    <h1>{{NTFitem.product_name}}</h1>
-    <p>view all</p>
-    </div>
-    <div class="slideContainer">
-    <img :src="NTFitem.image" alt="" class="content"> 
-    <img :src="NTFitem.image" alt="" class="content"> 
-    <img :src="NTFitem.image" alt="" class="content"> 
-    <img :src="NTFitem.image" alt="" class="content">
-    <img :src="NTFitem.image" alt="" class="content"> 
-    </div>
+ <div class="slideContainer">
+        <div  v-for="NTFitem in NTFallinfo" :key="NTFitem._id">
+    <img :src="NTFitem.image" alt="" class="content"
+    v-if="
+        filterTags.allItems ||
+        ( NTFitem.tags.arttag && filterTags.artFiltered ) ||
+        ( NTFitem.tags.musictag && filterTags.musicFiltered ) ||
+        ( NTFitem.tags.gametag && filterTags.gameFiltered) ||
+        ( NTFitem.tags.photogtag && filterTags.photoFiltered )
+    "> 
+</div>
 </div>
 
 
-<!-- <div class="slideContainer">
-    <div class="content"></div>
-    <div class="content"></div>
-    <div class="content"></div>
-    <div class="content"></div>
-</div> -->
+<div class="viewcontainer">
+<h3>Most Popular</h3>
+<p>view all</p>
+</div>
+ <div class="slideContainer">
+        <div  v-for="NTFitem in NTFallinfo" :key="NTFitem._id">
+    <img :src="NTFitem.image" alt="" class="content"> 
+</div>
+</div>
+
+<div class="viewcontainer">
+<h3>Recently Listed</h3>
+<p>view all</p>
+</div>
+ <div class="slideContainer">
+        <div  v-for="NTFitem in NTFallinfo" :key="NTFitem._id">
+    <img :src="NTFitem.image" alt="" class="content"> 
+</div>
+</div>
 
 
 </template>
@@ -39,18 +59,7 @@
 export default{
     data(){
         return{
-            fakeNTFitem: {
-                _id:'1',
-                product_name: 'NTF name', 
-                seller_id: '00', 
-                buyer_id: '00', 
-                price: 2, 
-                description:'description words', 
-                date: '', 
-                sold: false,
-                clicks:3, 
-                image: 'https://cdn.vox-cdn.com/thumbor/UBw6FphB7vxtWsbQGnmjxZgCCoA=/0x0:1252x974/1120x0/filters:focal(0x0:1252x974):format(webp):no_upscale()/cdn.vox-cdn.com/uploads/chorus_asset/file/22341171/Screen_Shot_2021_03_02_at_3.21.50_PM.png', tags: '',
-                commentmsg:'awesome!'},
+           
         
             NTFallinfo : []
         };
@@ -63,8 +72,8 @@ export default{
         }
     },
     created(){
-       // this.fetchAPI();
-       this.NTFallinfo = [this.fakeNTFitem,this.fakeNTFitem,this.fakeNTFitem,this.fakeNTFitem,this.fakeNTFitem,this.fakeNTFitem];
+       this.fetchAPI();
+     
     }
 }
 
@@ -86,4 +95,21 @@ export default{
     display: flex;
     justify-content: space-between;
 }
+.content{
+    background-color: blue;
+    margin: 2px;
+    min-width: 200px;
+    height: 200px;
+}
+
+.slideContainer{
+    display: flex;
+    overflow: scroll;
+}
+.viewcontainer{
+    display: flex;
+    justify-content: space-between;
+    color: #3772FF;
+}
+
 </style>
