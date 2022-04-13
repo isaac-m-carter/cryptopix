@@ -52,3 +52,11 @@ April 12 Tuesday
 -polished listings and results radiocontainer styling to fit the app 
 -changed photography to photos
 
+April 13 Wednesday
+-made details.vue work by grabbing itemsid from the component into local storage and transferring it to the details page.
+-from homepage, cart, search results, and watchlist. all links that go to details now work and updates
+-made a workaround for account to grab the id and store it and see existing listings
+-created listings list component that shows up in accounts
+
+
+

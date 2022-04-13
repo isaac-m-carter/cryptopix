@@ -10,7 +10,7 @@
     <div class="main-container">
 
         <User />
-   
+
         <div v-for="nftitemID in watchlisted" :key="nftitemID">
             <ListingsListSelfCall :NftID="nftitemID"  @delNftNicheEmit="delNftNicheFunc" />
         </div>
