@@ -5,7 +5,7 @@
         <router-link :class="{hidden : !activeUser}" to="/Notifications"><i class="fi fi-rs-bell"></i></router-link>
         <router-link :class="{hidden : !activeUser}" to="/Account"><i class="fi fi-sr-user"></i></router-link>
         <router-link :class="{hidden : activeUser}" to="/"><div id="signup-btn" class="submit"><h4>Sign Up</h4></div></router-link>
-        <div :key="signup-btn" @click="signOut" :class="{hidden : !activeUser}" to="/"><div class="submit"><h4>Sign Out</h4></div></div>
+        <div @click="signOut" :class="{hidden : !activeUser}" to="/"><div class="submit"><h4>Sign Out</h4></div></div>
     </div>
     
         
@@ -56,17 +56,17 @@ span{
     background: #3670FA;
     color:white;
     cursor: pointer;
-    
     font-family: Montserrat;
     line-height:25px;
     height:25px;
-     padding:0 6px;
+     padding:0 10px;
      margin-left:1rem;
 }
  h4 {
         margin: 0;
         text-align: center;
-        font-size: 15px;
+        font-size: 11pt;
+        font-weight: 500;
     }
     .top-nav{
         display: flex;
