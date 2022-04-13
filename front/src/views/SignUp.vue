@@ -9,7 +9,7 @@
     </div>
 
     <div class="signup-container">
-    <form id="createAccount" action="" method="get">
+    <form  @submit.prevent="addUser" id="createAccount" action="" method="get">
         
             <label for="uname">Username</label><br>
             <input v-model="inputUserData.username" class="SignUpFormC" type="text" placeholder="Username" name="uname" required>
@@ -26,10 +26,10 @@
             <label for="cemail">Confirm Email</label><br>
             <input class="SignUpFormC" type="text" placeholder="Confirm Email" name="cemail">
             
-            <router-link to= "/Login">
+   
             <div class="submit">
-            <button @click="addUser" class="signUpButton" type="submit">Sign Up</button></div>
-            </router-link>
+            <button class="signUpButton" type="submit">Sign Up</button></div>
+
 
         
         <router-link to= "/">
@@ -63,6 +63,7 @@
                 });
             const fetchedData = await response.json();
             localStorage.setItem('userid', fetchedData._id);
+            this.$router.push('/Login');
         }
     },
 }
