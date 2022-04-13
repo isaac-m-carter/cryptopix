@@ -28,6 +28,11 @@
             <label for="cemail">Confirm Email</label><br>
             <input class="SignUpFormC" type="text" placeholder="Confirm Email" name="cemail">
             
+
+            <div class="submit">
+            <button @click="addUser" class="signUpButton" type="submit">Sign Up</button>
+            </div>
+
             
             <div class="submit">
             <button class="signUpButton" type="submit">Sign Up</button></div>
@@ -65,6 +70,9 @@
                 body: JSON.stringify(this.inputUserData)
                 });
             const fetchedData = await response.json();
+
+            this.$emit('userCreated', fetchedData._id)
+
             localStorage.setItem('userid', fetchedData._id);
             this.$router.push('/Login');
         }

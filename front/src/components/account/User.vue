@@ -1,5 +1,7 @@
 <template>
 
+    <!-- <span>{{ activeUserID.value }}</span> -->
+
     <div id="user-profile" class="mm">
         
         <div class="user-pp-container">
@@ -7,27 +9,28 @@
         </div>
 
         <div class="user-details-container">
-            <form @submit="onSubmit" id="edit-details" onsubmit="">
+            <form @submit.prevent="onSubmit" id="edit-details" onsubmit="">
                 <div>
                     <i class="fi fi-rr-edit" @click="editUserDetail_modal"></i>
                 <h2>Details</h2>
                 </div>
 
                 <div class="user-details">
-                    <label>name</label>
+                    <label>{{userid.name}}</label>
                     <label>email</label>
-                    <label>password</label>
+                    <label for="password"></label>
                 </div>
 
-                <div class="edit-user-details" :class="{hidden: hideState}" >
-                    <h2>Edit</h2>
+                <div class="edit-user-details"  >
+                    <i class="fi fi-rr-edit" @click="editUserDetail_modal"></i>
+                    <h2>Details</h2>
                     <input type="text" v-model="username" id="user-name" name="user-name" placeholder="name">
                     <input type="e-mail" v-model="email" id="user-email" name="user-email" placeholder="email">
                     <input type="password" v-model="password" id="password" name="password" placeholder="password">
                 
-                <div class="btn-container">
+                <!-- <div class="btn-container">
                     <button class="submit" type="submit">Done</button>
-                </div>
+                </div> -->
                 </div>
      
 
@@ -216,12 +219,22 @@
                 email: '',
                 password: '',
                 hideState: true,
-
+                details: '',
                 userListings: []
                 };
         },
        
         methods: {
+            async userDetails(){
+            const response = await fetch('http://localhost:4000/users/get/' + this.userid);
+            const fetchedData = await response.json();
+            console.log();
+
+            this.username = fetchedData.username;
+            this.email = fetchedData.email;
+            this.password = fetchedData.password;
+            
+            },
             async addUserListing(listing){
             const response = await fetch('http://localhost:4000/users/update/:id',
             { 
@@ -236,7 +249,6 @@
             editUserDetail_modal() {
                 this.hideState = !this.hideState;
             },
-
             
                             // GET all data
             async fetchAPI(){
@@ -277,6 +289,10 @@
         },
 
         created(){
+
+            this.userid = this.activeUserID;
+            this.userDetails();
+         
             this.userid = localStorage.getItem("userid");
         }
     }

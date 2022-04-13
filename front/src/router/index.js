@@ -17,12 +17,12 @@ import Onboarding from '../views/Onboarding.vue'
 
 const routes = [
     {
-        path: '/Onboarding',
+        path: '/',
         name: 'Onboarding',
         component: Onboarding
     },
     {
-        path: '/',
+        path: '/Home',
         name: 'Home',
         component: Home
     },

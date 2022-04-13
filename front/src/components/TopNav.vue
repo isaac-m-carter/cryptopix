@@ -1,6 +1,10 @@
 <template>
     <div class="top-nav">
+
+        <router-link to="/"><h4>Login/<br>Sign Up</h4></router-link>
+
         <!-- <span>Logged in as {{userid}}</span> -->
+
         <router-link to="/Notifications"><i class="fi fi-rs-bell"></i></router-link>
         <router-link to="/Account"><i class="fi fi-sr-user"></i></router-link>
         <router-link to="/Onboarding"><div class="submit"><h4>Sign Out</h4></div></router-link>

@@ -17,7 +17,7 @@
         <div class="logInForm_C">
             <label for="psw">Password</label><br>
             <input class="logInForm_C" type="password" v-model="password" placeholder="Enter Password" name="psw">
-            <p class="warning" :class="{visible: wrongPass}">* Wrong Password</p>
+            <p class="warning" :class="{visible: wrongPass}">* Wrong Password, please try again</p>
         </div>
 
         
@@ -111,8 +111,7 @@ h5{
             return {
                 userid: '',
                 password: '',
-                wrongPass: false,
-                temp:''
+                wrongPass: false
             }
         },
 
@@ -127,9 +126,14 @@ h5{
                 this.wrongPass = true;
             else    
                 {
+
+                    this.$emit('userCreated', this.userid);
+                    this.$router.push('/Home');
+
                     localStorage.setItem('userid', this.userid);
                     // this.$emit('userCreated', this.userid);
                     this.$router.push('/');
+
                 }
             }
         },
