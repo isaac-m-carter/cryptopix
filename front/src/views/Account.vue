@@ -3,6 +3,7 @@
 </script>
 
 <template>
+<span>{{activeUserID}}</span>
     <div class="title"><h1>Account</h1></div>
 
     <div class="main-container">

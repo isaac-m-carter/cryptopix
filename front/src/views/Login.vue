@@ -1,4 +1,5 @@
 <template>
+
     <div class="accountsLogo">
     <img src="../assets/cryptopix-logo/Group53.svg" alt="" srcset="">
     <img src="../assets/cryptopix-logo/CryptoPix.svg" alt="" srcset="">
@@ -7,7 +8,7 @@
     <div id="logInHeader">
         <h3>Log In</h3>
     </div>
-    <form @submit="handleSubmit" class="logInForm" action="" method="">
+    <form @submit.prevent="handleSubmit" class="logInForm" action="" method="">
         <div class="logInForm_C">
 
             <label for="uname">User ID</label><br>
@@ -16,13 +17,14 @@
         <div class="logInForm_C">
             <label for="psw">Password</label><br>
             <input class="logInForm_C" type="password" v-model="password" placeholder="Enter Password" name="psw">
+            <p class="warning" :class="{visible: wrongPass}">* Wrong Password</p>
         </div>
 
-        <router-link to= "/">
-            <div class="submit">
-            <button class="LogInForm_Button" type="submit">Login</button>
-            </div>
-        </router-link>
+        
+        <div class="submit">
+        <button class="LogInForm_Button" type="submit">Login</button>
+        </div>
+        
         <router-link to= "/">
             <h5>Skip to Home Page</h5>
         </router-link>
@@ -31,7 +33,13 @@
 </template>
 
 <style scoped>
-
+.warning{
+    display: none;
+    color: red;
+}
+.visible{
+    display: block !important;
+}
 .accountsLogo{
      display: flex;
      flex-direction: column;
@@ -102,22 +110,30 @@ h5{
         data() {
             return {
                 userid: '',
-                password: ''
+                password: '',
+                wrongPass: false,
+                temp:''
             }
         },
 
-        // methods: {
-        //     async handleSubmit(){
-        //     const response = await fetch('http://localhost:4000/users/get' + activeUserID);
-        //     const fetchedData = await response.json();
-        //     this.usersData = fetchedData;
-        //     console.log(fetchedData);
-        // },
-
+        methods: {
+            async handleSubmit(){
+            const response = await fetch('http://localhost:4000/users/get/' + this.userid);
+            const fetchedData = await response.json();
+            console.log(fetchedData);
+            if(this.password != fetchedData.password)
+                this.wrongPass = true;
+            else    
+                {
+                    this.$emit('userCreated', this.userid);
+                    this.$router.push('/');
+                }
+            }
+        },
         inject: ['activeUserID'],
 
         created() {
-            this.userid = this.activeUserID;
+                this.userid = this.activeUserID._value
         }
     }
 </script>
