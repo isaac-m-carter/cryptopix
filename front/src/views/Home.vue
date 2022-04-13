@@ -8,7 +8,7 @@ export default {
     data(){
         return{
             filterTags:{
-                allItems:false,
+                allItems:true,
                 artFiltered:false,
                 gameFiltered:false,
                 photoFiltered:false,
@@ -31,7 +31,7 @@ export default {
         <p class="tags_item" :class="{tag_selected: filterTags.musicFiltered}" @click="filterTags.musicFiltered= !filterTags.musicFiltered">Musician</p>
     </div>
 
-    <!-- <CreatorsVue /> -->
+    <!-- <CreatorsVue :filterTags="filterTags" /> -->
 </template>
 
 <style>
