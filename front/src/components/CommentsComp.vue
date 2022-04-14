@@ -3,8 +3,9 @@
 
 <div class="User_comments">
         <!-- <div class="Profile_img"></div> -->
-        <h5>User#1373</h5>
-        <p>{{NftObject.commentmsg}}</p>
+        <h5>{{commentBody.user_id}}</h5>
+        <p>{{commentBody.message_body}}</p>
+        
 </div>
 
 
@@ -34,10 +35,37 @@
 
 </style>
 
+
+<script>
+export default {
+    data(){
+        return{
+            commentBody:{
+                user_id:'',
+                message_body:''
+            }
+        }
+    },
+    methods:{
+            //get comment id
+            async getCommentbyID(){
+                const fetchURL = 'http://localhost:4000/comments/get/'+this.commentID;
+                console.log(fetchURL);
+                const response = await fetch(fetchURL);
+                const fetchedData = await response.json();
+                this.commentBody = fetchedData;
+            },
+    },
+    created(){
+            this.getCommentbyID();
+    }
+}
+</script>
+
 <script setup>
 defineProps({
-NftObject:{
-    type:Object,
+commentID:{
+    type:String,
     required:true,
     },
 });

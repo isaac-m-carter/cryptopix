@@ -128,7 +128,7 @@ h5{
                 {
 
                     this.$emit('userCreated', this.userid);
-                    this.$router.push('/Home');
+                    // this.$router.push('/Home');
 
                     localStorage.setItem('userid', this.userid);
                     // this.$emit('userCreated', this.userid);
