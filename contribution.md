@@ -70,7 +70,9 @@ April 14 Thursday
 -edited details.vue styling and attempted to make existing comments show up using {{nicheproduct.commentmsg}} - didnt work
 -attempt to make watchlist work
 
-
-
+April 15 Friday
+-fixed comments section
+-created new component to show comments in details
+-problem: after leaving details page, comment disappears when coming back
 
 

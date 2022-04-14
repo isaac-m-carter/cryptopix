@@ -29,7 +29,7 @@
             },
             signOut() {
                 // localStorage.clear('userid')
-                this.$router.push('/Home');
+                this.$router.push('/');
             }
         },
         created() {  
