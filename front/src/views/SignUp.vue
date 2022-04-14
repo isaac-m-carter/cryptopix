@@ -48,6 +48,7 @@
                email:'',
                cart:[],
                sell:[],
+               likeditems:[],
             }
         };
     },

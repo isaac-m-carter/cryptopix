@@ -76,7 +76,7 @@
             userObjBody:{}
         };
     },
-    inject: ['activeUserID'],
+    // inject: ['activeUserID'],
     methods:{
         async addNftNiche(){
             const response = await fetch('http://localhost:4000/nftniches/addnftniche',

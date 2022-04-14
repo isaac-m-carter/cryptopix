@@ -24,7 +24,6 @@
 
         <div class="Name_wrap">
             <p class="blue_text"> <span>By</span> {{nicheproduct.seller_id}}</p>
-            
         </div>
 
         <p id="about_NFT">{{nicheproduct.description}}</p>
@@ -35,23 +34,23 @@
 
     <router-link to="/Cart">
     <div class="submit">
-    <button id="Add_to_cart">Add to cart</button>
+    <button id="Add_to_cart" >Add To Cart </button>
+    <!-- :class="{cart_selected:addedtocart}" @click="addedtocart = !addedtocart" -->
     </div>
     </router-link>
 
-    <h1 class="blue_text_2">Comments</h1>
+<br><br><br><br>
 
+    <!-- <CommentsComp  v-for="nftitem in nicheproduct" :key="nftitem._id" :NftObject="nftitem"/> -->
     <div class="User_comments">
-
-        <div class="Profile_img"></div>
-
-        <h3>User#1373</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, eaque!</p>
+      
+        <h5>User#1373</h5>
+        <p>{{nicheproduct.commentmsg}}</p>
 
     </div>
+    <br>
 
-
-    <h3 class="blue_text_2">Write a comment / ask a question</h3>
+    <h4 class="blue_text_2">Leave A Comment / Ask A Question</h4>
     <textarea name="Comments" id="Comments" cols="30" rows="10"></textarea>
 
     <div class="comment_buttons">
@@ -60,8 +59,6 @@
         <button id="Cancel_Button">Cancel</button>
     </div>
 
-    
-    <button id="to_top">Return to top</button>
     </div>
 </template>
 
@@ -91,6 +88,28 @@
 .mainsection{
      position:relative;
 }
+
+.User_comments{
+    padding: 2em 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border-radius: 20px;
+    height:auto;
+}
+
+.User_comments h5{
+    margin: 0 1.5em;
+    color:#3670FA;
+}
+
+.User_comments p{
+    color:black;
+    margin: 0 1.5em;
+}
+
 
 #NFT_img{
     width: 100%;
@@ -132,13 +151,19 @@ span{
 }
 
 .details_info{
-    border: thin solid #3670FA;
+    /* border: thin solid #3670FA; */
+    
     width: 100%;
     border-bottom-left-radius:20px;
     border-bottom-right-radius:20px;
+
+    -webkit-box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+
 }
 
 .Name_wrap{
+    padding: 0 2em;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -147,19 +172,21 @@ span{
 
 #NFT_name{
     font-size:1.5em;
-    margin-left: 10px;
+    margin-top: 1em;
+
 }
 #Price{
     font-size:1.5em;
-    margin-right: 10px;
+ margin-top: 1em;
+
 }
 
 #amount{
-    margin-right: 10px;
+    margin-right: 1em;
 }
 
 .blue_text{
-    margin-left: 10px;
+    margin-top: 0;
     color: #3670FA;
     font-weight: 600;
 }
@@ -172,7 +199,9 @@ span{
 }
 
 #about_NFT{
+    padding: 0 1.5em 1.5em 1.5em;
     margin-left: 10px;
+    text-align: justify;
 }
 
 #Add_to_cart{
@@ -199,20 +228,22 @@ span{
     margin-top: 40px;
 }
 
-.Profile_img{
+/* .Profile_img{
     width:50px;
     height:50px;
     border-radius:30px;
     border: thin black solid;
-}
+} */
 
 textarea{
     width: 70%;
     border-style: none;
-    border: thin solid rgb(199, 199, 199);
-    border-radius:25px;
+    border: 1px solid rgba(54, 112, 250, 0.3);
+    border-radius: 20px;
+    
+    font-family: Montserrat;
     display: block;
-    margin: 0 auto;
+    margin: 3em auto;
 }
 
 .comment_buttons{
@@ -220,25 +251,37 @@ textarea{
     justify-content: space-between;
     margin: 0 auto;
     margin-top: 0.5em;
-    width: 40%;
+    width: 70%;
     
 }
 
 #submit{
+    text-decoration: none;
+    height: 38px;
+    width: 180px;
+    border-radius: 20px;
+    background: #3670FA;
     color:white;
-    background-color:#3670FA;
-    border-style:none;
-    border-radius:10px;
-    padding: 1em;
-    padding-top:0.5em;
-    padding-bottom: 0.5em;
+    border: 1px solid transparent;
+    font-family: Montserrat;
+    font-weight: 500;
+    font-size: 16px;
 }
-
 #Cancel_Button{
-    background: none;
-    border-style: none;
-    border-bottom: #3670FA thin solid;
-    color: #3670FA;
+
+    text-decoration: none;
+    height: 38px;
+    width: 180px;
+    border-radius: 20px;
+
+    font-family: Montserrat;
+    font-weight: 500;
+    font-size: 16px;
+
+
+    background: white;
+   border: 1px solid #3670FA;
+   color:#3670FA;
 }
 
 #to_top{
@@ -252,39 +295,45 @@ textarea{
     margin-top: 1em;
     margin-bottom:7em;
 }
+
+.cart_selected{
+    font-weight: 600;
+    text-align: center;
+    background-color: #E0456B;
+}
 </style>
 
 <script>
+import CommentsComp from "../components/CommentsComp.vue";
     export default{
-        data(){
-            return{
-                nicheproduct:{}, //add id of comment
-                nicheid:'',
-                
-            };
+    data() {
+        return {
+            my_list_array:[],
+            nicheproduct: {},
+            nicheid: "",
+            addedtocart: false,
+        };
+    },
+    methods: {
+        // async localstoragefunc(input){
+        //     localStorage.setItem("localnftid", input);
+        //     }
+        // GET one item with ID
+        async getNftNicheFunc(nftnicheID) {
+            const fetchURL = "http://localhost:4000/nftniches/get/" + nftnicheID;
+            console.log(fetchURL);
+            const response = await fetch(fetchURL);
+            const fetchedData = await response.json();
+            console.log(fetchedData);
+            this.nicheproduct = fetchedData;
         },
-        methods:{
-            // async localstoragefunc(input){
-            //     localStorage.setItem("localnftid", input);
-            //     }
-
-                // GET one item with ID
-                async getNftNicheFunc(nftnicheID){
-                   
-                    const fetchURL = 'http://localhost:4000/nftniches/get/'+nftnicheID;
-                    console.log(fetchURL);
-                    const response = await fetch(fetchURL);
-                    const fetchedData = await response.json(); 
-                    console.log(fetchedData);
-                    this.nicheproduct=fetchedData;
-                    
-                },
-        },
-        created(){
-         localStorage.getItem("localnftid");
-         this.nicheid = localStorage.getItem("localnftid");
-         this.getNftNicheFunc(this.nicheid);
-        },
-   }
+    },
+    created() {
+        localStorage.getItem("localnftid");
+        this.nicheid = localStorage.getItem("localnftid");
+        this.getNftNicheFunc(this.nicheid);
+    },
+    components: { CommentsComp }
+}
 
 </script>

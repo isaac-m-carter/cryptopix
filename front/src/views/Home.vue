@@ -10,14 +10,14 @@
         <p class="tags_item" :class="{tag_selected: filterTags.gameFiltered}" @click="filterTags.gameFiltered= !filterTags.gameFiltered">Game</p>
         <p class="tags_item" :class="{tag_selected: filterTags.photoFiltered}" @click="filterTags.photoFiltered= !filterTags.photoFiltered">Photos</p>
         <p class="tags_item" :class="{tag_selected: filterTags.musicFiltered}" @click="filterTags.musicFiltered= !filterTags.musicFiltered">Music</p>
-        </div>
-
- <!-- v-if="((filterTags.arttag == artFiltered && artFiltered) || (filterTags.musictag == musicFiltered && musicFiltered) || (filterTags.photogtag == photoFiltered && photoFiltered) || (filterTags.gametag == gameFiltered && gameFiltered)) -->
+    </div>
+    <!-- <CreatorsVue :filterTags="filterTags" />  -->
         
         <h2>Trending</h2>
         <div class="wrapper">
             <div v-for="nftitem in my_list_array" :key="nftitem._id" >
-                <ImgLike @click="localstoragefunc(nftitem._id)" v-if=" nftitem.clicks >= 15" :NftObject="nftitem" />
+                <ImgLike @click="localstoragefunc(nftitem._id)" 
+                v-if=" nftitem.clicks >= 15" :NftObject="nftitem" />
             </div>
         </div>
 
@@ -39,7 +39,8 @@
 
 <script>
 import { inject } from '@vue/runtime-core';
-
+// import FilterVue from '../components/home/Filter.vue'
+// import CreatorsVue from '../components/home/Creators.vue';
 import ImgLike from "../components/ImgLike.vue";
 
    export default{
@@ -89,7 +90,7 @@ import ImgLike from "../components/ImgLike.vue";
             
         },
         components: { ImgLike },
-        inject: ['activeUserID'],
+        // inject: ['activeUserID'],
    }
 </script>
 
