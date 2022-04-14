@@ -52,7 +52,7 @@
     </div> -->
 
     <commentsselfcall v-for="commentID in nicheproduct.commentmsg" :key="commentID" :commentID="commentID" />
-    <CommentsComp v-for="commentID in nicheproduct.commentmsg" :key="commentID" :commentID="commentID" />
+    <!-- <CommentsComp v-for="commentID in nicheproduct.commentmsg" :key="commentID" :commentID="commentID" /> -->
     <br>
 
     <h4 class="blue_text_2">Leave A Comment / Ask A Question</h4>
