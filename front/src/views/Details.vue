@@ -313,8 +313,7 @@ import Commentsselfcall from "../components/commentsselfcall.vue";
         };
     },
     methods: {
-
-        // UPDATE one item with ID (requires providing BODY of data)
+                 // UPDATE one item with ID (requires providing BODY of data)
         async updateNFTFunc(nftnicheID){
             const fetchURL = 'http://localhost:4000/nftniches/update/' + nftnicheID;
             console.log(fetchURL);
@@ -329,7 +328,7 @@ import Commentsselfcall from "../components/commentsselfcall.vue";
         },
 
 
-         // POST new item (requires providing BODY of data)
+          // POST new item (requires providing BODY of data)
         async addCommentFunc(){
             const response = await fetch('http://localhost:4000/comments/addcomment', 
                 { 
@@ -390,7 +389,7 @@ import Commentsselfcall from "../components/commentsselfcall.vue";
 
         //liking items??
         this.userid = localStorage.getItem("userid");
-        this.getUserbyID();   
+        this.getUserbyID(); 
     },
     components: { CommentsComp, Commentsselfcall }
 }
