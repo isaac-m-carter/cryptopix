@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 
 
 
@@ -41,3 +42,5 @@ export default{
 }
 
 </script>
+=======
+>>>>>>> Stashed changes
