@@ -1,17 +1,18 @@
 <template>
 
-    <router-link to="../views/Details">
-    <div class="mainimage">
+    <!-- <router-link to="../views/Details">-->
+    <div class="mainimage" @click="$router.push('/Details')"> 
         
-        <div class="cheatfix">
-            <img class="NFTImg" :src="NftObject.image" alt="">
+        <div class="cheatfix" >
+            <img class="NFTImg"  :src="NftObject.image" alt="">
         </div>   
         
-        <div class="like" :class="{liked_NFT_circle:NftObject.like}" @click="NftObject.like = !NftObject.like">
+        <div class="like" :class="{liked_NFT_circle:NftObject.like}" @click="NftObject.like = !NftObject.like" :likedItems="NftObject.likeditems"
+            @liked="addtoLikeditems">
             <i class="fi fi-rr-heart"></i>
         </div> 
     </div> 
-    </router-link>
+    <!-- </router-link> -->
   
     
 </template>
@@ -68,17 +69,47 @@ i{
 </style>
 
 <script>
-// export default {
-//     data() {
-//         return {
-//             my_list_array:[],
-//         }
-//     },
+export default {
+    data() {
+        return {
+            userid:'',
+            userObjBody:{}, 
+        }
+    },
 
-//     methods: {
-//     }
+    methods: {
+        addtoLikeditems(nftID){
+                this.userObjBody.likeditems.push(nftID);
+                this.updateUserFunc();
+            },
+            // UPDATE one item with ID (requires providing BODY of data)
+            async updateUserFunc(){
+                const fetchURL = 'http://localhost:4000/users/update/'+this.userid;
+                console.log(fetchURL);
+                const response = await fetch(fetchURL, 
+                    { 
+                    method:"PUT",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(this.userObjBody)
+                    });
+                const fetchedData = await response.json();  
+                console.log(fetchedData);
+            },
+            // GET current user Obj
+            async getUserbyID(){
+                const fetchURL = 'http://localhost:4000/users/get/'+this.userid;
+                console.log(fetchURL);
+                const response = await fetch(fetchURL);
+                const fetchedData = await response.json();
+                this.userObjBody = fetchedData;
+            },
+    },
+    created() {
+        this.userid = localStorage.getItem("userid");
+        this.getUserbyID();   
+    }
     
-// }
+}
 </script>
 
 <script setup>

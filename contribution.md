@@ -57,6 +57,20 @@ April 13 Wednesday
 -from homepage, cart, search results, and watchlist. all links that go to details now work and updates
 -made a workaround for account to grab the id and store it and see existing listings
 -created listings list component that shows up in accounts
+-with utku's help, create new listinglistselfcall component to use as component per logged in user to save listings from specific users
+-from listings, successfuly able to create a new array for listing per user
+-be able to delete items from that array - next, need to be able to edit the items in that array
+
+April 14 Thursday
+-add submit.prevent to stop forms from refreshing the page
+-added logged in as userid in top nav
+-succcessfully created the update func from accounts. 
+-clicking edit button would go to the new editlistings.vue and be able to edit from there
+-created comments component
+-edited details.vue styling and attempted to make existing comments show up using {{nicheproduct.commentmsg}} - didnt work
+-attempt to make watchlist work
+
+
 
 
 

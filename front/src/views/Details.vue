@@ -10,7 +10,8 @@
     <div class="section">
     <div class = "mainsection">
         <img id="NFT_img" class="NFTImg" :src="nicheproduct.image" alt="">
-         <div class="like" :class="{liked_NFT_circle:nicheproduct.like}" @click="nicheproduct.like = !nicheproduct.like">
+         <div class="like" :class="{liked_NFT_circle:nicheproduct.like}" @click="nicheproduct.like = !nicheproduct.like" :likedItems="nicheproduct.likeditems"
+            @liked="addtoLikeditems">
               <i class="fi fi-rr-heart"></i>
         </div> 
     </div>
@@ -312,6 +313,8 @@ import CommentsComp from "../components/CommentsComp.vue";
             nicheproduct: {},
             nicheid: "",
             addedtocart: false,
+            userid:'',
+            userObjBody:{}, 
         };
     },
     methods: {
@@ -326,12 +329,45 @@ import CommentsComp from "../components/CommentsComp.vue";
             const fetchedData = await response.json();
             console.log(fetchedData);
             this.nicheproduct = fetchedData;
+            // this.nicheproduct.clicks = ++1; // adding clicks to increase popularity?
         },
+
+
+        //Liking items???
+        addtoLikeditems(nftID){
+                this.userObjBody.likeditems.push(nftID);
+                this.updateUserFunc();
+            },
+            // UPDATE one item with ID (requires providing BODY of data)
+            async updateUserFunc(){
+                const fetchURL = 'http://localhost:4000/users/update/'+this.userid;
+                console.log(fetchURL);
+                const response = await fetch(fetchURL, 
+                    { 
+                    method:"PUT",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(this.userObjBody)
+                    });
+                const fetchedData = await response.json();  
+                console.log(fetchedData);
+            },
+            // GET current user Obj
+            async getUserbyID(){
+                const fetchURL = 'http://localhost:4000/users/get/'+this.userid;
+                console.log(fetchURL);
+                const response = await fetch(fetchURL);
+                const fetchedData = await response.json();
+                this.userObjBody = fetchedData;
+            },
     },
     created() {
         localStorage.getItem("localnftid");
         this.nicheid = localStorage.getItem("localnftid");
         this.getNftNicheFunc(this.nicheid);
+
+        //liking items??
+        this.userid = localStorage.getItem("userid");
+        this.getUserbyID();   
     },
     components: { CommentsComp }
 }
