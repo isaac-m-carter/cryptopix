@@ -3,8 +3,8 @@
 
 <div class="User_comments">
         <!-- <div class="Profile_img"></div> -->
-        <h5>User#1373</h5>
-        <p>{{NftObject.commentmsg}}</p>
+        <h5>{{commentBody.user_id}}</h5>
+        <p>{{commentBody.message_body}}</p>
 </div>
 
 
@@ -36,9 +36,28 @@
 
 <script setup>
 defineProps({
-NftObject:{
-    type:Object,
+commentID:{
+    type:String,
     required:true,
     },
 });
+</script>
+
+<script>
+export default {
+    data(){
+        return{
+            commentBody:{
+                user_id:'',
+                message_body:''
+            }
+        }
+    },
+    methods:{
+
+    },
+    created(){
+
+    }
+}
 </script>

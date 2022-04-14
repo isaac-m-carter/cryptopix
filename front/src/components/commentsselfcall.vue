@@ -6,3 +6,7 @@ commentID:{
     },
 });
 </script>
+
+<template>
+    <h3>comment's ID: {{commentID}}</h3>
+</template>

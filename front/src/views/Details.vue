@@ -51,8 +51,8 @@
 
     </div> -->
 
-    <commentsselfcall v-for="commentID in ncheproduct.commentmsg" :key="commentID" :commentID="commentID"/>
-
+    <commentsselfcall v-for="commentID in nicheproduct.commentmsg" :key="commentID" :commentID="commentID" />
+    <CommentsComp v-for="commentID in nicheproduct.commentmsg" :key="commentID" :commentID="commentID" />
     <br>
 
     <h4 class="blue_text_2">Leave A Comment / Ask A Question</h4>
@@ -65,6 +65,7 @@
     </div>
         
     </div>
+
 </template>
 
 <style scoped>
@@ -318,7 +319,10 @@ import CommentsComp from "../components/CommentsComp.vue";
             nicheproduct: {},
             nicheid: "",
             addedtocart: false,
-
+            commentBody:{
+                message_body:'',
+                user_id:''
+            }
         };
     },
     methods: {
@@ -391,7 +395,7 @@ import CommentsComp from "../components/CommentsComp.vue";
             },
     },
     created() {
-        this.commentBody.user_id = localStorage.getItem("userid");
+        this.commentBody.user_id = localStorage.getItem('userid');
         localStorage.getItem("localnftid");
         this.nicheid = localStorage.getItem("localnftid");
         this.getNftNicheFunc(this.nicheid);
@@ -400,7 +404,7 @@ import CommentsComp from "../components/CommentsComp.vue";
         this.userid = localStorage.getItem("userid");
         this.getUserbyID();   
     },
-    components: { CommentsComp }
+    components: { CommentsComp, commentsselfcall }
 }
 
 </script>
