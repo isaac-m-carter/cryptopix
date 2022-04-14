@@ -132,7 +132,7 @@
     </div>
             <div class="notiDivP">
         <div class="notiImageDiv">
-            <img src="../assets/notifications/notification(8).png" alt="" srcset="">
+            <img src="../assets/notifications/notification (8).png" alt="" srcset="">
         </div>
         <div class="notiDescDivP">
             <div class="notiDescDivC">

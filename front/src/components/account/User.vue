@@ -40,12 +40,12 @@
         </div>
     </div>
 
-    <div id="user-portfolio" class="mm">
+    <!-- <div id="user-portfolio" class="mm">
         <h2>User Portfolio</h2>
         <div class="portfolio-container account-container">
             
         </div>
-    </div>
+    </div> -->
 
     <div id="user-listings" class="mm">
         <h2>Listings</h2>
