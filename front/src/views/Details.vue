@@ -1,4 +1,3 @@
-
 <template>
     <div class="title"><h1>{{nicheproduct.product_name}}</h1> 
     <br>
@@ -44,26 +43,23 @@
 <br><br><br><br>
 
     <!-- <CommentsComp  v-for="nftitem in nicheproduct" :key="nftitem._id" :NftObject="nftitem"/> -->
-    <!-- <div class="User_comments">
+    <div class="User_comments">
       
         <h5>User#1373</h5>
         <p>{{nicheproduct.commentmsg}}</p>
 
-    </div> -->
-
-    <commentsselfcall v-for="commentID in ncheproduct.commentmsg" :key="commentID" :commentID="commentID"/>
-
+    </div>
     <br>
 
     <h4 class="blue_text_2">Leave A Comment / Ask A Question</h4>
-    <textarea name="Comments" id="Comments" cols="30" rows="10" v-model="commentBody.message_body"></textarea>
+    <textarea name="Comments" id="Comments" cols="30" rows="10"></textarea>
 
     <div class="comment_buttons">
-        <input id="submit" type="submit" value="Comment" @click="addCommentFunc">
+        <input id="submit" type="submit" value="Comment">
         
         <button id="Cancel_Button">Cancel</button>
     </div>
-        
+
     </div>
 </template>
 
@@ -309,7 +305,6 @@ textarea{
 </style>
 
 <script>
-import commentsselfcall from "../components/commentsselfcall.vue";
 import CommentsComp from "../components/CommentsComp.vue";
     export default{
     data() {
@@ -318,39 +313,14 @@ import CommentsComp from "../components/CommentsComp.vue";
             nicheproduct: {},
             nicheid: "",
             addedtocart: false,
-
+            userid:'',
+            userObjBody:{}, 
         };
     },
     methods: {
-                // UPDATE one item with ID (requires providing BODY of data)
-        async updateNFTFunc(nftnicheID){
-            const fetchURL = 'http://localhost:4000/nftniches/update/' + nftnicheID;
-            console.log(fetchURL);
-            const response = await fetch(fetchURL, 
-                { 
-                method:"PUT",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(this.nicheProduct)
-                });
-            const fetchedData = await response.json();  
-            console.log(fetchedData);
-        },
-
-
-         // POST new item (requires providing BODY of data)
-        async addCommentFunc(){
-            const response = await fetch('http://localhost:4000/comments/addcomment', 
-                { 
-                method:"POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(this.commentBody)
-                });
-            const fetchedData = await response.json();
-            this.nicheproduct.commentmsg.push(fetchedData._id)
-            console.log(fetchedData);
-            this.updateNFTFunc(this.nicheid)
-        },
-        
+        // async localstoragefunc(input){
+        //     localStorage.setItem("localnftid", input);
+        //     }
         // GET one item with ID
         async getNftNicheFunc(nftnicheID) {
             const fetchURL = "http://localhost:4000/nftniches/get/" + nftnicheID;
@@ -391,7 +361,6 @@ import CommentsComp from "../components/CommentsComp.vue";
             },
     },
     created() {
-        this.commentBody.user_id = localStorage.getItem("userid");
         localStorage.getItem("localnftid");
         this.nicheid = localStorage.getItem("localnftid");
         this.getNftNicheFunc(this.nicheid);
