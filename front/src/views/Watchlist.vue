@@ -1,83 +1,43 @@
+
+
+
+   <style scoped>
+.W_img{
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+</style>
 <template>
-    <div class="title"><h1>Watchlist</h1></div>
-
-    <div class="section">
-        <div class="wrapper-watch">
-            <ImgLike @click="localstoragefunc(nftitem._id)" v-for="nftitem in my_list_array" :key="nftitem._id" :NftObject="nftitem" />
-            <!-- <div v-for="nftitem in my_list_array" :key="nftitem._id" >
-                <ImgLike v-if="nftitem.like == true" :NftObject="nftitem" />
-            </div> -->
-        </div>
-    </div>
-
+    <h1>Watchlist</h1>
+    <div v-for="NTFitem in NTFallinfo" :key="NTFitem._id">  
+    <button @click="variable = !variable">
+    <img :src="NTFitem.image" class="W_img">
+    </button>
+</div>
 </template>
 
 <script>
 
-import ImgLike from "../components/ImgLike.vue";
+export default{
+    data(){
+        return{
+         
+            NTFallinfo : []
+        };
+    },
+    methods:{
+        async fetchAPI(){
+            const response = await fetch('http://localhost:4000/nftniches/');
+            const fetchedData = await response.json();
+            this.NTFallinfo= fetchedData;
+        }
+    },
+    created(){
+       this.fetchAPI();
+     
+    }
+}
 
-   export default{
-        data(){
-            return{
-                my_list_array:[],
-                // fetch_API_link: ""
-            //     inputNftNicheData:{
-            //         product_name:'',
-            //         seller_id:'',
-            //         buyer_id:'',
-            //         price:0,
-            //         description:'',
-            //         sold:false,
-            //         clicks:0,
-            //         image:'',
-            //         tags:{arttag:false, gametag:false, musictag:false, photogtag:false},
-            //         commentmsg:'None',
-            //         like:false
-            // }
-            };
-        },
-        methods:{
-            async api_fetch_func(){
-                const response = await fetch("http://localhost:4000/nftniches/");
-                const dataset = await response.json();
-                console.log(dataset);
-                this.my_list_array = dataset;
-
-            },
-            async localstoragefunc(input){
-                localStorage.setItem("localnftid", input);
-                }
-        },
-        created(){
-            this.api_fetch_func();
-            
-        },
-        components: { ImgLike }
-   }
 </script>
-
-<style>
-.title{
-  background-color:white;
-  position:fixed;
-  padding:30px 0;
-  width:100%; 
-  top:0;
-  z-index:2;
-}
-
-.section{
-    margin:100px 0;
-}
-
-.wrapper-watch{
-    display:grid;
-    grid-template-columns: 38% 38%;
-    grid-auto-rows: minmax(50px, auto);
-    grid-gap: 50px;
-    justify-content: center;
-    text-align: center;
-    width: 95%;
-    z-index: -2;
-}
-</style>
