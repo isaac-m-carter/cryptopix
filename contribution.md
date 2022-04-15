@@ -75,4 +75,21 @@ April 15 Friday
 -created new component to show comments in details
 -problem: after leaving details page, comment disappears when coming back
 
+Keiran:
+
+6th April
+Revising vue roadmap and github.
+
+7th April
+Revising vue roadmap and backend notes.
+ - made start to front end pages (Sign up create accounts).
+
+8th April.
+Finished front end coding for sign up/ create accounts pages.
+
+12th April
+Finished front end coding for notifications and onboarding pages and began
+front end to back end communication.
+
+
 
